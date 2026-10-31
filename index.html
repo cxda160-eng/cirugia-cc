@@ -230,6 +230,27 @@ svg .part:hover .vo{stroke:var(--ink)}
   .opt dl{grid-template-columns:1fr}
   .opt dt{margin-top:4px}
 }
+
+@media (max-width:360px){
+  header.top h1{font-size:17px}
+  nav.tabs{gap:0}
+  nav.tabs button{font-size:12.5px;padding:6px 1px;min-width:0}
+}
+/* Evita que contenido ancho (chips, líneas de etapas, canvas) ensanche la página en celulares */
+main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-inner>*,.schbox>*,.schfig,.schside,.qbox{min-width:0}
+.wrap-inner>*,.detail-inner>*{max-width:100%}
+.back{align-self:flex-start}
+.route{max-width:100%}
+@media (max-width:760px){
+  .step{min-width:118px}
+  .wrap{padding:16px 14px 60px}
+  .schfig,.schside{padding:10px}
+  .viewsw .sp{display:none}
+  .qbox{padding:16px}
+  .qtext{font-size:16.5px}
+  .flash .front{font-size:22px}
+  .dhead h2{min-width:0}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
