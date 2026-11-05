@@ -1,9 +1,11 @@
 // Cirugía en Cardiopatías Congénitas - funcionamiento sin conexión
 // Cambiá VERSION cada vez que actualices index.html para que los celulares bajen la versión nueva.
-const VERSION = "v2";
+const VERSION = "v3";
 const CACHE = "cirugia-cc-" + VERSION;
 const CORE = ["./", "./index.html", "./lib/three.module.min.js", "./manifest.webmanifest",
-  "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./icons/icon-maskable-512.png"];
+  "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./icons/icon-maskable-512.png",
+  "./fonts/ibm-plex-sans-latin-400-normal.woff2", "./fonts/ibm-plex-sans-latin-400-italic.woff2", "./fonts/ibm-plex-sans-latin-500-normal.woff2", "./fonts/ibm-plex-sans-latin-600-normal.woff2",
+  "./fonts/ibm-plex-sans-condensed-latin-500-normal.woff2", "./fonts/ibm-plex-sans-condensed-latin-600-normal.woff2", "./fonts/ibm-plex-sans-condensed-latin-700-normal.woff2"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));

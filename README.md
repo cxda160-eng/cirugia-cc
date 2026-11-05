@@ -2,10 +2,11 @@
 
 App web instalable (PWA) de estudio sobre las opciones quirúrgicas en cardiopatías congénitas:
 
-- **Cardiopatías:** 22 fichas con anatomía, indicación y momento quirúrgico, opciones paliativas, correctoras y percutáneas, evolución y perlas.
-- **Esquemas:** 15 procedimientos paso a paso en 2D y en corazón 3D (Rashkind, switch arterial, Rastelli, BT, banding, Fallot, Norwood → Glenn → Fontan, híbrido, coartación, ductus, DVPAT, truncus, unifocalización, doble switch, cono de Da Silva).
+- **Cardiopatías:** 31 fichas con anatomía, indicación y momento quirúrgico, opciones paliativas, correctoras y percutáneas, riesgo STAT 2020, evolución, perlas y notas personales.
+- **Esquemas:** 25 procedimientos paso a paso en 2D y en corazón 3D.
+- **UCI:** postoperatorio por procedimiento (qué esperar, qué vigilar, cómo actuar) y problemas frecuentes (bajo gasto, crisis de HTP, JET, balance Qp/Qs, quilotórax, derrames, BAV).
 - **Procedimientos:** glosario de técnicas.
-- **Estudiar:** preguntas tipo examen, identificación de esquemas y tarjetas.
+- **Estudiar:** 88 preguntas por tema, repaso de errores, identificación de esquemas, tarjetas, progreso y respaldo de datos.
 
 Material de estudio: las indicaciones y técnicas varían según el centro.
 
@@ -14,6 +15,7 @@ Material de estudio: las indicaciones y técnicas varían según el centro.
 |---|---|
 | `index.html` | la app completa |
 | `lib/three.module.min.js` | motor 3D (three.js 0.170, licencia MIT) |
+| `fonts/` | tipografía IBM Plex (licencia OFL) |
 | `sw.js` | funcionamiento sin conexión |
 | `manifest.webmanifest` | nombre e ícono para instalarla |
 | `icons/` | íconos |

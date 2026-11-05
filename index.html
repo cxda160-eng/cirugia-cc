@@ -12,9 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="Cirugía CC">
 <meta name="theme-color" content="#ffffff">
 <title>Cirugía en Cardiopatías Congénitas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-italic.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans Condensed";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-condensed-latin-500-normal.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans Condensed";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-condensed-latin-600-normal.woff2) format("woff2")}@font-face{font-family:"IBM Plex Sans Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-condensed-latin-700-normal.woff2) format("woff2")}</style>
 <style>
 /* Layout: lista de cardiopatías a la izquierda, ficha a la derecha; en celular, lista → ficha */
 :root{
@@ -236,6 +234,58 @@ svg .part:hover .vo{stroke:var(--ink)}
   nav.tabs{gap:0}
   nav.tabs button{font-size:12.5px;padding:6px 1px;min-width:0}
 }
+
+
+.qcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.qcard h3{font-size:18px}
+.qrow{display:flex;gap:8px;flex-wrap:wrap}
+.qrow .schsel{display:block;flex:1;min-width:150px}
+.prow{display:grid;grid-template-columns:minmax(120px,1.3fr) 2fr auto auto;gap:10px;align-items:center;font-size:13.5px}
+.pbar{height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.pbar i{display:block;height:100%;background:var(--muted)}
+.pbar i.hi{background:var(--cor)}.pbar i.mid{background:#c28a12}.pbar i.low{background:var(--accent)}
+.pv{font-variant-numeric:tabular-nums;font-weight:600}
+.pn{color:var(--muted);font-size:12.5px}
+.weak{margin:0;font-size:14px;color:var(--accent)}
+@media (max-width:520px){.prow{grid-template-columns:1fr auto;}.prow .pbar{grid-column:1/-1;grid-row:2}.prow .pn{display:none}}
+/* v3: UCI, riesgo, notas, captions */
+.statlist{display:flex;flex-wrap:wrap;gap:6px}
+.stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;background:var(--panel)}
+.stat b{font-size:11.5px;letter-spacing:.03em;padding:1px 5px;border-radius:3px;color:#fff;background:var(--muted)}
+.stat.s1 b{background:#2f8a57}.stat.s2 b{background:#6d9a2e}.stat.s3 b{background:#c28a12}.stat.s4 b{background:#d0612a}.stat.s5 b{background:#b8233a}
+details.po summary{cursor:pointer;font-weight:600;color:var(--accent);list-style:revert}
+details.po{font-size:14px}
+details.po .pol{margin:8px 0}
+.gpo{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.gpo details summary{color:var(--ink)}
+.gpo h4,.uci-col h4{font-size:14px;margin:8px 0 2px;color:var(--accent)}
+.gpo ul,.uci-col ul{margin:0;padding-left:18px}
+.gpo li,.uci-col li{margin:3px 0}
+.uci-pick{display:flex;flex-direction:column;gap:6px;max-width:460px}
+.uci-sheet{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.uci-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.schsel{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit;font-weight:500}
+#schsel,.schsel-l{display:none}
+.schsel-l{font-size:13px;color:var(--muted);font-weight:600}
+.note-ta{width:100%;min-height:96px;resize:vertical;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit}
+.nmk{color:var(--accent);font-size:12px}
+.schcap,.cdet{display:none}
+a.chip{text-decoration:none;color:inherit}
+@media (max-width:860px){
+  #schlist{display:none}
+  #schsel,.schsel-l{display:block}
+  .schcap{display:flex;align-items:center;gap:8px;margin-top:8px;background:var(--bg);border-radius:8px;padding:6px}
+  .schcap .ct{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+  .schcap .cn{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .schcap b{font-size:15px}
+  .schcap .csat{font-size:12.5px;color:var(--per)}
+  .cbtn{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid var(--line);background:var(--panel);font-size:24px;line-height:1;color:var(--accent)}
+  .cbtn:disabled{opacity:.35}
+  .cdet{display:block;margin-top:6px;font-size:14.5px}
+  .cdet summary{cursor:pointer;color:var(--accent);font-weight:600;padding:4px 2px}
+  .cdet p{margin:6px 2px}
+  #sttitle,#stsat,#sttext,.schbtns{display:none}
+}
 /* Evita que contenido ancho (chips, líneas de etapas, canvas) ensanche la página en celulares */
 main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-inner>*,.schbox>*,.schfig,.schside,.qbox{min-width:0}
 .wrap-inner>*,.detail-inner>*{max-width:100%}
@@ -260,7 +310,8 @@ main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-cc" aria-selected="true" data-v="cc">Cardiopatías</button>
     <button role="tab" id="tab-sc" aria-selected="false" data-v="sc">Esquemas</button>
-    <button role="tab" id="tab-pr" aria-selected="false" data-v="pr">Procedimientos</button>
+    <button role="tab" id="tab-uci" aria-selected="false" data-v="uci">UCI</button>
+    <button role="tab" id="tab-pr" aria-selected="false" data-v="pr">Glosario</button>
     <button role="tab" id="tab-qz" aria-selected="false" data-v="qz">Estudiar</button>
   </nav>
 </header>
@@ -279,9 +330,10 @@ main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-
   <div class="view" id="v-sc"><div class="wrap"><div class="wrap-inner">
     <div><h2 style="font-size:26px">Esquemas interactivos</h2><p style="color:var(--muted);margin:4px 0 0">Recorré cada operación paso a paso. Tocá cualquier estructura para ver su nombre; con las flechas del teclado avanzás o retrocedés.</p></div>
     <div class="chips" id="schlist"></div>
+    <label class="schsel-l" for="schsel">Procedimiento</label><select id="schsel" class="schsel"></select>
     <div class="schbox">
       <div class="schfig"><div class="viewsw"><button class="chip" id="v2d" aria-pressed="false">2D</button><button class="chip" id="v3d" aria-pressed="true">3D</button><span class="sp"></span><button class="btn sm only3d" id="v3front">Frente</button><button class="btn sm only3d" id="v3back">Atrás</button><button class="btn sm only3d" id="v3reset">Oblicua</button><button class="btn sm only3d" id="v3rot" aria-pressed="false">⟳ Girar</button></div>
-      <div id="sch3d" class="sch3d" hidden><canvas aria-label="Modelo 3D del procedimiento"></canvas><div class="lbl3d"></div><div class="msg3d" id="sch3dmsg"></div></div><svg id="schsvg" viewBox="0 0 680 480" role="img" aria-label="Esquema"></svg><div class="pname" id="pname">Tocá una estructura para ver su nombre.</div></div>
+      <div id="sch3d" class="sch3d" hidden><canvas aria-label="Modelo 3D del procedimiento"></canvas><div class="lbl3d"></div><div class="msg3d" id="sch3dmsg"></div></div><svg id="schsvg" viewBox="0 0 680 480" role="img" aria-label="Esquema"></svg><div class="schcap" id="schcap"><button class="cbtn" id="cprev" aria-label="Paso anterior">‹</button><div class="ct"><span class="cn" id="cnum"></span><b id="ctitle"></b><span class="csat" id="csat"></span></div><button class="cbtn" id="cnext" aria-label="Paso siguiente">›</button></div><details class="cdet" id="cdet"><summary>Ver explicación del paso</summary><p id="ctext"></p></details><div class="pname" id="pname">Tocá una estructura para ver su nombre.</div></div>
       <div class="schside">
         <div class="pills" id="pills"></div>
         <h3 id="sttitle"></h3>
@@ -295,10 +347,12 @@ main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-
         </div>
         <div class="slegend"><span><i style="background:var(--sO)"></i>Oxigenada</span><span><i style="background:var(--sD)"></i>Desaturada</span><span><i style="background:var(--sM)"></i>Mezcla</span><span><i style="background:var(--patch)"></i>Parche</span><span><i style="background:var(--metal)"></i>Banda / clip / stent</span></div>
         <div class="schlinks" id="schlinks"></div>
+        <details class="po" id="schpo"><summary>Riesgo y postoperatorio</summary><div id="schpob"></div></details>
       </div>
     </div>
-    <p class="note">Esquemas didácticos, no a escala ni anatómicamente exactos: muestran conexiones y flujos. Las saturaciones son rangos orientativos.</p>
+    <p class="note" id="schnote">Esquemas didácticos, no a escala ni anatómicamente exactos: muestran conexiones y flujos. Las saturaciones son rangos orientativos.</p>
   </div></div></div>
+  <div class="view" id="v-uci"><div class="wrap"><div class="wrap-inner" id="uci"></div></div></div>
   <div class="view" id="v-pr"><div class="wrap"><div class="wrap-inner">
     <div><h2 style="font-size:26px">Glosario de procedimientos</h2><p style="color:var(--muted);margin:4px 0 0">Qué es cada técnica, en qué consiste y en qué cardiopatías se usa.</p></div>
     <div class="filters"><input id="pq" type="search" placeholder="Buscar procedimiento" aria-label="Buscar procedimiento"><select id="ptype" aria-label="Tipo"></select></div>
@@ -601,6 +655,265 @@ const QUIZ=[
  {q:"SHVI de 1,8 kg con hemorragia intraventricular. Estrategia de etapa 1 más razonable:",a:["Norwood-BT inmediato","Paliación híbrida","Fontan primario","Glenn neonatal"],r:1,e:"El híbrido evita la CEC en el neonato de alto riesgo y difiere la reconstrucción del arco a la etapa 2 comprehensiva."},
  {q:"En el CAV completo, ¿por qué se cierra el cleft de la válvula AV izquierda?",a:["Para evitar estenosis aórtica","Para reducir la insuficiencia de la válvula AV izquierda","Para prevenir BAV","Para cerrar la CIV"],r:1,e:"La insuficiencia de la válvula AV izquierda es la principal causa de reoperación."}
 ];
+["Mezcla y transposición","Mezcla y transposición","Cianóticas","Univentricular","Cianóticas","Mezcla y transposición","Cortocircuitos","Obstrucciones izquierdas","Univentricular","Mezcla y transposición","Cianóticas","Obstrucciones izquierdas","Cortocircuitos","Otras","Cortocircuitos","Mezcla y transposición","Cianóticas","Univentricular","Univentricular","Cortocircuitos"].forEach((t,i)=>{if(QUIZ[i])QUIZ[i].tg=t;});
+QUIZ.push(
+ {tg:"Cortocircuitos",q:"¿Qué tipo de CIA no puede cerrarse con dispositivo y se repara como un canal AV parcial?",a:["Ostium secundum","Ostium primum","Foramen oval permeable","CIA fenestrada"],r:1,e:"El ostium primum no tiene bordes y se asocia a cleft mitral: se cierra con parche y se repara el cleft."},
+ {tg:"Cortocircuitos",q:"Paciente con CIA seno venoso superior. ¿Qué anomalía asociada hay que buscar siempre?",a:["Coartación de aorta","Drenaje venoso pulmonar anómalo parcial de venas derechas","Válvula aórtica bicúspide","Vena cava superior izquierda persistente"],r:1,e:"Las venas pulmonares derechas superiores suelen drenar en la VCS o en la unión cavoatrial; puede requerir técnica de Warden."},
+ {tg:"Cortocircuitos",q:"¿Cuál es la indicación clásica de cierre de una CIA ostium secundum?",a:["Cualquier CIA mayor de 3 mm","Qp/Qs > 1,5 o dilatación de cavidades derechas","Solo si hay cianosis","Solo en adultos sintomáticos"],r:1,e:"Los defectos pequeños suelen cerrar solos; se cierran los que generan sobrecarga de volumen derecha."},
+ {tg:"Cortocircuitos",q:"Una CIV restrictiva pequeña se opera aunque no tenga repercusión hemodinámica cuando:",a:["Es muscular apical","Es subarterial con prolapso de una valva aórtica o insuficiencia aórtica","El soplo es intenso","El niño tiene menos de 1 año"],r:1,e:"El prolapso aórtico progresa a insuficiencia aórtica: se cierra precozmente."},
+ {tg:"Cortocircuitos",q:"En la CIV grande con insuficiencia cardíaca, el momento quirúrgico habitual es:",a:["Esperar al año de vida","3-6 meses, antes de la enfermedad vascular pulmonar","Solo si aparece cianosis","En la edad escolar"],r:1,e:"La cirugía después de los 6-12 meses aumenta el riesgo de hipertensión pulmonar fija."},
+ {tg:"Cortocircuitos",q:"¿Qué distingue una ventana aortopulmonar de un truncus arterioso?",a:["La ventana tiene CIV","La ventana tiene dos válvulas semilunares separadas","El truncus no tiene hiperflujo","La ventana es cianótica"],r:1,e:"En la ventana hay dos válvulas y el septum infundibular está presente; el truncus tiene una sola válvula sobre una CIV."},
+ {tg:"Cortocircuitos",q:"ECG típico del canal AV:",a:["Eje derecho con HVD","Eje superior (izquierdo) y BAV de primer grado","Onda delta","QT largo"],r:1,e:"El desplazamiento del sistema de conducción produce eje superior."},
+ {tg:"Cortocircuitos",q:"En un canal AV desbalanceado con VI muy hipoplásico, la estrategia suele ser:",a:["Reparación biventricular a toda costa","Vía univentricular","Solo cierre de la CIA","Trasplante de entrada"],r:1,e:"Si un ventrículo no puede sostener su circulación, se sigue la paliación univentricular."},
+ {tg:"Cortocircuitos",q:"Síndrome de la cimitarra: ¿qué hallazgo radiológico es característico?",a:["Corazón en bota","Vena anómala en forma de sable que baja junto al borde cardíaco derecho","Signo del 3","Muñeco de nieve"],r:1,e:"La vena pulmonar derecha drena en la VCI; se asocia a hipoplasia pulmonar derecha, dextroposición y arterias sistémicas al pulmón."},
+ {tg:"Cortocircuitos",q:"¿Qué categoría STAT tiene el cierre de una CIA con parche?",a:["1","3","4","5"],r:0,e:"Cierre de CIA y CIV con parche son STAT 1, las de menor riesgo."},
+ {tg:"Obstrucciones izquierdas",q:"En la coartación crítica neonatal, la PGE1:",a:["Está contraindicada","Puede reabrir el ductus aunque ya esté funcionalmente cerrado","Solo sirve si el ductus mide más de 3 mm","Se usa recién después de la cirugía"],r:1,e:"Se inicia ante la sospecha para restablecer la perfusión posductal."},
+ {tg:"Obstrucciones izquierdas",q:"Complicación característica de las primeras 48 h tras la coartectomía:",a:["Hipotensión arterial","Hipertensión paradojal con riesgo de arteritis mesentérica","Hipercalcemia","BAV completo"],r:1,e:"Se trata con esmolol o nitroprusiato y se reintroduce la alimentación en forma gradual."},
+ {tg:"Obstrucciones izquierdas",q:"¿Qué tipo de interrupción del arco aórtico es el más frecuente y se asocia a 22q11?",a:["Tipo A","Tipo B (entre carótida y subclavia izquierdas)","Tipo C","Todas por igual"],r:1,e:"En el tipo B hay que buscar hipocalcemia e inmunodeficiencia y usar hemoderivados irradiados."},
+ {tg:"Obstrucciones izquierdas",q:"Operación de Yasui: ¿cuándo se indica?",a:["Coartación aislada","IAA o atresia aórtica con CIV, TSVI muy hipoplásico y ventrículos adecuados","Fallot con agenesia de válvula pulmonar","TGA simple"],r:1,e:"Combina DKS, reconstrucción del arco, túnel VI-pulmonar por la CIV y conducto VD-AP."},
+ {tg:"Obstrucciones izquierdas",q:"Principal complicación de la valvuloplastia aórtica con balón:",a:["Estenosis pulmonar","Insuficiencia aórtica","BAV completo","Trombosis venosa"],r:1,e:"Por eso se usa un balón de 80-100 % del anillo y se controla la insuficiencia."},
+ {tg:"Obstrucciones izquierdas",q:"En la operación de Ross, ¿qué válvula queda reemplazada por un homoinjerto?",a:["Aórtica","Pulmonar","Mitral","Tricúspide"],r:1,e:"La pulmonar propia pasa a posición aórtica; en el TSVD se coloca un homoinjerto."},
+ {tg:"Obstrucciones izquierdas",q:"Estenosis subaórtica por membrana discreta: ¿por qué se agrega una miectomía a la resección?",a:["Para tratar la insuficiencia mitral","Para disminuir la recurrencia","Para evitar el BAV","Para ampliar el anillo aórtico"],r:1,e:"La recurrencia es frecuente (15-30 %); la miectomía la reduce."},
+ {tg:"Obstrucciones izquierdas",q:"Estenosis aórtica supravalvular con estenosis de ramas pulmonares e hipercalcemia: sospecha:",a:["Síndrome de Noonan","Síndrome de Williams-Beuren","Síndrome de Turner","Síndrome de Marfan"],r:1,e:"Deleción del gen de la elastina (7q11.23); riesgo alto de isquemia coronaria con la anestesia."},
+ {tg:"Obstrucciones izquierdas",q:"Cor triatriatum: la fisiología se parece a:",a:["Insuficiencia aórtica","Estenosis mitral","Estenosis pulmonar","CIV"],r:1,e:"La membrana obstruye el paso de las venas pulmonares hacia la mitral: hipertensión venocapilar pulmonar."},
+ {tg:"Obstrucciones izquierdas",q:"Complejo de Shone: ¿qué combinación lo define?",a:["CIA, CIV y DAP","Lesiones obstructivas izquierdas en serie: anillo supramitral, mitral en paracaídas, subaórtica y coartación","Fallot con atresia pulmonar","TGA con CIV"],r:1,e:"Hay que buscar todas las obstrucciones izquierdas cuando se encuentra una."},
+ {tg:"Cianóticas",q:"En el Fallot, la crisis hipoxémica se trata con:",a:["Adrenalina y furosemida","Posición genupectoral, O₂, morfina, volumen y fenilefrina","Digoxina","Prostaglandina E1"],r:1,e:"El objetivo es reducir la obstrucción dinámica del TSVD y aumentar la resistencia sistémica."},
+ {tg:"Cianóticas",q:"¿Qué categoría STAT tiene la reparación de Fallot con parche transanular?",a:["1","2","4","5"],r:1,e:"Sin ventriculotomía o con parche no transanular es STAT 1; con parche transanular o conducto, STAT 2."},
+ {tg:"Cianóticas",q:"Tetralogía con válvula pulmonar ausente: el principal problema clínico suele ser:",a:["Hipertensión arterial","Compresión de la vía aérea por ramas pulmonares aneurismáticas","Endocarditis","Bloqueo AV"],r:1,e:"Se plican las ramas en la reparación; el pronóstico depende de la traqueobroncomalacia."},
+ {tg:"Cianóticas",q:"Atresia pulmonar con CIV: ¿qué prueba intraoperatoria orienta si se puede cerrar la CIV tras la unifocalización?",a:["Prueba de flujo que estima la presión pulmonar con el flujo completo","Saturación venosa central","ECG","Tiempo de coagulación"],r:0,e:"Si la relación de presiones VD/VI esperada es baja (aprox. < 0,5) se cierra la CIV."},
+ {tg:"Cianóticas",q:"¿Cuál es la técnica de elección para la estenosis pulmonar valvular en domo?",a:["Valvotomía quirúrgica","Valvuloplastia con balón","Parche transanular","Conducto VD-AP"],r:1,e:"Balón de 1,2-1,4 veces el anillo; la válvula displásica (Noonan) responde peor."},
+ {tg:"Cianóticas",q:"Tras una valvuloplastia pulmonar aparece bajo gasto por obstrucción infundibular dinámica. ¿Qué se hace?",a:["Adrenalina en dosis altas","Volumen y betabloqueante","Furosemida","Volver a dilatar"],r:1,e:"Es el VD suicida: los inotrópicos empeoran la obstrucción."},
+ {tg:"Cianóticas",q:"Ebstein neonatal con cortocircuito circular: ¿qué significa?",a:["Flujo normal","La sangre vuelve de la aorta por el ductus a la pulmonar, al VD por insuficiencia pulmonar y a la AD por la tricúspide","CIA con flujo bidireccional","Coartación con colaterales"],r:1,e:"Es un robo sistémico grave; la operación de Starnes es una de las opciones."},
+ {tg:"Cianóticas",q:"Operación de Starnes: ¿qué hace con la válvula tricúspide?",a:["La reemplaza","La cierra con un parche fenestrado","La deja intacta","La transforma en cono"],r:1,e:"Se suma atrioseptectomía y BT; el paciente sigue por vía univentricular."},
+ {tg:"Cianóticas",q:"VD de doble cámara: ¿con qué se asocia con frecuencia?",a:["CIV perimembranosa y membrana subaórtica","Coartación de aorta","DVPAT","Atresia tricuspídea"],r:0,e:"Las bandas musculares anómalas se resecan por vía transauricular."},
+ {tg:"Mezcla y transposición",q:"En la TGA con septum íntegro, ¿cuándo conviene hacer el switch arterial?",a:["Al año","En las primeras 2-3 semanas","Entre los 3 y 6 meses","Solo si hay CIV"],r:1,e:"Después el VI pierde masa al trabajar a presión pulmonar baja."},
+ {tg:"Mezcla y transposición",q:"¿Qué categoría STAT tiene el switch arterial con cierre de CIV?",a:["2","3","4","5"],r:2,e:"Switch arterial solo: STAT 3; con cierre de CIV: STAT 4."},
+ {tg:"Mezcla y transposición",q:"Postoperatorio de switch arterial: cambios del ST y arritmias ventriculares sugieren:",a:["Hipocalcemia","Isquemia por problema en la transferencia coronaria","JET","Taponamiento"],r:1,e:"Requiere eco urgente y, si se confirma, revisión de las coronarias."},
+ {tg:"Mezcla y transposición",q:"TGA con CIV y estenosis pulmonar: ¿qué operación conecta el VI a la aorta por un túnel y el VD a la pulmonar con un conducto?",a:["Jatene","Rastelli","Senning","Norwood"],r:1,e:"Alternativas: REV y Nikaidoh."},
+ {tg:"Mezcla y transposición",q:"DVPAT infracardíaco: ¿por qué suele estar obstruido?",a:["Porque el colector es muy corto","Porque el trayecto pasa por el diafragma y el ductus venoso o el sistema porta","Por la CIA grande","Por la hipertensión sistémica"],r:1,e:"El cierre del ductus venoso y la resistencia hepática obstruyen el retorno: emergencia quirúrgica."},
+ {tg:"Mezcla y transposición",q:"Principal causa de mortalidad tardía tras reparar un DVPAT:",a:["Endocarditis","Estenosis de venas pulmonares","BAV","Insuficiencia aórtica"],r:1,e:"Se controla con eco en los primeros meses; la técnica sutureless es una opción de tratamiento."},
+ {tg:"Mezcla y transposición",q:"Taussig-Bing es una doble salida del VD con CIV:",a:["Subaórtica","Subpulmonar","Doblemente relacionada","Remota"],r:1,e:"Se repara con switch arterial y túnel de la CIV a la neoaorta; suele haber coartación."},
+ {tg:"Mezcla y transposición",q:"En la ccTGA, ¿qué complicación espontánea aparece con una frecuencia de ~2 % por año?",a:["Coartación","BAV completo","Estenosis pulmonar","Endocarditis"],r:1,e:"El sistema de conducción es anómalo; muchos pacientes necesitan marcapasos."},
+ {tg:"Mezcla y transposición",q:"El Senning sin switch arterial en una ccTGA produciría:",a:["Circulación normal","Circulación en paralelo, como una TGA","Fisiología de Fontan","Hiperflujo pulmonar"],r:1,e:"Por eso el doble switch combina switch auricular y arterial (o Rastelli)."},
+ {tg:"Univentricular",q:"Objetivo habitual de saturación tras el Norwood:",a:["95-100 %","75-85 %","60-65 %","Menos de 60 %"],r:1,e:"Saturaciones más altas sugieren hiperflujo pulmonar con robo sistémico."},
+ {tg:"Univentricular",q:"Después del Norwood: SatO₂ 94 %, lactato en ascenso y oliguria. Interpretación más probable:",a:["Excelente evolución","Hiperflujo pulmonar con bajo gasto sistémico","Trombosis del shunt","Hipovolemia aislada"],r:1,e:"Se baja la FiO₂, se evita la alcalosis y se reduce la resistencia sistémica (milrinona)."},
+ {tg:"Univentricular",q:"Desaturación brusca con desaparición del soplo en un neonato con BT:",a:["Crisis de HTP","Trombosis aguda del shunt","Hiperflujo","Derrame pericárdico"],r:1,e:"Emergencia: heparina, subir presión sistémica, oxígeno, y cateterismo, revisión quirúrgica o ECMO."},
+ {tg:"Univentricular",q:"Tras un Glenn, la hiperventilación con hipocapnia:",a:["Mejora la saturación","Empeora la saturación al reducir el flujo cerebral y de la VCS","No tiene efecto","Baja la presión pulmonar y siempre ayuda"],r:1,e:"La hipercapnia leve aumenta el flujo cerebral y con él el flujo pulmonar por la VCS."},
+ {tg:"Univentricular",q:"¿Qué categoría STAT tiene el Norwood?",a:["3","4","5","2"],r:2,e:"Es STAT 5, la categoría de mayor riesgo, junto con DKS, doble switch y truncus con IAA."},
+ {tg:"Univentricular",q:"¿Qué se busca con la fenestración del Fontan?",a:["Aumentar la saturación","Mantener el gasto cuando sube la presión del circuito, a costa de algo de desaturación","Evitar arritmias","Reducir la presión arterial"],r:1,e:"Actúa como válvula de escape de derecha a izquierda."},
+ {tg:"Univentricular",q:"Ventilación ideal en el postoperatorio inmediato del Fontan:",a:["PEEP alta y presión media alta","PEEP baja, presión media baja y extubación precoz","Hiperventilación","Ventilación oscilatoria de rutina"],r:1,e:"La presión intratorácica alta reduce el flujo pasivo a los pulmones."},
+ {tg:"Univentricular",q:"Damus-Kaye-Stansel: ¿qué problema resuelve?",a:["Hiperflujo pulmonar","Obstrucción al flujo sistémico en ventrículo único","Insuficiencia AV","Estenosis de venas pulmonares"],r:1,e:"Une el tronco pulmonar a la aorta para que el ventrículo eyecte por ambas válvulas."},
+ {tg:"Univentricular",q:"Atresia tricuspídea tipo II (con transposición): riesgo particular con el banding:",a:["Hiperflujo","Obstrucción subaórtica por restricción de la CIV","Hipocalcemia","Trombosis de la VCS"],r:1,e:"La hipertrofia puede cerrar el foramen bulboventricular: considerar DKS."},
+ {tg:"Univentricular",q:"Heterotaxia con continuación ácigos de la VCI: el Glenn en este caso se llama:",a:["Hemi-Fontan","Operación de Kawashima","Operación de Mustard","Operación de Warden"],r:1,e:"Lleva casi todo el retorno sistémico; luego se conectan las venas hepáticas (Fontan)."},
+ {tg:"Univentricular",q:"¿Qué complicación del Fontan se diagnostica con alfa-1 antitripsina fecal elevada?",a:["Bronquitis plástica","Enteropatía perdedora de proteínas","Hepatopatía","Trombosis del conducto"],r:1,e:"Cursa con hipoalbuminemia, edemas y ascitis."},
+ {tg:"Univentricular",q:"SHVI con septum interauricular intacto al nacer:",a:["Es la forma más estable","Requiere apertura septal de urgencia","Se maneja solo con PGE1","Indica cirugía electiva a los 3 meses"],r:1,e:"Sin salida para el retorno pulmonar hay hipoxemia extrema y edema pulmonar."},
+ {tg:"Postoperatorio",q:"¿A qué hora suele tener su punto más bajo el gasto cardíaco tras la CEC?",a:["Inmediatamente al salir de bomba","A las 6-18 h","A las 72 h","A la semana"],r:1,e:"Es el síndrome de bajo gasto: anticiparlo con milrinona y monitoreo de lactato y saturación venosa."},
+ {tg:"Postoperatorio",q:"JET postoperatorio: ¿qué medida NO corresponde?",a:["Enfriar a 34-35 °C","Corregir magnesio","Aumentar dopamina para sostener la presión","Amiodarona"],r:2,e:"Las catecolaminas aumentan el automatismo: se reducen al mínimo."},
+ {tg:"Postoperatorio",q:"Criterio diagnóstico de quilotórax en el líquido pleural:",a:["Proteínas < 1 g/dl","Triglicéridos > 110 mg/dl y linfocitos > 80 %","Glucosa baja","pH < 7,2"],r:1,e:"Se trata con fórmula con triglicéridos de cadena media o ayuno, y octreotide si persiste."},
+ {tg:"Postoperatorio",q:"Crisis de HTP tras reparar un truncus: medida inicial más adecuada:",a:["Hipoventilación","Sedación profunda, FiO₂ alta, evitar acidosis y óxido nítrico inhalado","Restricción de oxígeno","Aumentar la PEEP al máximo"],r:1,e:"Además: preoxigenar antes de aspirar y sostener el VD."},
+ {tg:"Postoperatorio",q:"Tras la reparación de Fallot, la fisiología restrictiva del VD se maneja con:",a:["Restricción de volumen estricta","Precarga generosa, presión media de vía aérea baja y extubación precoz","Dopamina en dosis altas","Vasodilatadores pulmonares de rutina"],r:1,e:"El VD poco distensible necesita presión de llenado más alta; el foramen oval abierto descomprime."},
+ {tg:"Postoperatorio",q:"Síndrome posligadura del ductus en el prematuro: ¿cuándo aparece típicamente?",a:["En la primera hora","A las 6-12 h","A los 5 días","Al mes"],r:1,e:"Hipotensión y disfunción del VI por aumento brusco de la poscarga; responde a milrinona."},
+ {tg:"Postoperatorio",q:"Lesión que más frecuentemente deja BAV completo postoperatorio:",a:["Cierre de CIA ostium secundum","Cierre de CIV y canal AV","Coartectomía","Ligadura del ductus"],r:1,e:"El haz de His corre por el borde posteroinferior de la CIV perimembranosa y de entrada."},
+ {tg:"Postoperatorio",q:"Tras la reparación de IAA, ¿qué control de laboratorio es prioritario?",a:["Bilirrubina","Calcio iónico","Amilasa","Troponina"],r:1,e:"La 22q11 causa hipoparatiroidismo con hipocalcemia."},
+ {tg:"Postoperatorio",q:"Tras el reimplante en ALCAPA, la función del VI:",a:["Se normaliza en horas","Mejora en semanas a meses; las primeras horas pueden requerir ECMO","Nunca mejora","Empeora con el tiempo siempre"],r:1,e:"El miocardio hibernado se recupera progresivamente."},
+ {tg:"Postoperatorio",q:"En el balance Qp/Qs, ¿por qué la saturación sola no alcanza?",a:["Porque el saturómetro es impreciso","Porque no informa el gasto sistémico: hay que mirar lactato, saturación venosa y NIRS","Porque siempre está alta","Porque depende de la hemoglobina únicamente"],r:1,e:"Una saturación 'normal' puede esconder hiperflujo pulmonar con bajo gasto sistémico."},
+ {tg:"Otras",q:"Toda miocardiopatía dilatada en un lactante requiere descartar:",a:["Coartación","ALCAPA","CIA","Ebstein"],r:1,e:"El ECG con Q profundas en DI, aVL y V5-V6 es una pista clave."},
+ {tg:"Otras",q:"Anillo vascular completo más frecuente:",a:["Sling pulmonar","Doble arco aórtico","Arco izquierdo con subclavia derecha aberrante","Arteria innominada anómala"],r:1,e:"Se secciona el arco menor por toracotomía; los síntomas pueden tardar meses en mejorar."},
+ {tg:"Otras",q:"Sling pulmonar: ¿con qué anomalía de la vía aérea se asocia?",a:["Atresia de coanas","Anillos traqueales completos","Laringomalacia","Fístula traqueoesofágica"],r:1,e:"Puede requerir traqueoplastia por deslizamiento junto con el reimplante de la rama izquierda."},
+ {tg:"Otras",q:"Isomerismo derecho (asplenia): ¿qué medida es obligatoria además de la cirugía?",a:["Anticoagulación","Profilaxis antibiótica y vacunas","Betabloqueantes","Dieta sin sal"],r:1,e:"Riesgo alto de sepsis por gérmenes encapsulados; buscar también malrotación intestinal."},
+ {tg:"Otras",q:"Isomerismo izquierdo (poliesplenia) se asocia típicamente a:",a:["DVPAT obstruido","Interrupción de la VCI con continuación ácigos y BAV","Truncus","Atresia aórtica"],r:1,e:"Las lesiones cardíacas suelen ser menos graves que en el isomerismo derecho."},
+ {tg:"Otras",q:"Estenosis de venas pulmonares primaria: población de mayor riesgo:",a:["Adolescentes","Prematuros con displasia broncopulmonar","Adultos con CIA","Niños con Kawasaki"],r:1,e:"HTP que empeora en un prematuro con DBP: evaluar las venas pulmonares."},
+ {tg:"Otras",q:"Operación de Warden: ¿con qué se anastomosa el extremo craneal de la VCS?",a:["Con la rama pulmonar derecha","Con la orejuela derecha","Con la aurícula izquierda","Con la vena innominada"],r:1,e:"El muñón inferior, que recibe la vena anómala, se dirige con un parche por la CIA a la AI."},
+ {tg:"Otras",q:"¿Qué categoría STAT tiene la reparación de anillo vascular?",a:["1","3","4","5"],r:0,e:"Anillo vascular: STAT 1; sling pulmonar: STAT 3."}
+);
+
+
+CC.push(
+{id:"ventana",n:"Ventana aortopulmonar",ab:"Ventana AP",g:0,
+ res:"Comunicación directa entre la aorta ascendente y el tronco pulmonar, con dos válvulas semilunares separadas (a diferencia del truncus). Cortocircuito izquierda-derecha grande con hiperflujo e hipertensión pulmonar precoz. Puede asociarse a IAA tipo A, origen anómalo de la rama derecha desde la aorta o anomalías coronarias.",
+ ind:"Cirugía al diagnóstico, en general en las primeras semanas o meses: la enfermedad vascular pulmonar se instala rápido.",
+ opts:[
+ {t:"cor",n:"Cierre con parche por vía transaórtica",c:"Técnica de elección.",h:"Con CEC se abre la ventana desde la aorta y se cierra con un parche, cuidando los ostia coronarios y el origen de la rama derecha.",x:"Estenosis supravalvular aórtica o pulmonar residual, lesión coronaria, crisis de HTP."},
+ {t:"cor",n:"Reparación de lesiones asociadas",c:"IAA, rama pulmonar derecha desde la aorta.",h:"Reconstrucción del arco y reimplante de la rama en el mismo acto.",x:"Las de cada reparación."},
+ {t:"per",n:"Cierre con dispositivo",c:"Excepcional: defectos pequeños y bordes adecuados.",h:"Dispositivo por cateterismo.",x:"Obstrucción coronaria o de ramas."}],
+ lp:"Excelente si se opera antes de la enfermedad vascular pulmonar.",
+ pe:["Pulsos saltones como en el ductus grande, pero el soplo suele ser sistólico y no continuo.","Diferencia con truncus: hay dos válvulas semilunares y el septum infundibular está presente."]},
+
+{id:"dvpap",n:"Drenaje venoso pulmonar anómalo parcial",ab:"DVPAP",g:0,
+ res:"Una o más venas pulmonares (no todas) drenan al sistema venoso sistémico: VCS (asociado a CIA seno venoso superior), AD, VCI (síndrome de la cimitarra, con hipoplasia pulmonar derecha y secuestro) o vena innominada (venas izquierdas). Fisiología de cortocircuito izquierda-derecha, similar a una CIA.",
+ ind:"Qp/Qs > 1,5 o dilatación de cavidades derechas. Cimitarra: según síntomas, HTP y circulación sistémica anómala al pulmón.",
+ opts:[
+ {t:"cor",n:"Parche que redirige las venas por la CIA",c:"Venas derechas que entran bajo en la VCS o en la AD.",h:"Parche intraauricular que conduce las venas anómalas a través de la CIA hacia la AI.",x:"Estenosis venosa pulmonar o de VCS, disfunción sinusal."},
+ {t:"cor",n:"Operación de Warden",c:"Venas que entran alto en la VCS.",h:"Se secciona la VCS por encima de las venas anómalas y se anastomosa a la orejuela derecha; el muñón inferior de la VCS se dirige con un parche a la AI.",x:"Obstrucción de VCS, disfunción sinusal."},
+ {t:"cor",n:"Reimplante de la vena anómala",c:"Venas izquierdas a la innominada; cimitarra.",h:"Anastomosis directa de la vena anómala a la AI (o a la orejuela izquierda); en cimitarra, túnel o reimplante y embolización de la arteria sistémica anómala.",x:"Estenosis de la vena reimplantada (más frecuente en cimitarra)."}],
+ lp:"Muy buen pronóstico. Controlar estenosis venosa pulmonar y de VCS.",
+ pe:["Toda CIA seno venoso tiene DVPAP hasta que se demuestre lo contrario.","Cimitarra: radiografía con la vena en forma de sable a la derecha, dextroposición cardíaca."]},
+
+{id:"cortri",n:"Cor triatriatum",ab:"Cor triatriatum",g:1,
+ res:"Membrana fibromuscular que divide la aurícula izquierda en una cámara posterior (recibe las venas pulmonares) y otra anterior (orejuela y mitral). El orificio de la membrana determina la obstrucción: se comporta como una estenosis mitral, con hipertensión venocapilar pulmonar.",
+ ind:"Membrana obstructiva (gradiente significativo, HTP o síntomas): cirugía. Las formas neonatales graves son urgentes.",
+ opts:[
+ {t:"cor",n:"Resección de la membrana",c:"Tratamiento definitivo.",h:"Con CEC, por vía auricular derecha transeptal o por la AI, se reseca completa la membrana; se reparan lesiones asociadas (CIA, DVPAP).",x:"Membrana residual, lesión mitral, arritmias auriculares."},
+ {t:"per",n:"Dilatación con balón",c:"Paliación o pacientes de alto riesgo.",h:"Balón a través del orificio de la membrana por vía transeptal.",x:"Reestenosis frecuente."}],
+ lp:"Excelente tras la resección completa; recurrencia rara.",
+ pe:["Diferencial con estenosis mitral supravalvular: el anillo supramitral está por debajo de la orejuela; el cor triatriatum, por encima.","Edema pulmonar con VI normal: buscar obstrucción en la AI o en las venas pulmonares."]},
+
+{id:"evp",n:"Estenosis de venas pulmonares",ab:"EVP",g:1,
+ res:"Estrechez progresiva de una o más venas pulmonares por proliferación miofibroblástica intimal. Puede ser primaria (más en prematuros y con displasia broncopulmonar) o secundaria a reparación de DVPAT. Tiende a progresar a venas no afectadas y causa hipertensión pulmonar grave.",
+ ind:"Venas con gradiente u obstrucción que causan HTP o síntomas. El seguimiento con eco, TAC y cateterismo es estrecho.",
+ opts:[
+ {t:"cor",n:"Reparación sin sutura (sutureless)",c:"Técnica quirúrgica de elección.",h:"Se reseca el tejido obstructivo y se sutura la AI al pericardio alrededor de los orificios venosos, sin tocar la íntima de la vena.",x:"Reestenosis, HTP persistente."},
+ {t:"per",n:"Angioplastia con balón o stent",c:"Paliación, recurrencias o venas no accesibles quirúrgicamente.",h:"Balones de corte o stents en las venas por vía transeptal; reintervenciones frecuentes.",x:"Reestenosis rápida, perforación."},
+ {t:"cor",n:"Tratamiento antiproliferativo y trasplante",c:"Enfermedad progresiva multivaso.",h:"Algunos centros agregan sirolimus o imatinib. Trasplante pulmonar en enfermedad difusa.",x:"Efectos adversos del tratamiento sistémico."}],
+ lp:"Pronóstico reservado en la forma multivaso progresiva.",
+ pe:["Prematuro con DBP e HTP que empeora: pedir eco dirigida a venas pulmonares.","Doppler: flujo continuo turbulento, sin la fasicidad normal."]},
+
+{id:"esubao",n:"Estenosis subaórtica",ab:"Subaórtica",g:1,
+ res:"Obstrucción por debajo de la válvula aórtica: membrana o rodete fibromuscular discreto (la forma más común) o túnel fibromuscular difuso. Es adquirida y progresiva; se asocia a CIV, coartación y complejo de Shone. El jet daña la válvula aórtica (insuficiencia).",
+ ind:"Gradiente medio ≥ 30-40 mmHg, insuficiencia aórtica progresiva, disfunción o hipertrofia del VI.",
+ opts:[
+ {t:"cor",n:"Resección de la membrana con miectomía",c:"Forma discreta.",h:"Por vía aórtica se reseca la membrana y se agrega una miectomía septal para reducir la recurrencia.",x:"Recurrencia (frecuente), BAV, CIV iatrogénica, lesión mitral o aórtica."},
+ {t:"cor",n:"Konno modificado o Ross-Konno",c:"Túnel difuso.",h:"Konno modificado: ampliación del septum con parche preservando la válvula. Ross-Konno si además la válvula está afectada.",x:"BAV, CIV residual."}],
+ lp:"Recurrencia en 15-30 %: seguimiento de por vida.",
+ pe:["No responde a valvuloplastia con balón.","Buscar Shone: anillo supramitral, mitral en paracaídas, subaórtica y coartación."]},
+
+{id:"esupra",n:"Estenosis aórtica supravalvular",ab:"Supravalvular",g:1,
+ res:"Estrechez de la aorta en la unión sinotubular (forma en reloj de arena) o difusa de la aorta ascendente. Típica del síndrome de Williams-Beuren (deleción de elastina 7q11.23), que también causa estenosis de ramas pulmonares y de otras arterias. Los ostia coronarios quedan bajo presión alta y pueden obstruirse.",
+ ind:"Gradiente significativo, hipertrofia del VI, isquemia o afectación coronaria.",
+ opts:[
+ {t:"cor",n:"Aortoplastia con parche (Doty, Brom, Myers)",c:"Forma localizada.",h:"Doty: parche en Y invertida en dos senos; Brom: parches en los tres senos; Myers: técnica de deslizamiento sin parche.",x:"Recurrencia, lesión valvular o coronaria."},
+ {t:"cor",n:"Reparación de ramas pulmonares y coronarias",c:"Lesiones asociadas.",h:"Angioplastia o parches en ramas; liberación del ostio coronario.",x:"Reestenosis."}],
+ lp:"Buen resultado en formas localizadas; las difusas y la estenosis pulmonar periférica requieren reintervenciones.",
+ pe:["Williams: hipercalcemia, facies de duende, personalidad sociable.","Riesgo alto con anestesia y sedación (isquemia coronaria): manejo en centros con experiencia."]},
+
+{id:"heterotaxia",n:"Heterotaxia (isomerismo)",ab:"Heterotaxia",g:5,
+ res:"Alteración de la lateralidad de los órganos. Isomerismo derecho (asplenia): dos aurículas morfológicamente derechas, canal AV desbalanceado, DVPAT (a menudo obstruido), obstrucción pulmonar, ventrículo único. Isomerismo izquierdo (poliesplenia): interrupción de la VCI con continuación ácigos, BAV congénito, lesiones menos graves. Malrotación intestinal frecuente.",
+ ind:"Según la anatomía: la mayoría siguen la vía univentricular. El DVPAT obstruido es urgente.",
+ opts:[
+ {t:"pal",n:"Paliación inicial",c:"Flujo pulmonar disminuido o aumentado.",h:"BT o stent ductal; banding; reparación del DVPAT si está obstruido.",x:"Alta morbimortalidad en isomerismo derecho con DVPAT obstruido."},
+ {t:"uni",n:"Glenn (o Kawashima) y Fontan",c:"Ventrículo único funcional.",h:"Con continuación ácigos, el Glenn lleva casi todo el retorno sistémico (operación de Kawashima); el Fontan completa con las venas hepáticas.",x:"Malformaciones arteriovenosas pulmonares tras Kawashima (falta de factor hepático)."},
+ {t:"cor",n:"Reparación biventricular",c:"Isomerismo izquierdo con ventrículos balanceados.",h:"Según las lesiones (CIA, canal AV, DVPAP).",x:"Arritmias, BAV."}],
+ lp:"Pronóstico peor que el ventrículo único no heterotáxico. Asplenia: profilaxis antibiótica y vacunas.",
+ pe:["Asplenia: cuerpos de Howell-Jolly en el frotis; profilaxis con amoxicilina.","Poliesplenia: bradicardia o BAV fetal y VCI interrumpida.","Pedir estudio de malrotación intestinal."]},
+
+{id:"apv",n:"Tetralogía con válvula pulmonar ausente",ab:"VPA",g:2,
+ res:"Variante de Fallot con anillo pulmonar estrecho y valvas rudimentarias: estenosis e insuficiencia pulmonar libre. Las ramas pulmonares se dilatan en forma aneurismática y comprimen tráquea y bronquios (traqueobroncomalacia). Ductus habitualmente ausente; asociado a 22q11.",
+ ind:"Síntomas respiratorios graves en el neonato: cirugía precoz. Formas leves: reparación electiva como un Fallot.",
+ opts:[
+ {t:"cor",n:"Reparación con plicatura de ramas",c:"Estándar.",h:"Cierre de CIV, ampliación del TSVD con válvula (homoinjerto o válvula monocúspide) y reducción (plicatura) de las ramas dilatadas; maniobra de Lecompte en algunos centros para descomprimir la vía aérea.",x:"Traqueobroncomalacia persistente con ventilación prolongada, disfunción del VD."}],
+ lp:"El pronóstico depende de la vía aérea más que del corazón.",
+ pe:["Neonato con dificultad respiratoria grave, soplo de vaivén y cianosis leve.","Posición prona puede aliviar la compresión de la vía aérea."]},
+
+{id:"dcvd",n:"Ventrículo derecho de doble cámara",ab:"VD doble cámara",g:5,
+ res:"Bandas musculares anómalas que dividen el VD en una cámara proximal de alta presión y una distal de baja presión. Suele asociarse a CIV perimembranosa (a veces es su evolución) y a membrana subaórtica. Es progresiva.",
+ ind:"Gradiente intraventricular significativo (aprox. > 40 mmHg) o progresión.",
+ opts:[
+ {t:"cor",n:"Resección de las bandas musculares",c:"Tratamiento de elección.",h:"Por vía transauricular-transtricuspídea se resecan las bandas; se cierra la CIV y se trata la membrana subaórtica si existe.",x:"Obstrucción residual (rara), BAV, CIV iatrogénica."}],
+ lp:"Excelente: recurrencia rara tras la resección completa.",
+ pe:["Toda CIV seguida en el tiempo: medir el gradiente dentro del VD.","No responde a valvuloplastia (es muscular)."]}
+);
+
+const STATCC={
+ cia:[["Cierre quirúrgico con parche o sutura",1],["Warden (seno venoso con DVPAP)",1],["Canal AV parcial (ostium primum)",1]],
+ civ:[["Cierre con parche",1],["Banding pulmonar",4]],
+ dap:[["Cierre quirúrgico",2]],
+ cav:[["Reparación de canal AV completo",3],["Canal AV parcial",1],["Banding pulmonar",4]],
+ coa:[["Resección y anastomosis término-terminal",1],["Término-terminal extendida",2],["Aortoplastia con parche",3]],
+ iaa:[["Reparación de interrupción del arco",4],["Truncus + IAA",5]],
+ eao:[["Valvuloplastia aórtica quirúrgica",2],["Ross",2],["Konno",3],["Ross-Konno",4]],
+ tof:[["Reparación sin ventriculotomía",1],["Con ventriculotomía, parche no transanular",1],["Con parche transanular",2],["Con conducto VD-AP",2],["Fístula BT modificada",4]],
+ apsi:[["Fístula BT modificada",4],["Glenn bidireccional",2],["Fontan con conducto extracardíaco",2]],
+ apciv:[["Reparación de atresia pulmonar con CIV (sin MAPCAs)",3],["Unifocalización (cualquier variante)",4],["Reparación completa en un tiempo",4]],
+ ebstein:[["Reparación de Ebstein (incluye cono)",4]],
+ tga:[["Switch arterial",3],["Switch arterial + cierre de CIV",4],["Rastelli",3],["REV",3],["Nikaidoh",4],["Senning",4],["Mustard",3]],
+ dvpat:[["Reparación de DVPAT",4],["Reparación de estenosis de venas pulmonares",4]],
+ truncus:[["Reparación de truncus",4],["Truncus + IAA",5]],
+ dsvd:[["Túnel intraventricular",4],["Switch arterial + CIV",4]],
+ cctga:[["Doble switch (Senning + switch arterial)",5],["Switch auricular + Rastelli",5],["Banding pulmonar",4]],
+ atric:[["Fístula BT modificada",4],["Banding pulmonar",4],["Glenn bidireccional",2],["Fontan con conducto extracardíaco",2]],
+ vu:[["Glenn bidireccional",2],["Hemi-Fontan",3],["Fontan con conducto extracardíaco",2],["Damus-Kaye-Stansel",5]],
+ shvi:[["Norwood",5],["Híbrido: bandas en ramas",4],["Híbrido: stent ductal",4],["Híbrido: stent ductal + bandas",5],["Glenn bidireccional",2],["Fontan con conducto extracardíaco",2],["Trasplante cardíaco",4]],
+ alcapa:[["Reparación de coronaria anómala desde la pulmonar",2]],
+ anillos:[["Reparación de anillo vascular",1],["Reparación de sling pulmonar",3]],
+ ep:[["Valvuloplastia pulmonar quirúrgica",2]],
+ ventana:[["Reparación de ventana aortopulmonar",2]],
+ dvpap:[["Reparación de DVPAP",1],["Warden",1]],
+ cortri:[["Reparación de cor triatriatum",2]],
+ evp:[["Reparación de estenosis de venas pulmonares",4]],
+ esubao:[["Reparación de estenosis subaórtica",1],["Konno",3],["Ross-Konno",4]],
+ esupra:[["Reparación de estenosis supravalvular",2]],
+ heterotaxia:[["Fístula BT modificada",4],["Reparación de DVPAT",4],["Glenn bidireccional",2],["Fontan con conducto extracardíaco",2]],
+ apv:[["Reparación de Fallot con válvula pulmonar ausente",4]],
+ dcvd:[["Reparación de VD de doble cámara",1]]
+};
+
+/* Postoperatorio en UCI: problemas generales y hoja por procedimiento */
+const GENPO=[
+ {id:"bajogasto",n:"Síndrome de bajo gasto cardíaco",x:"Caída del gasto que suele tener su punto más bajo a las 6-18 h de la CEC.",s:["Taquicardia, pulsos débiles, relleno lento, extremidades frías","Oliguria (< 1 ml/kg/h), lactato en ascenso, saturación venosa central baja o diferencia arteriovenosa de O₂ amplia","NIRS cerebral y renal en descenso"],m:["Optimizar precarga según presiones auriculares y respuesta a volumen","Milrinona como base; agregar adrenalina en dosis bajas si hace falta","Corregir ritmo (marcapasos auricular si hay bradicardia o pérdida de sincronía AV)","Reducir consumo: sedación, analgesia, normotermia o hipotermia leve, ventilación","Descartar causa residual (eco): obstrucción, cortocircuito, taponamiento, isquemia","Si no responde: tórax abierto o ECMO según el centro"]},
+ {id:"htp",n:"Crisis de hipertensión pulmonar",x:"Más frecuente tras DVPAT, truncus, ventana AP, canal AV (Down) y CIV grandes operadas tarde.",s:["Desaturación brusca, caída de la presión arterial, aumento de la presión de AD","Presión pulmonar ≥ sistémica si hay catéter en la AP","Desencadenantes: aspiración, dolor, despertar, hipoxia, acidosis"],m:["Sedoanalgesia profunda y relajación en las primeras 24-48 h de alto riesgo","FiO₂ alta, evitar acidosis (pH 7,40-7,50) e hipercapnia","Óxido nítrico inhalado (habitual 20 ppm)","Preoxigenar y sedar antes de aspirar","Sostener el VD: milrinona, adrenalina, mantener la presión sistémica","Destete gradual del óxido nítrico (efecto rebote); sildenafil para facilitarlo"]},
+ {id:"jet",n:"Taquicardia ectópica de la unión (JET)",x:"Típica en las primeras 72 h tras Fallot, CIV, canal AV y otras cirugías cerca del haz de His.",s:["FC alta (a menudo > 170-180 lpm) con QRS igual al de base","Disociación AV: la FC ventricular supera a la auricular (ver ondas P o electrograma auricular)","Pérdida de la sincronía AV con caída del gasto"],m:["Reducir catecolaminas al mínimo posible (evitar dopamina y adrenalina altas)","Corregir magnesio, potasio y calcio; sedación y analgesia","Enfriamiento a 34-35 °C","Amiodarona si persiste","Marcapasos auricular por encima de la frecuencia del JET cuando baja lo suficiente para recuperar la sincronía AV"]},
+ {id:"qpqs",n:"Balance Qp/Qs en circulación en paralelo",x:"Norwood, BT, stent ductal, híbrido, banding: un solo ventrículo alimenta ambas circulaciones.",s:["Hiperflujo pulmonar: SatO₂ > 90 %, presión diastólica baja, acidosis láctica, oliguria, NIRS bajo","Hipoflujo pulmonar: SatO₂ < 70 %, cianosis progresiva, posible obstrucción del shunt"],m:["Objetivo habitual SatO₂ 75-85 % con buen gasto (lactato y saturación venosa)","Hiperflujo: FiO₂ baja (aire ambiente), evitar alcalosis e hiperventilación, bajar la resistencia sistémica (milrinona), considerar hipercapnia controlada","Hipoflujo: descartar obstrucción del shunt (eco), heparina, subir presión sistémica; si no mejora, cateterismo o cirugía urgente","Recordar que la SatO₂ sola no mide el gasto: guiarse por lactato, saturación venosa y NIRS"]},
+ {id:"quilo",n:"Quilotórax",x:"Por lesión del conducto torácico o aumento de la presión venosa (Glenn, Fontan, trombosis de VCS).",s:["Drenaje pleural lechoso al iniciar alimentación enteral","Triglicéridos en líquido > 110 mg/dl y linfocitos > 80 %"],m:["Fórmula con triglicéridos de cadena media o ayuno con nutrición parenteral","Reponer pérdidas (proteínas, inmunoglobulinas, electrolitos)","Octreotide en casos persistentes","Descartar trombosis venosa y presión venosa alta","Ligadura del conducto torácico o intervención linfática si no cede"]},
+ {id:"derrames",n:"Derrames tras Glenn y Fontan",x:"Por presión venosa elevada y respuesta inflamatoria.",s:["Drenajes pleurales prolongados (> 2 semanas)","Ascitis, edemas, hipoalbuminemia"],m:["Diuréticos, restricción hídrica moderada, dieta con poca grasa si es quiloso","Descartar obstrucción del circuito (eco, cateterismo): estenosis de ramas, de anastomosis o de la fenestración","Optimizar la función ventricular y la válvula AV","Sildenafil en algunos centros; abrir o crear fenestración si es necesario"]},
+ {id:"bav",n:"Bloqueo AV y bradiarritmias",x:"Tras CIV, canal AV, Fallot, Rastelli, Konno, doble switch y ccTGA.",s:["BAV completo con ritmo de escape lento o bradicardia sinusal tras cirugía auricular (Senning, Warden, Glenn)"],m:["Marcapasos temporal con cables epicárdicos (DDD si hay cable auricular)","Esperar 7-10 días la recuperación; si persiste, marcapasos definitivo"]},
+ {id:"sangrado",n:"Sangrado y taponamiento",x:"Primeras horas, sobre todo tras CEC larga, reoperaciones y cirugía de arco.",s:["Drenaje > 5-10 ml/kg/h","Taponamiento: taquicardia, hipotensión, presiones auriculares en ascenso y drenaje que de golpe disminuye"],m:["Corregir hipotermia, calcio, coagulación (plaquetas, plasma, crioprecipitado, protamina según protocolo)","Eco urgente si se sospecha taponamiento","Reexploración si el sangrado persiste"]},
+ {id:"renal",n:"Lesión renal aguda",x:"Frecuente en neonatos tras CEC.",s:["Oliguria, balance positivo, creatinina en ascenso"],m:["Optimizar gasto y perfusión","Diuréticos en infusión","Diálisis peritoneal precoz si hay sobrecarga (catéter colocado en quirófano en algunos centros)"]}
+];
+
+const POSTOP={
+ cia:{e:["Extubación en quirófano o en pocas horas","Estadía corta en UCI"],v:["Arritmias auriculares y disfunción sinusal (seno venoso)","Derrame pericárdico y síndrome pospericardiotomía en los días siguientes","Tras dispositivo: ECG y eco para posición y erosión"],m:["Analgesia, movilización precoz","Aspirina 6 meses tras dispositivo según protocolo"]},
+ civ:{e:["Presiones pulmonares que descienden tras el cierre","Extubación precoz si no hubo HTP"],v:["BAV completo y JET","CIV residual (eco antes del alta)","Crisis de HTP en lactantes operados tarde"],m:["Cables de marcapasos","Óxido nítrico si hay HTP"]},
+ cav:{e:["Extubación en 24-48 h en el caso habitual","Pacientes con Down: más reactividad pulmonar y obstrucción de vía aérea"],v:["Crisis de HTP","Insuficiencia de la válvula AV izquierda (eco precoz)","BAV completo, JET","Obstrucción del TSVI"],m:["Sedación y óxido nítrico si hay HTP","Reducir poscarga (milrinona) para la insuficiencia mitral"]},
+ coarto:{e:["Hipertensión arterial en las primeras 48 h (paradojal)","Pulsos femorales presentes"],v:["HTA: riesgo de sangrado de la sutura y de arteritis mesentérica","Dolor abdominal o intolerancia: arteritis mesentérica","Movilidad de miembros inferiores (isquemia medular)","Parálisis de cuerda vocal, quilotórax"],m:["Antihipertensivos: esmolol o nitroprusiato en el agudo, luego betabloqueante o IECA","Introducir la alimentación en forma gradual"]},
+ dapclip:{e:["Mejoría del soporte respiratorio en días"],v:["Síndrome posligadura a las 6-12 h en prematuros extremos: hipotensión y disfunción del VI","Parálisis de cuerda vocal izquierda (estridor, dificultad para alimentarse)","Neumotórax, quilotórax"],m:["Milrinona profiláctica o precoz en prematuros de riesgo","Evaluación de cuerdas vocales si hay estridor"]},
+ iaa:{e:["Ventilación de 1-3 días"],v:["Hipocalcemia (22q11): calcio iónico frecuente","Obstrucción del TSVI","Compresión del bronquio izquierdo por el arco","Recoartación"],m:["Gluconato de calcio según calcemia","Hemoderivados irradiados hasta descartar 22q11"]},
+ ross:{e:["Extubación en el primer día en niños mayores"],v:["Sangrado de múltiples suturas","Isquemia coronaria por los reimplantes (ECG, eco)","Insuficiencia del autoinjerto"],m:["Control estricto de la presión arterial para proteger el autoinjerto","Betabloqueante según el centro"]},
+ alcapa:{e:["Disfunción del VI que mejora en semanas a meses"],v:["Bajo gasto grave en las primeras horas: puede requerir ECMO o asistencia","Insuficiencia mitral","Arritmias ventriculares por isquemia"],m:["Milrinona, adrenalina en dosis bajas","Evitar sobrecarga de volumen y taquicardia","Tratamiento de insuficiencia cardíaca al alta"]},
+ tofrep:{e:["Fisiología restrictiva del VD en las primeras 48-72 h: presión de AD alta con VD poco distensible","Saturación algo baja si se dejó un foramen oval abierto (es intencional)"],v:["JET","Bajo gasto por VD restrictivo","Obstrucción residual del TSVD o CIV residual (eco)","BAV completo"],m:["Precarga generosa con presión de AD tolerada más alta","Ventilación con presión media baja y PEEP baja; extubar precoz (la ventilación espontánea mejora el llenado del VD)","Milrinona; evitar dosis altas de catecolaminas (JET)"]},
+ switch:{e:["Ventilación 1-3 días; esternón a veces abierto en el neonato"],v:["Isquemia coronaria: cambios del ST, arritmias ventriculares, disfunción del VI","Presión de AI alta: disfunción del VI o insuficiencia mitral","Sangrado de la raíz aórtica"],m:["Evitar presión arterial alta y volumen excesivo en las primeras horas","ECG de 12 derivaciones y eco precoz; ante isquemia, revisar las coronarias","Milrinona, adrenalina en dosis bajas"]},
+ rastelli:{e:["Ventilación 1-3 días"],v:["Obstrucción del túnel VI-aorta (gradiente en el eco)","BAV completo","Disfunción del VD por la ventriculotomía"],m:["Cables de marcapasos","Eco precoz del túnel y del conducto"]},
+ bt:{e:["SatO₂ 75-85 %"],v:["Trombosis aguda del shunt: desaturación brusca, desaparición del soplo, bradicardia → emergencia","Hiperflujo: presión diastólica baja, acidosis, oliguria, riesgo de enterocolitis necrotizante","Distorsión de la rama pulmonar"],m:["Heparina en las primeras horas y luego aspirina","Ante trombosis: heparina en bolo, subir presión sistémica, oxígeno, y cateterismo, revisión quirúrgica o ECMO","Ante hiperflujo: ver balance Qp/Qs"]},
+ banding:{e:["SatO₂ esperada según la lesión (normal en CIV aislada; 75-85 % en circulación en paralelo)"],v:["Banda demasiado ajustada: cianosis, bradicardia","Banda floja: persistencia del hiperflujo","Migración de la banda (estenosis de rama)"],m:["Ajuste guiado por presión distal, saturación y eco en quirófano","Eco para gradiente y posición"]},
+ stages:{e:["Norwood: SatO₂ 75-85 %; tórax a menudo abierto 24-72 h","Glenn: SatO₂ 75-85 %, cefalea o irritabilidad por presión venosa superior alta","Fontan: SatO₂ 90-95 % (85-90 % si está fenestrado); presión del circuito habitual 12-15 mmHg"],v:["Norwood: desbalance Qp/Qs, obstrucción del arco, del shunt o del Sano, isquemia coronaria, paro súbito","Glenn: hipoxemia por resistencia pulmonar alta o colaterales venovenosas; síndrome de VCS; derrames","Fontan: bajo gasto con presión alta del circuito, derrames prolongados, ascitis, arritmias, trombosis"],m:["Norwood: guiar por lactato, saturación venosa y NIRS; ver balance Qp/Qs","Glenn: cabecera elevada, extubación precoz; hipercapnia leve mejora la oxigenación (aumenta el flujo cerebral y de VCS); evitar hiperventilación","Fontan: precarga adecuada, PEEP baja, extubación precoz, óxido nítrico si la presión transpulmonar es alta, anticoagulación o antiagregación según protocolo","Programa de vigilancia en casa entre el Norwood y el Glenn"]},
+ hybrid:{e:["Se evita la CEC; SatO₂ 75-85 %"],v:["Coartación retrógrada del arco (atresia aórtica) con isquemia coronaria o cerebral","Bandas muy ajustadas o flojas","Restricción del septum auricular"],m:["Eco frecuente del arco retrógrado y del stent","Balance Qp/Qs"]},
+ dvpat:{e:["Ventilación con sedación profunda las primeras 24-48 h en DVPAT obstruido"],v:["Crisis de HTP (cavidades izquierdas pequeñas y poco distensibles)","Bajo gasto por VI pequeño","Arritmias auriculares","Estenosis de venas pulmonares en las semanas o meses siguientes"],m:["Protocolo de crisis de HTP: óxido nítrico, sedación, relajación","Evitar sobrecarga de volumen del VI pequeño","Eco de venas pulmonares en el seguimiento (1, 3, 6 meses)"]},
+ truncus:{e:["Ventilación 2-4 días"],v:["Crisis de HTP","Insuficiencia de la válvula truncal","Hipocalcemia (22q11)","Disfunción del VD"],m:["Protocolo de HTP","Calcio iónico, hemoderivados irradiados"]},
+ unifoc:{e:["Presión del VD que depende del lecho pulmonar conseguido"],v:["Presión del VD alta (relación VD/VI > 0,6-0,7): disfunción del VD","Edema pulmonar de reperfusión en los segmentos unifocalizados","Sangrado, lesión del frénico o del recurrente"],m:["Ventilación protectora, PEEP adecuada","Óxido nítrico si la resistencia pulmonar es alta","Considerar reabrir o fenestrar la CIV si el VD falla"]},
+ dswitch:{e:["Ventilación y soporte inotrópico varios días"],v:["Disfunción del VI morfológico (ahora sistémico)","Obstrucción de los deflectores auriculares (venas pulmonares o cavas)","Arritmias auriculares y BAV"],m:["Milrinona, adrenalina; cables de marcapasos","Eco de deflectores; cateterismo si hay obstrucción"]},
+ cono:{e:["Disfunción del VD en los primeros días"],v:["Bajo gasto por VD débil","Arritmias auriculares y ventriculares","Insuficiencia tricuspídea residual"],m:["Mantener resistencias pulmonares bajas (óxido nítrico, oxígeno, evitar acidosis)","Inotrópicos para el VD; si falla, considerar Glenn (1,5 ventrículos)"]},
+ starnes:{e:["Circulación tipo univentricular con BT: SatO₂ 75-85 %"],v:["Balance Qp/Qs","Trombosis del shunt","Arritmias"],m:["Como cualquier paciente con fístula BT","Seguimiento por la vía univentricular"]},
+ anillo:{e:["Los síntomas respiratorios pueden tardar semanas a meses en mejorar"],v:["Traqueomalacia persistente","Quilotórax, lesión del recurrente o del frénico"],m:["Soporte respiratorio según necesidad; broncoscopía si no mejora"]},
+ warden:{e:["Extubación precoz"],v:["Disfunción sinusal o ritmo de la unión","Obstrucción de la VCS (edema de cara y cuello) o de las venas pulmonares"],m:["Cables de marcapasos auriculares","Eco Doppler de la VCS y de las venas redirigidas"]},
+ valvpl:{e:["Caída inmediata del gradiente valvular","Insuficiencia pulmonar leve"],v:["VD suicida: obstrucción infundibular dinámica con bajo gasto tras liberar la válvula","Desaturación transitoria por cortocircuito por el foramen oval (VD poco distensible)"],m:["Volumen y betabloqueante; evitar inotrópicos (empeoran la obstrucción dinámica)","En el neonato crítico, PGE1 por unos días hasta que el VD se adapte"]},
+ rashkind:{e:["Mejoría inmediata de la saturación (75-85 %)"],v:["Lesión de venas pulmonares o de la válvula AV, perforación, arritmias","Eventos neurológicos (discutido)"],m:["Eco para tamaño de la CIA y posición","Mantener o suspender PGE1 según la mezcla"]}
+};
+const STATSCH={
+ rashkind:[["Atrioseptostomía con balón (cateterismo)",0]],
+ switch:[["Switch arterial",3],["Switch arterial + cierre de CIV",4]],
+ rastelli:[["Rastelli",3],["REV",3],["Nikaidoh",4]],
+ bt:[["Fístula BT modificada",4]],
+ banding:[["Banding pulmonar",4]],
+ tofrep:[["Sin ventriculotomía",1],["Parche no transanular",1],["Parche transanular",2],["Conducto VD-AP",2]],
+ stages:[["Norwood",5],["Damus-Kaye-Stansel",5],["Glenn bidireccional",2],["Hemi-Fontan",3],["Fontan con conducto extracardíaco",2]],
+ hybrid:[["Bandas en ambas ramas",4],["Stent ductal",4],["Stent ductal + bandas",5]],
+ coarto:[["Término-terminal",1],["Término-terminal extendida",2],["Aortoplastia con parche",3]],
+ dapclip:[["Cierre quirúrgico del ductus",2]],
+ dvpat:[["Reparación de DVPAT",4]],
+ truncus:[["Reparación de truncus",4],["Truncus + IAA",5]],
+ unifoc:[["Unifocalización y variantes",4]],
+ dswitch:[["Doble switch",5],["Switch auricular + Rastelli",5]],
+ cono:[["Reparación de Ebstein",4]],
+ cia:[["Cierre con parche o sutura",1],["Dispositivo percutáneo",0]],
+ civ:[["Cierre con parche",1]],
+ cav:[["Canal AV completo",3],["Canal AV parcial",1]],
+ ross:[["Ross",2],["Konno",3],["Ross-Konno",4]],
+ alcapa:[["Reparación de ALCAPA",2]],
+ iaa:[["Reparación de IAA",4]],
+ starnes:[["Sin categoría propia en la tabla STAT (reparación de Ebstein: 4; BT: 4)",0]],
+ anillo:[["Anillo vascular",1],["Sling pulmonar",3]],
+ warden:[["Warden",1]],
+ valvpl:[["Valvuloplastia con balón (cateterismo)",0],["Valvuloplastia pulmonar quirúrgica",2]]
+};
 
 /* ---------- estado ---------- */
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -619,6 +932,7 @@ document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
   showView(b.dataset.v);
   if(b.dataset.v==="cc"){ if(current) history.replaceState(null,"","#"+current); }
   else if(b.dataset.v==="sc") history.replaceState(null,"","#esq-"+sch.p.id);
+  else if(b.dataset.v==="uci"){history.replaceState(null,"","#uci");renderUCI();}
   else history.replaceState(null,"","#"+(b.dataset.v==="pr"?"procedimientos":"estudiar"));
 });
 
@@ -636,7 +950,7 @@ function renderList(){
     if(g!==""&&+g!==gi) return;
     const its=CC.filter(c=>c.g===gi&&matches(c,q));
     if(!its.length) return;
-    html+=`<div class="group-h">${gn}</div>`+its.map(c=>`<button class="item${c.id===current?" sel":""}" data-id="${c.id}"><span class="dot${done.has(c.id)?" done":""}"></span><span class="nm">${esc(c.n)}</span><span class="ab">${esc(c.ab)}</span></button>`).join("");
+    html+=`<div class="group-h">${gn}</div>`+its.map(c=>`<button class="item${c.id===current?" sel":""}" data-id="${c.id}"><span class="dot${done.has(c.id)?" done":""}"></span><span class="nm">${esc(c.n)}${(store.get("cc_notes",{})[c.id])?' <span class="nmk" title="Tiene notas">✎</span>':""}</span><span class="ab">${esc(c.ab)}</span></button>`).join("");
   });
   $("#items").innerHTML=html||'<p style="padding:14px;color:var(--muted)">Sin resultados. Probá con otra palabra.</p>';
   $("#prog").textContent=`${done.size} de ${CC.length} estudiadas`;
@@ -661,13 +975,18 @@ function openCC(id,fromHash){
       <div class="legend" style="margin-bottom:10px">${usedTypes.map(t=>`<span class="tag t-${t}">${TYPES[t]}</span>`).join("")}</div>
       <div class="opts">${c.opts.map(o=>`<div class="opt t-${o.t}"><div class="opt-h"><h4>${esc(o.n)}</h4><span class="tag">${TYPES[o.t]}</span></div>
         <dl><dt>Cuándo</dt><dd>${esc(o.c)}</dd><dt>En qué consiste</dt><dd>${esc(o.h)}</dd><dt>Complicaciones</dt><dd>${esc(o.x)}</dd></dl></div>`).join("")}</div></div>
+    ${STATCC[id]?`<div class="block"><h3>Riesgo quirúrgico (STAT 2020)</h3>${statHTML(STATCC[id])}<p class="hint" style="margin-top:6px">Categorías de mortalidad STS-EACTS: 1 = menor riesgo, 5 = mayor.</p></div>`:""}
+    ${(()=>{const ps=SCH.filter(p=>p.cc.includes(id)&&POSTOP[p.id]);return ps.length?`<div class="block"><h3>Postoperatorio en UCI</h3><div class="chips">${ps.map(p=>`<button class="chip" data-uci="${p.id}">🩺 ${esc(p.n)}</button>`).join("")}</div></div>`:""})()}
     <div class="block"><h3>Evolución a largo plazo</h3><p>${esc(c.lp)}</p></div>
     <div class="pearls"><h3 style="font-size:16px;margin-bottom:6px">Perlas para el examen y la guardia</h3><ul>${c.pe.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+    <div class="block"><h3>Mis notas</h3><textarea id="note" class="note-ta" placeholder="Escribí tus notas: casos que viste, lo que dijo tu docente, dudas para repasar…">${esc((store.get("cc_notes",{})[id])||"")}</textarea><div class="hint" id="notesaved">Se guardan en este dispositivo.</div></div>
     <p class="note">Material de estudio. Las indicaciones, edades y técnicas varían según el centro; contrastá con Moss &amp; Adams, Jonas y las guías de tu institución.</p>
   </div>`;
   $("#mark").onclick=()=>{done.has(id)?done.delete(id):done.add(id);store.set("cc_done",[...done]);openCC(id,true);};
   $("#back").onclick=()=>{$("#v-cc").classList.remove("showdetail");};
   document.querySelectorAll("#detail [data-sch]").forEach(b=>b.onclick=()=>openSch(b.dataset.sch,0));
+  document.querySelectorAll("#detail [data-uci]").forEach(b=>b.onclick=()=>openUCI(b.dataset.uci));
+  let nt=null;$("#note").oninput=e=>{clearTimeout(nt);nt=setTimeout(()=>{const n=store.get("cc_notes",{});const v=e.target.value.trim();if(v)n[id]=e.target.value;else delete n[id];store.set("cc_notes",n);$("#notesaved").textContent="Guardado en este dispositivo.";renderList();},400);};
   $("#v-cc").classList.add("showdetail");
   $("#detail").scrollTop=0;
   showView("cc");
@@ -695,40 +1014,80 @@ $("#pq").oninput=renderGloss; $("#ptype").onchange=renderGloss;
 /* ---------- estudiar ---------- */
 let qz={mode:null,order:[],i:0,score:0,answered:false,flip:false};
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const TOPICS=["Cortocircuitos","Obstrucciones izquierdas","Cianóticas","Mezcla y transposición","Univentricular","Postoperatorio","Otras"];
+const qkey=Q=>Q.q.slice(0,80);
+function qRecord(Q,ok){
+  const st=store.get("cc_qstats",{}),t=Q.tg||"Otras";st[t]=st[t]||{ok:0,tot:0};st[t].tot++;if(ok)st[t].ok++;store.set("cc_qstats",st);
+  const er=store.get("cc_err",{}),k=qkey(Q);
+  if(!ok) er[k]=2; else if(er[k]){er[k]--;if(er[k]<=0)delete er[k];}
+  store.set("cc_err",er);
+}
+function errList(){const er=store.get("cc_err",{});return QUIZ.filter(Q=>er[qkey(Q)]);}
 function qzHome(){
-  const best=store.get("cc_best",null);
-  $("#qz").innerHTML=`<div><h2 style="font-size:26px">Estudiar</h2><p style="color:var(--muted);margin:4px 0 0">Preguntas tipo examen con explicación, o tarjetas para repasar procedimientos.</p></div>
-  <div class="modes">
-    <button class="btn primary" id="m-quiz">Preguntas (${QUIZ.length})</button>
-    <button class="btn primary" id="m-img">Identificar en el esquema (${QIMG.length})</button>
-    <button class="btn" id="m-flash">Tarjetas de procedimientos (${PROCS.length})</button>
+  const best=store.get("cc_best",null), errs=errList(), stats=store.get("cc_qstats",{});
+  const doneN=done.size, tot=CC.length, notes=Object.keys(store.get("cc_notes",{})).length;
+  const rows=TOPICS.map(t=>{const s=stats[t];const n=QUIZ.filter(Q=>Q.tg===t).length;const p=s&&s.tot?Math.round(100*s.ok/s.tot):null;
+    return `<div class="prow"><span class="pt">${t}</span><span class="pbar"><i style="width:${p??0}%" class="${p===null?"":p<60?"low":p<80?"mid":"hi"}"></i></span><span class="pv">${p===null?"sin datos":p+" %"}</span><span class="pn">${n} preg.</span></div>`;}).join("");
+  const weak=TOPICS.filter(t=>stats[t]&&stats[t].tot>=4&&stats[t].ok/stats[t].tot<.6);
+  $("#qz").innerHTML=`<div><h2 style="font-size:26px">Estudiar</h2><p style="color:var(--muted);margin:4px 0 0">Preguntas tipo examen con explicación, identificación de esquemas y tarjetas de procedimientos.</p></div>
+  <div class="qcard"><h3>Preguntas (${QUIZ.length})</h3>
+    <div class="qrow"><select id="qtopic" class="schsel" aria-label="Tema"><option value="">Todos los temas</option>${TOPICS.map(t=>`<option value="${t}">${t} (${QUIZ.filter(Q=>Q.tg===t).length})</option>`).join("")}</select>
+    <select id="qn" class="schsel" aria-label="Cantidad"><option value="10">10 preguntas</option><option value="20" selected>20 preguntas</option><option value="0">Todas</option></select></div>
+    <div class="modes"><button class="btn primary" id="m-quiz">Comenzar</button><button class="btn${errs.length?" primary":""}" id="m-err" ${errs.length?"":"disabled"}>Repasar mis errores (${errs.length})</button></div>
+    <p class="hint" style="margin:0">Las preguntas que fallás quedan en "mis errores" hasta que las respondas bien dos veces.</p></div>
+  <div class="modes"><button class="btn primary" id="m-img">Identificar en el esquema (${QIMG.length})</button><button class="btn" id="m-flash">Tarjetas de procedimientos (${PROCS.length})</button></div>
+  <div class="qcard"><h3>Tu progreso</h3>
+    <div class="prow"><span class="pt">Fichas estudiadas</span><span class="pbar"><i class="hi" style="width:${Math.round(100*doneN/tot)}%"></i></span><span class="pv">${doneN} de ${tot}</span><span class="pn">${notes} con notas</span></div>
+    ${rows}
+    ${weak.length?`<p class="weak">Temas para reforzar: <b>${weak.join(", ")}</b></p>`:""}
+    ${best!==null?`<p class="hint" style="margin:0">Mejor puntaje identificando esquemas: ${store.get("cc_best_img",0)} de ${QIMG.length}.</p>`:""}
   </div>
-  ${best!==null?`<p class="hint">Tu mejor resultado en preguntas: ${best} de ${QUIZ.length}.</p>`:""}
-  ${store.get("cc_best_img",null)!==null?`<p class="hint">Tu mejor resultado identificando esquemas: ${store.get("cc_best_img",0)} de ${QIMG.length}.</p>`:""}`;
+  <div class="qcard"><h3>Respaldo de tus datos</h3><p class="hint" style="margin:0">Progreso, notas y errores se guardan solo en este dispositivo. Exportalos para pasarlos a otro o no perderlos.</p>
+    <div class="modes"><button class="btn" id="m-exp">Exportar</button><button class="btn" id="m-imp">Importar</button></div><div id="bk"></div></div>`;
+  const startQ=list=>{qz={mode:"quiz",list,order:shuffle(list.map((_,i)=>i)),i:0,score:0};renderQuiz();};
+  $("#m-quiz").onclick=()=>{const t=$("#qtopic").value,n=+$("#qn").value;let l=QUIZ.filter(Q=>!t||Q.tg===t);l=shuffle(l);if(n)l=l.slice(0,n);startQ(l);};
+  $("#m-err").onclick=()=>{const l=errList();if(l.length)startQ(l);};
   $("#m-img").onclick=()=>{qz={mode:"img",order:shuffle(QIMG.map((_,i)=>i)),i:0,score:0};renderImg();};
-  $("#m-quiz").onclick=()=>{qz={mode:"quiz",order:shuffle(QUIZ.map((_,i)=>i)),i:0,score:0,answered:false};renderQuiz();};
   $("#m-flash").onclick=()=>{qz={mode:"flash",order:shuffle(PROCS.map((_,i)=>i)),i:0,flip:false};renderFlash();};
+  $("#m-exp").onclick=exportData; $("#m-imp").onclick=importData;
+}
+function collectData(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(/^(cc_|sch_)/.test(k))o[k]=JSON.parse(localStorage.getItem(k));}}catch(e){}return o;}
+function exportData(){
+  const txt=JSON.stringify({app:"cirugia-cc",fecha:new Date().toISOString(),datos:collectData()},null,1);
+  let dl=false;
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/json"}));a.download="cirugia-cc-respaldo.json";document.body.appendChild(a);a.click();a.remove();dl=true;}catch(e){}
+  $("#bk").innerHTML=`<p class="hint">${dl?"Se descargó <b>cirugia-cc-respaldo.json</b>. Si no apareció, copiá el texto:":"Copiá este texto y guardalo:"}</p><textarea class="note-ta" readonly id="bktxt">${esc(txt)}</textarea><div class="modes"><button class="btn sm" id="bkcopy">Copiar</button></div>`;
+  $("#bkcopy").onclick=()=>{try{navigator.clipboard.writeText(txt).then(()=>$("#bkcopy").textContent="Copiado",()=>{$("#bktxt").select();});}catch(e){$("#bktxt").select();}};
+}
+function importData(){
+  $("#bk").innerHTML=`<p class="hint">Elegí el archivo de respaldo o pegá su texto. Reemplaza los datos actuales de este dispositivo.</p><input type="file" id="bkfile" accept=".json,application/json"><textarea class="note-ta" id="bkin" placeholder="…o pegá aquí el texto del respaldo"></textarea><div class="modes"><button class="btn primary sm" id="bkgo">Importar</button></div><p class="hint" id="bkmsg"></p>`;
+  $("#bkfile").onchange=e=>{const fl=e.target.files[0];if(!fl)return;const r=new FileReader();r.onload=()=>{$("#bkin").value=r.result;};r.readAsText(fl);};
+  $("#bkgo").onclick=()=>{try{const o=JSON.parse($("#bkin").value);const d=o.datos||o;let n=0;for(const k in d){if(/^(cc_|sch_)/.test(k)){store.set(k,d[k]);n++;}}
+    if(!n)throw new Error();done=new Set(store.get("cc_done",[]));renderList();$("#bkmsg").textContent="Listo: datos importados.";setTimeout(qzHome,900);}catch(e){$("#bkmsg").textContent="No se pudo leer el respaldo: revisá que sea el archivo o texto exportado por la app.";}};
 }
 function renderQuiz(){
-  if(qz.i>=qz.order.length){
-    const best=store.get("cc_best",0); if(qz.score>best) store.set("cc_best",qz.score);
-    $("#qz").innerHTML=`<div class="qbox"><div class="hint">Resultado</div><div class="score">${qz.score} / ${QUIZ.length}</div>
-    <p style="margin:0">${qz.score>=16?"Muy bien. Repasá las que fallaste en las fichas.":qz.score>=11?"Buen nivel; quedan temas para reforzar.":"Conviene repasar las fichas y volver a intentar."}</p>
-    <div class="modes"><button class="btn primary" id="again">Otra vez</button><button class="btn" id="home">Volver</button></div></div>`;
-    $("#again").onclick=()=>{qz={mode:"quiz",order:shuffle(QUIZ.map((_,i)=>i)),i:0,score:0,answered:false};renderQuiz();};
+  const L=qz.list,N=L.length;
+  if(qz.i>=N){
+    if(N===QUIZ.length){const best=store.get("cc_best",0); if(qz.score>best) store.set("cc_best",qz.score);}
+    const p=N?qz.score/N:0;
+    $("#qz").innerHTML=`<div class="qbox"><div class="hint">Resultado</div><div class="score">${qz.score} / ${N}</div>
+    <p style="margin:0">${p>=.8?"Muy bien. Repasá las que fallaste en las fichas.":p>=.55?"Buen nivel; quedan temas para reforzar.":"Conviene repasar las fichas y volver a intentar."}</p>
+    <div class="modes"><button class="btn primary" id="again">Otra vez</button>${errList().length?`<button class="btn" id="goerr">Repasar mis errores (${errList().length})</button>`:""}<button class="btn" id="home">Volver</button></div></div>`;
+    $("#again").onclick=()=>{qz={mode:"quiz",list:L,order:shuffle(L.map((_,i)=>i)),i:0,score:0};renderQuiz();};
+    if($("#goerr"))$("#goerr").onclick=()=>{const l=errList();qz={mode:"quiz",list:l,order:shuffle(l.map((_,i)=>i)),i:0,score:0};renderQuiz();};
     $("#home").onclick=qzHome; return;
   }
-  const Q=QUIZ[qz.order[qz.i]];
-  $("#qz").innerHTML=`<div class="qbox"><div class="qmeta"><span>Pregunta ${qz.i+1} de ${QUIZ.length}</span><span>Aciertos: ${qz.score}</span></div>
+  const Q=L[qz.order[qz.i]];
+  $("#qz").innerHTML=`<div class="qbox"><div class="qmeta"><span>Pregunta ${qz.i+1} de ${N} · ${esc(Q.tg||"")}</span><span>Aciertos: ${qz.score}</span></div>
   <div class="qtext">${esc(Q.q)}</div>
   <div class="answers">${Q.a.map((a,i)=>`<button class="ans" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(a)}</button>`).join("")}</div>
   <div id="ex"></div><div class="modes"><button class="btn" id="qhome">Salir</button></div></div>`;
   $("#qhome").onclick=qzHome;
   document.querySelectorAll(".ans").forEach(b=>b.onclick=()=>{
-    const i=+b.dataset.i, ok=i===Q.r; if(ok) qz.score++;
+    const i=+b.dataset.i, ok=i===Q.r; if(ok) qz.score++; qRecord(Q,ok);
     document.querySelectorAll(".ans").forEach(x=>{x.disabled=true;if(+x.dataset.i===Q.r)x.classList.add("ok");});
     if(!ok) b.classList.add("bad");
-    $("#ex").innerHTML=`<div class="expl"><b>${ok?"Correcto.":"Incorrecto."}</b> ${esc(Q.e)}</div><div class="modes" style="margin-top:10px"><button class="btn primary" id="next">${qz.i+1<QUIZ.length?"Siguiente":"Ver resultado"}</button></div>`;
+    $("#ex").innerHTML=`<div class="expl"><b>${ok?"Correcto.":"Incorrecto."}</b> ${esc(Q.e)}</div><div class="modes" style="margin-top:10px"><button class="btn primary" id="next">${qz.i+1<N?"Siguiente":"Ver resultado"}</button></div>`;
     $("#next").onclick=()=>{qz.i++;renderQuiz();}; $("#next").focus();
   });
 }
@@ -844,10 +1203,18 @@ function drawSch(st,ov){
   s+=shvi?ch("vi",viName,"M405 345 L505 345 Q506 382 474 404 Q440 414 414 394 Z",col.vi):ch("vi",viName,"M362 312 L548 312 Q554 362 532 404 Q506 450 468 454 Q398 450 366 420 Z",col.vi,cc?4:2);
   if(cc) s+=`<path d="M380 340 L420 330 M392 372 L440 360 M410 404 L470 392 M450 336 L500 326 M470 370 L520 356" class="trab"/>`;
   // válvulas AV
-  s+=`<rect x="212" y="286" width="66" height="30" fill="${C(col.vd)}"/>`;
-  s+=shvi?`<rect x="447" y="286" width="16" height="62" fill="${C(col.vi)}"/>`:`<rect x="422" y="286" width="66" height="30" fill="${C(col.vi)}"/>`;
-  if(!st.noTV) s+=`<path d="M214 296 L230 332 M276 296 L260 332" class="valve" stroke-width="3"/>`;
-  s+=shvi?`<path d="M449 296 L455 340 M461 296 L455 340" class="valve" stroke-width="2"/>`:`<path d="M424 296 L440 332 M486 296 L470 332" class="valve" stroke-width="3"/>`;
+  if(st.avsd===1){
+    s+=g("avsd","Defecto del septum auriculoventricular: CIA ostium primum + CIV de entrada",`<rect x="212" y="286" width="276" height="30" fill="${C(col.cia)}"/><rect x="336" y="262" width="28" height="92" fill="${C(col.cia)}"/>`);
+    s+=g("avsd","Válvula auriculoventricular común",`<path d="M214 296 L232 330 M486 296 L468 330 M290 300 Q350 326 410 300" class="valve" stroke-width="3.5" fill="none"/>`);
+    lbl(350,256,"canal AV");ring("avsd",350,305,56);
+  } else {
+    if(!st.tvPatch) s+=`<rect x="212" y="286" width="66" height="30" fill="${C(col.vd)}"/>`;
+    s+=shvi?`<rect x="447" y="286" width="16" height="62" fill="${C(col.vi)}"/>`:`<rect x="422" y="286" width="66" height="30" fill="${C(col.vi)}"/>`;
+    if(!st.noTV) s+=`<path d="M214 296 L230 332 M276 296 L260 332" class="valve" stroke-width="3"/>`;
+    s+=shvi?`<path d="M449 296 L455 340 M461 296 L455 340" class="valve" stroke-width="2"/>`:`<path d="M424 296 L440 332 M486 296 L470 332" class="valve" stroke-width="3"/>`;
+    if(st.avsd===2){s+=g("patch","Reparación con doble parche (CIA primum y CIV de entrada) y cierre del cleft",`<path d="M350 252 L350 362" stroke="var(--patch)" stroke-width="8" stroke-linecap="round"/><path d="M452 300 L458 320" stroke="var(--patch)" stroke-width="3"/>`);lbl(392,376,"doble parche","start");ring("patch",350,306,52);}
+    if(st.tvPatch){s+=g("tvpatch","Cierre de la tricúspide con parche fenestrado (Starnes)",`<path d="M212 300 L278 300" stroke="var(--patch)" stroke-width="7" stroke-linecap="round"/><circle cx="245" cy="300" r="3.5" fill="${C(col.ad)}"/>`);lbl(245,334,"parche fenestrado");ring("tvpatch",245,300,36);}
+  }
   const vdL=cc?"VI morf.":"VD", viL=cc?"VD morf.":"VI";
   lbl(205,252,"AD");lbl(500,252,"AI");lbl(205,400,vdL);lbl(shvi?455:500,shvi?381:400,viL);
 
@@ -864,9 +1231,13 @@ function drawSch(st,ov){
   }
 
   // CIA / CIV
-  if(st.cia){const h=st.cia===2?72:22,y=245-h/2;s+=g("cia",st.cia===2?"CIA amplia (septectomía)":"Foramen oval / CIA restrictiva",`<rect x="336" y="${y}" width="28" height="${h}" fill="${C(col.cia)}"/>`+(st.septStent?`<rect x="341" y="${y+4}" width="18" height="${h-8}" class="stent"/>`:""));lbl(350,y-5,"CIA");ring("cia",350,245,h/2+14);}
+  if(st.cia){const h=st.cia===2?72:22,y=st.ciaHigh?204:245-h/2;s+=g("cia",st.ciaN||(st.cia===2?"CIA amplia (septectomía)":"Foramen oval / CIA restrictiva"),`<rect x="336" y="${y}" width="28" height="${h}" fill="${C(col.cia)}"/>`+(st.septStent?`<rect x="341" y="${y+4}" width="18" height="${h-8}" class="stent"/>`:""));lbl(350,y-5,"CIA");ring("cia",350,y+h/2,h/2+14);}
   if(st.civ){s+=g("civ","Comunicación interventricular",`<rect x="336" y="325" width="28" height="34" fill="${C(col.civ)}"/>`);lbl(350,378,"CIV");ring("civ",350,342,28);}
   if(st.civPatch){s+=g("patch","Parche de cierre de la CIV",`<path d="M352 320 L344 362" stroke="var(--patch)" stroke-width="8" stroke-linecap="round"/>`);ring("patch",348,341,28);}
+  if(st.asdDev){s+=g("device","Dispositivo de cierre de CIA (doble disco)",`<rect x="326" y="214" width="10" height="62" rx="5" class="band"/><rect x="364" y="214" width="10" height="62" rx="5" class="band"/><rect x="336" y="237" width="28" height="16" class="band"/>`);lbl(350,206,"dispositivo");ring("device",350,245,42);}
+  if(st.ciaPatch){s+=g("ciapatch","Parche de cierre de la CIA",`<path d="M350 214 L350 276" stroke="var(--patch)" stroke-width="8" stroke-linecap="round"/>`);lbl(350,206,"parche");ring("ciapatch",350,245,38);}
+  if(st.vsdDev){s+=g("device","Dispositivo de cierre de CIV",`<rect x="326" y="318" width="10" height="48" rx="5" class="band"/><rect x="364" y="318" width="10" height="48" rx="5" class="band"/><rect x="336" y="334" width="28" height="14" class="band"/>`);lbl(350,382,"dispositivo");ring("device",350,342,34);}
+  if(st.konno){s+=g("konno","Parche de Konno: ampliación del septum y del anillo aórtico",`<path d="M356 316 L342 362" stroke="var(--patch)" stroke-width="10" stroke-linecap="round"/>`);lbl(300,374,"Konno","end");ring("konno",349,339,30);}
   if(st.tunnel){s+=g("tunnel","Túnel intraventricular VI → aorta (parche)",`<path d="M420 392 Q 350 365 298 322" stroke="var(--patch)" stroke-width="8" fill="none" stroke-linecap="round"/>`);lbl(392,418,"túnel");}
 
   // ramas pulmonares y tronco
@@ -881,15 +1252,23 @@ function drawSch(st,ov){
     let out="";
     if(st.paAtr) return g("pa","Atresia pulmonar: cordón fibroso sin flujo",`<path d="M${paX} 310 L${paX} 140" stroke="var(--myo-d)" stroke-width="4" stroke-dasharray="5 4" fill="none"/>`);
     if(st.paDiv){out+=ves("pa","Tronco pulmonar (muñón cerrado)",`M${paX} 312 L${paX} 292`,pw,col.vi)+`<path d="M${paX-pw/2-3} 292 L${paX+pw/2+3} 292" stroke="var(--metal)" stroke-width="3"/>`;out+=ves("pa","Arteria pulmonar distal",`M${paX} 252 L${paX} 135`,pw,col.pa);}
-    else out+=ves("pa",st.sw?"Neopulmonar (tronco pulmonar)":"Tronco de la arteria pulmonar",`M${paX} 312 L${paX} 135`,pw,col.pa)+cusps(paX);
+    else out+=(st.paGraft?graft("pa","Homoinjerto en posición pulmonar (Ross)",`M${paX} 312 L${paX} 135`,pw,col.pa):ves("pa",st.sw?"Neopulmonar (tronco pulmonar)":"Tronco de la arteria pulmonar",`M${paX} 312 L${paX} 135`,pw,col.pa))+cusps(paX);
+    if(st.pvBalloon){out+=g("pvballoon","Balón de valvuloplastia inflado en la válvula pulmonar",`<path d="M100 480 L100 262 Q100 250 160 256 Q 250 300 250 360 Q 262 400 ${paX} 340 L${paX} 250" stroke="var(--metal)" stroke-width="2" fill="none"/><rect x="${paX-12}" y="262" width="24" height="56" rx="11" fill="#fff" fill-opacity=".9" stroke="var(--metal)" stroke-width="2"/>`);lbl(paX-18,250,"balón","end");ring("pvballoon",paX,290,34);}
     if(st.pst){out+=`<polygon points="${paX-pw/2-3},280 ${paX-pw/2+4},295 ${paX-pw/2-3},310" fill="var(--panel)"/><polygon points="${paX+pw/2+3},280 ${paX+pw/2-4},295 ${paX+pw/2+3},310" fill="var(--panel)"/>`;ring("pst",paX,295,24);}
     if(st.tap){out+=g("tap","Parche transanular",`<path d="M${paX+pw/2+3} 314 L${paX+pw/2+3} 238" stroke="var(--patch)" stroke-width="6" stroke-linecap="round"/>`);ring("tap",paX+pw/2,276,44);}
     return out;
   };
-  const vcs=()=>ves("vcs",st.glenn?"Vena cava superior anastomosada a la rama derecha (Glenn)":"Vena cava superior",st.glenn?"M180 0 L180 135":"M180 0 L180 204",16,col.vcs);
+  const vcs=()=>st.warden?ves("vcs","VCS craneal anastomosada a la orejuela derecha (Warden)","M180 0 L180 96 Q180 152 156 196",16,col.vcs)+ves("vcsst","Muñón de VCS que recibe la vena anómala; se conduce a la AI por la CIA","M180 128 L180 204",14,col.pv)+`<path d="M166 112 L194 112" stroke="var(--metal)" stroke-width="4"/>`:ves("vcs",st.glenn?"Vena cava superior anastomosada a la rama derecha (Glenn)":"Vena cava superior",st.glenn?"M180 0 L180 135":"M180 0 L180 204",16,col.vcs);
   const vci=()=>st.fontan?graft("fontan","Conducto de Fontan extracardíaco (VCI → rama pulmonar)","M100 480 L100 162 Q100 135 127 135",18,col.vci):ves("vci","Vena cava inferior","M100 480 L100 265 Q100 250 154 250",18,col.vci);
   const aorta=()=>{
     let out="";
+    if(st.dblArch){
+      out+=ves("ao2","Arco aórtico derecho (posterior: rodea tráquea y esófago)","M415 92 Q 398 8 480 8 Q 600 8 628 66",16,col.ao);
+      if(st.dblArch===2) out+=g("cut","Sección del arco menor entre ligaduras",`<rect x="586" y="-2" width="16" height="32" fill="var(--panel)"/><path d="M584 4 L588 26 M604 4 L600 26" stroke="var(--metal)" stroke-width="4"/>`);
+      out+=g("trq","Tráquea",`<rect x="466" y="0" width="22" height="122" rx="9" fill="#d5dde8" stroke="#8a97a8" stroke-width="1.5"/><path d="M466 14 h22 M466 30 h22 M466 46 h22 M466 62 h22 M466 78 h22 M466 94 h22 M466 110 h22" stroke="#8a97a8" stroke-width="1.2"/>`);
+      lbl(500,30,"tráquea","start");lbl(440,26,"arco D","end");
+      if(st.dblArch===2){ring("cut",594,14,22);lbl(560,40,"sección","end");}
+    }
     out+=ves("head","Vasos del cuello",`M${hx+20} 45 L${hx+6} 4 M${hx+75} 45 L${hx+75} 4 M${hx+130} 45 L${hx+140} 4`,9,col.ao);
     if(nw){
       out+=ves("aon","Aorta nativa hipoplásica (lleva sangre a las coronarias)","M415 345 L415 58",8,col.ao);
@@ -900,6 +1279,10 @@ function drawSch(st,ov){
     } else {
       out+=ves("ao",tr&&!st.trSep?"Tronco arterioso común":st.sw?"Neoaorta":"Aorta",`M${aoX} ${tof?332:312} L${aoX} 80 Q${aoX} 45 ${aoX+35} 45 L610 45 Q640 45 640 75`,tr?30:26,col.ao)+cusps(aoX);
     }
+    if(st.as){out+=`<polygon points="${aoX-16},${tof?318:296} ${aoX-8},${tof?326:306} ${aoX-16},${tof?334:316}" fill="var(--panel)"/><polygon points="${aoX+16},${tof?318:296} ${aoX+8},${tof?326:306} ${aoX+16},${tof?334:316}" fill="var(--panel)"/>`;ring("as",aoX,306,24);}
+    if(st.ross){out+=g("autograft","Autoinjerto pulmonar en posición aórtica (Ross)",`<rect x="${aoX-16}" y="262" width="32" height="52" rx="6" fill="none" stroke="var(--patch)" stroke-width="3" stroke-dasharray="5 3"/>`);lbl(aoX+24,288,"autoinjerto","start");ring("autograft",aoX,288,36);}
+    if(st.iaa===1){out+=g("iaa","Interrupción del arco aórtico (tipo B: entre carótida y subclavia izquierdas)",`<rect x="${hx+93}" y="26" width="20" height="40" fill="var(--panel)"/>`);lbl(hx+103,84,"interrupción");ring("iaa",hx+103,45,26);}
+    if(st.iaa===2){out+=g("iaa","Anastomosis del arco reconstruido",`<path d="M${hx+103} 30 L${hx+103} 60" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="2 2.5"/>`);lbl(hx+103,84,"anastomosis");ring("iaa",hx+103,45,26);}
     out+=ves("desc","Aorta descendente","M640 75 L640 480",shvi&&!nw?22:26,col.desc);
     if(st.mapca===2) out+=`<path d="M624 165 L656 165 M624 205 L656 205 M624 240 L656 240" stroke="var(--metal)" stroke-width="3"/>`;
     return out;
@@ -908,6 +1291,11 @@ function drawSch(st,ov){
   else { s+=drawBranches()+vcs()+vci()+aorta()+trBranches()+drawTrunk(); }
   if(st.mapca===2){s+=ves("mapca","Colaterales unifocalizadas a las ramas pulmonares","M70 140 Q66 170 62 200 M560 140 Q584 150 590 170 M560 140 Q598 190 592 228",8,col.pa);lbl(70,222,"unifocalización","start");}
 
+  // seno venoso / Warden
+  if(st.svasd){s+=ves("pvan","Vena pulmonar superior derecha que drena en la VCS",`M60 150 Q120 156 172 150`,8,col.pv);lbl(110,168,"vena anómala");}
+  if(st.warden){s+=baffle("baffle","Parche que conduce el muñón de VCS y la vena anómala a la AI por la CIA","M184 206 C 250 214, 300 224, 380 232",12,col.pv);lbl(270,200,"parche");}
+  if(st.alcapa===1){s+=ves("alcapa","Coronaria izquierda que nace de la arteria pulmonar (ALCAPA)",`M${paX+12} 300 Q ${paX+70} 300 380 332 Q 430 352 472 392`,4,col.pa);lbl(430,330,"ALCAPA","start");ring("alcapa",380,332,40);}
+  if(st.alcapa===2){s+=ves("alcapa","Coronaria izquierda reimplantada en la aorta",`M${aoX+13} 302 Q ${aoX+25} 322 430 345 Q 455 362 472 392`,4,col.ao);lbl(470,330,"reimplante","start");ring("alcapa",430,345,40);}
   // drenaje venoso anómalo
   if(st.tapvr){
     if(st.vvLig) s+=ves("vvlig","Vena vertical ligada","M545 176 L545 158",12,col.pv)+g("vvlig","Ligadura de la vena vertical",`<rect x="533" y="150" width="24" height="7" rx="2" class="band"/>`);
@@ -1024,12 +1412,56 @@ const SCH=[
 const QIMG=[["rashkind",2,"Atrioseptostomía de Rashkind"],["switch",3,"Switch arterial (Jatene) con Lecompte"],["rastelli",3,"Operación de Rastelli"],["bt",2,"Fístula de Blalock-Taussig modificada"],["banding",1,"Banding de la arteria pulmonar"],["tofrep",3,"Reparación de Fallot con parche transanular"],["stages",1,"Norwood con fístula BT"],["stages",2,"Norwood con conducto de Sano"],["stages",3,"Glenn bidireccional"],["stages",4,"Fontan extracardíaco"],["hybrid",3,"Paliación híbrida"],["coarto",0,"Coartación de aorta ductus-dependiente"],["dapclip",1,"Clip o ligadura del ductus"],["dvpat",0,"DVPAT supracardíaco"],["truncus",0,"Tronco arterioso común"],["truncus",2,"Reparación de truncus con conducto VD-AP"],["unifoc",0,"Atresia pulmonar con CIV y MAPCAs"],["unifoc",1,"Unifocalización de MAPCAs"],["dswitch",2,"Switch auricular (Senning)"],["cono",0,"Anomalía de Ebstein"],["cono",1,"Reparación con cono (Da Silva)"]];
 const PSCH=
 {"Blalock":["bt",1],"Banding":["banding",1],"Rashkind":["rashkind",1],"Jatene":["switch",1],"Lecompte":["switch",2],"Rastelli":["rastelli",1],"Norwood":["stages",1],"Sano":["stages",2],"Glenn":["stages",3],"Fontan":["stages",4],"híbrid":["hybrid",1],"transanular":["tofrep",2],"stent ductal":["hybrid",2],"Damus":["stages",1],"Unifocalización":["unifoc",1],"cono":["cono",1],"Senning":["dswitch",2],"Doble switch":["dswitch",3]};
+SCH.push(
+{id:"cia",n:"Cierre de CIA",cc:["cia"],steps:[
+ {t:"CIA ostium secundum grande",sat:"SatO₂ normal · Qp/Qs > 1,5",x:"Cortocircuito izquierda-derecha a nivel auricular: sobrecarga de volumen de AD, VD y circulación pulmonar.",st:{cia:2,ciaN:"CIA ostium secundum",col:{ad:"M",vd:"M",pa:"M",cia:"O"},hi:["cia"]}},
+ {t:"Cierre percutáneo con dispositivo",sat:"Sin cirugía · eco transesofágica",x:"Por vena femoral se cruza la CIA y se despliega un dispositivo de doble disco, uno de cada lado del septum, unidos por una cintura que ocupa el defecto. Requiere bordes adecuados.",st:{cia:2,ciaN:"CIA ostium secundum",asdDev:1,hi:["device"]}},
+ {t:"Alternativa quirúrgica: parche",sat:"Con circulación extracorpórea",x:"Defectos sin bordes, seno venoso, ostium primum o pacientes chicos: cierre por atriotomía derecha con parche de pericardio autólogo o sutura directa.",st:{ciaPatch:1,hi:["ciapatch"]}}]},
+{id:"civ",n:"Cierre de CIV",cc:["civ"],steps:[
+ {t:"CIV perimembranosa grande",sat:"SatO₂ normal · hiperflujo pulmonar",x:"El cortocircuito izquierda-derecha transmite presión y volumen a la pulmonar: insuficiencia cardíaca y riesgo de enfermedad vascular pulmonar.",st:{civ:1,paw:32,col:{vd:"M",pa:"M"},hi:["civ"]}},
+ {t:"Cierre con parche",sat:"Con circulación extracorpórea",x:"Por vía transauricular, a través de la tricúspide, se cierra la CIV con un parche. Las suturas en el borde posteroinferior se colocan con cuidado: ahí corre el haz de His.",st:{civPatch:1,hi:["patch"]}},
+ {t:"Alternativa: dispositivo en CIV muscular",sat:"Cateterismo o vía perventricular",x:"Las CIV musculares pueden cerrarse con un dispositivo por cateterismo o colocado a través de la pared del VD sin circulación extracorpórea.",st:{civ:1,vsdDev:1,hi:["device"]}}]},
+{id:"cav",n:"Reparación de canal AV completo",cc:["cav"],steps:[
+ {t:"Canal AV completo",sat:"SatO₂ normal o algo baja · HTP precoz",x:"CIA ostium primum, CIV de entrada y una válvula AV común con valvas puente. Cortocircuito y regurgitación valvular con hiperflujo pulmonar.",st:{avsd:1,noTV:1,col:{ad:"M",vd:"M",pa:"M",cia:"M"},hi:["avsd"]}},
+ {t:"Reparación con doble parche",sat:"Con circulación extracorpórea · 3-6 meses",x:"Un parche cierra la CIV de entrada y otro la CIA primum; la válvula común se divide en dos válvulas AV y se cierra el cleft de la válvula izquierda.",st:{avsd:2,hi:["patch"]}}]},
+{id:"ross",n:"Ross y Ross-Konno",cc:["eao","esubao"],steps:[
+ {t:"Estenosis aórtica valvular",sat:"Gradiente alto · hipertrofia del VI",x:"Válvula aórtica estenótica (a menudo uni o bicúspide) que ya no se puede reparar o dilatar.",st:{as:1,hi:["as"]}},
+ {t:"Operación de Ross",sat:"Con circulación extracorpórea",x:"La válvula pulmonar propia (autoinjerto) se trasplanta a la posición aórtica con reimplante de coronarias; un homoinjerto reemplaza la válvula pulmonar. El autoinjerto crece y no requiere anticoagulación.",st:{ross:1,paGraft:1,cor:1,hi:["autograft","pa"]}},
+ {t:"Ross-Konno",sat:"TSVI o anillo pequeños",x:"Si además el tracto de salida del VI es estrecho, se incide el septum por debajo del anillo y se amplía con un parche (Konno) antes de colocar el autoinjerto.",st:{ross:1,paGraft:1,cor:1,konno:1,hi:["konno"]}}]},
+{id:"alcapa",n:"Reimplante coronario en ALCAPA",cc:["alcapa"],steps:[
+ {t:"ALCAPA",sat:"Isquemia del VI al bajar la resistencia pulmonar",x:"La coronaria izquierda nace de la arteria pulmonar. Cuando la resistencia pulmonar baja, el flujo se invierte hacia la pulmonar (robo) y el VI queda isquémico.",st:{alcapa:1,hi:["alcapa"]}},
+ {t:"Reimplante directo en la aorta",sat:"Con circulación extracorpórea",x:"Se extrae un botón de pared pulmonar con el ostium coronario y se reimplanta en la aorta: se recupera un sistema de dos coronarias. La función del VI mejora en semanas a meses.",st:{alcapa:2,hi:["alcapa"]}}]},
+{id:"iaa",n:"Reparación de interrupción del arco",cc:["iaa"],steps:[
+ {t:"Interrupción del arco tipo B con CIV",sat:"Saturación posductal más baja · PGE1",x:"El arco se interrumpe entre la carótida izquierda y la subclavia izquierda. La aorta descendente depende del ductus. Casi siempre hay CIV; asociado a 22q11.",st:{iaa:1,dap:1,civ:1,col:{desc:"M",dap:"M",vd:"M",pa:"M"},hi:["iaa","dap"]}},
+ {t:"Reparación primaria completa",sat:"Esternotomía con CEC",x:"Se secciona el ductus, se anastomosa la aorta descendente al arco y a la aorta ascendente, y se cierra la CIV en el mismo tiempo.",st:{iaa:2,civPatch:1,hi:["iaa","patch"]}}]},
+{id:"starnes",n:"Operación de Starnes (Ebstein neonatal)",cc:["ebstein"],steps:[
+ {t:"Ebstein neonatal grave",sat:"Cianosis grave · cardiomegalia",x:"Insuficiencia tricuspídea masiva con VD que no logra eyectar a la pulmonar. Puede haber cortocircuito circular: sangre que vuelve por el ductus a la pulmonar, al VD y a la AD.",st:{ebstein:1,noTV:1,cia:1,dap:1,dapLR:1,col:{ad:"M",vd:"D",pa:"M",ao:"M",cia:"M",ai:"M",vi:"M"},hi:["ebs","dap"]}},
+ {t:"Cierre de la tricúspide y fístula BT",sat:"SatO₂ 75-85 %",x:"Se cierra el orificio tricuspídeo con un parche fenestrado (descomprime el VD), se amplía la CIA (atrioseptectomía) y se coloca una fístula BT. El paciente sigue por la vía univentricular (Glenn y Fontan).",st:{ebstein:1,noTV:1,tvPatch:1,cia:2,bt:1,col:{ad:"M",vd:"D",pa:"M",ao:"M",cia:"M",ai:"M",vi:"M"},hi:["tvpatch","bt","cia"]}}]},
+{id:"anillo",n:"Sección de anillo vascular (doble arco)",cc:["anillos"],steps:[
+ {t:"Doble arco aórtico",sat:"Estridor, sibilancias, disfagia",x:"Persisten ambos arcos: el derecho (por lo general dominante y posterior) y el izquierdo rodean la tráquea y el esófago formando un anillo completo.",st:{dblArch:1,hi:["ao2","trq"]}},
+ {t:"Sección del arco menor",sat:"Toracotomía, sin CEC",x:"Se liga y secciona el arco menor (habitualmente el izquierdo, que en el esquema aparece como el derecho para simplificar) y el ligamento arterioso; se liberan bandas fibrosas alrededor de la tráquea.",st:{dblArch:2,hi:["cut"]}}]},
+{id:"warden",n:"Operación de Warden",cc:["cia","dvpap"],steps:[
+ {t:"CIA seno venoso superior con DVPAP",sat:"SatO₂ normal · sobrecarga derecha",x:"Defecto alto, en la entrada de la VCS, con la vena pulmonar superior derecha drenando en la VCS.",st:{cia:1,ciaHigh:1,ciaN:"CIA seno venoso superior",svasd:1,col:{vcs:"M",ad:"M",vd:"M",pa:"M"},hi:["pvan","cia"]}},
+ {t:"Warden",sat:"Con circulación extracorpórea",x:"Se secciona la VCS por encima de la vena anómala y su extremo craneal se anastomosa a la orejuela derecha. El muñón inferior, que recibe la vena anómala, se conduce con un parche a través de la CIA hacia la AI.",st:{cia:1,ciaHigh:1,ciaN:"CIA seno venoso (cerrada por el parche)",svasd:1,warden:1,hi:["vcs","baffle"]}}]},
+{id:"valvpl",n:"Valvuloplastia pulmonar con balón",cc:["ep","apsi"],steps:[
+ {t:"Estenosis pulmonar valvular crítica",sat:"Cianosis si hay cortocircuito por el foramen oval",x:"Válvula en domo con apertura mínima; VD hipertrófico con presión suprasistémica.",st:{pst:1,paw:22,cia:1,col:{ad:"D",cia:"D",ai:"M",vi:"M",ao:"M"},hi:["pst"]}},
+ {t:"Balón inflado en la válvula",sat:"Cateterismo · balón 1,2-1,4 × anillo",x:"Por vena femoral se avanza el catéter por la AD y el VD hasta la válvula; el balón se infla hasta que desaparece la cintura.",st:{pst:1,paw:22,pvBalloon:1,hi:["pvballoon"]}},
+ {t:"Resultado",sat:"Gradiente residual bajo · insuficiencia leve",x:"Cae el gradiente valvular. Puede quedar una obstrucción infundibular dinámica transitoria (VD suicida) que se trata con volumen y betabloqueantes.",st:{paw:22,hi:["pa"]}}]}
+);
+const SCHGR={rashkind:"Cateterismo",valvpl:"Cateterismo",bt:"Paliativas",banding:"Paliativas",stages:"Univentricular",hybrid:"Univentricular",starnes:"Univentricular"};
+QIMG.push(["cia",1,"Cierre de CIA con dispositivo"],["cav",0,"Canal AV completo"],["ross",1,"Operación de Ross"],["alcapa",0,"ALCAPA"],["iaa",0,"Interrupción del arco aórtico"],["starnes",1,"Operación de Starnes"],["anillo",0,"Doble arco aórtico"],["warden",0,"CIA seno venoso con DVPAP"],["valvpl",1,"Valvuloplastia pulmonar con balón"]);
+Object.assign(PSCH,{"Ross":["ross",1],"Konno":["ross",2],"Starnes":["starnes",1],"Warden":["warden",1],"Valvuloplastia":["valvpl",1]});
+
 
 let sch={p:SCH[0],i:0,timer:null};
 function stopPlay(){if(sch.timer){clearInterval(sch.timer);sch.timer=null;}$("#splay").textContent="▶ Reproducir";}
 function renderSch(){
   const P=sch.p, S=P.steps[sch.i];
   $("#schlist").innerHTML=SCH.map(p=>`<button class="chip" data-id="${p.id}" aria-pressed="${p===P}">${esc(p.n)}</button>`).join("");
+  const GRS=["Correctoras","Paliativas","Univentricular","Cateterismo"];
+  $("#schsel").innerHTML=GRS.map(gname=>`<optgroup label="${gname}">${SCH.filter(p=>(SCHGR[p.id]||"Correctoras")===gname).map(p=>`<option value="${p.id}"${p===P?" selected":""}>${esc(p.n)}</option>`).join("")}</optgroup>`).join("");
+  $("#cnum").textContent=`Paso ${sch.i+1} de ${P.steps.length}`;$("#ctitle").textContent=S.t;$("#csat").textContent=S.sat;$("#ctext").textContent=S.x;
+  $("#cprev").disabled=sch.i===0;$("#cnext").disabled=sch.i===P.steps.length-1;
   document.querySelectorAll("#schlist .chip").forEach(b=>b.onclick=()=>openSch(b.dataset.id,0));
   $("#schsvg").innerHTML=drawSch(S.st);
   $("#schsvg").setAttribute("aria-label",P.n+": "+S.t);
@@ -1045,7 +1477,14 @@ function renderSch(){
   const links=P.cc.map(id=>CC.find(c=>c.id===id)).filter(Boolean);
   $("#schlinks").innerHTML="Ver ficha: "+links.map(c=>`<a href="#${c.id}" data-go="${c.id}">${esc(c.n)}</a>`).join(" · ");
   document.querySelectorAll("#schlinks [data-go]").forEach(a=>a.onclick=e=>{e.preventDefault();stopPlay();openCC(a.dataset.go);});
+  const stt=STATSCH[P.id]||[], po=POSTOP[P.id];
+  $("#schpob").innerHTML=statHTML(stt)+(po?`<p class="pol"><b>Qué vigilar:</b> ${po.v.map(esc).join("; ")}.</p><button class="btn sm" id="gouci">Abrir hoja de UCI</button>`:"");
+  if($("#gouci")) $("#gouci").onclick=()=>{stopPlay();openUCI(P.id);};
 }
+function statHTML(list){return list.length?`<div class="statlist">${list.map(([n,c])=>`<span class="stat s${c}"><b>${c?"STAT "+c:"—"}</b>${esc(n)}</span>`).join("")}</div>`:"";}
+$("#schsel").onchange=e=>openSch(e.target.value,0);
+$("#cprev").onclick=()=>$("#sprev").click();
+$("#cnext").onclick=()=>$("#snext").click();
 function openSch(id,i){
   const p=SCH.find(x=>x.id===id); if(!p) return;
   stopPlay(); sch.p=p; sch.i=i||0; showView("sc"); renderSch();
@@ -1190,7 +1629,7 @@ function build3D(){
 
   // ---- etiquetas ----
   const LB=[];
-  function label(txt,pos,h=.17){h*=1.35;
+  function label(txt,pos,h=.17){h*=1.35*((T3&&T3.renderer.domElement.clientWidth<520)?1.45:1);
     if(!o.lbl)return;
     const c=document.createElement("canvas"),g=c.getContext("2d"),fs=44;g.font=`700 ${fs}px "IBM Plex Sans",system-ui,sans-serif`;
     const w=Math.ceil(g.measureText(txt).width)+28;c.width=w;c.height=fs+22;g.font=`700 ${fs}px "IBM Plex Sans",system-ui,sans-serif`;
@@ -1236,8 +1675,15 @@ function build3D(){
   if(hi.has("cor")){corMat.emissive=accent.clone();T3.hls.push({m:corMat});label("coronarias",[0.9,-0.9,1.0],.15);}
 
   // válvulas AV
+  if(st.avsd===1){
+    ring("avsd","Válvula auriculoventricular común",[0.05,0.14,0.0],[0.05,-0.9,0.2],.62,.04,valveMat());
+    cyl("avsd","Defecto del septum AV: CIA ostium primum + CIV de entrada",[0.02,0.55,-0.12],[0.08,-0.2,0.12],.2,vMat(C(col.cia),.8),7);label("canal AV",[0.15,0.75,0.6],.15);
+  } else {
   if(!st.noTV) ring("tv","Válvula tricúspide",[-0.5,0.12,0.36],[0.25,-0.8,0.25],.27,.035,valveMat());
+  if(st.tvPatch){cyl("tvpatch","Cierre de la tricúspide con parche fenestrado (Starnes)",[-0.51,0.14,0.35],[-0.48,0.1,0.37],.28,patchMat(),7);label("parche fenestrado",[-1.2,0.25,0.9],.14);}
+  if(st.avsd===2){cyl("patch","Reparación con doble parche y cierre del cleft",[0.05,0.5,-0.1],[0.09,0.46,-0.07],.3,patchMat(),7);cyl("patch","Parche de la CIV de entrada",[0.06,-0.05,0.08],[0.1,-0.09,0.11],.24,patchMat(),7);label("doble parche",[0.4,0.75,0.6],.14);}
   ring("mv",shvi?"Válvula mitral hipoplásica":"Válvula mitral",[0.62,0.14,-0.34],[-0.1,-0.9,0.2],shvi?.1:.27,.035,valveMat());
+  }
   label(cc?"AD":"AD",[-1.35,1.25,0.45]);label("AI",[1.4,1.45,-0.45]);
   label(cc?"VI morf.":"VD",[-1.1,-0.85,0.95]);label(cc?"VD morf.":"VI",[shvi?0.95:1.35,shvi?-0.75:-1.0,0.4]);
 
@@ -1262,12 +1708,30 @@ function build3D(){
   // aorta
   if(shvi&&!nw){vessel("ao","Aorta ascendente hipoplásica",[[0.38,-0.3,-0.12],[0.1,0.9,-0.05],[0.0,1.6,-0.05],[0.12,2.2,-0.15]],.06,C(col.ao));
     vessel("ao","Arco aórtico",[[0.12,2.2,-0.15],...ARCH],.1,C(col.ao));label("Ao hipoplásica",[0.55,2.0,0.3],.14);}
-  else if(aoPts){vessel("ao",aoName,aoPts,aoR,C(col.ao));
+  else if(aoPts&&st.iaa===1){vessel("ao","Aorta ascendente y arco proximal",[...aoPts.slice(0,4),[0.4,2.38,-0.3]],aoR,C(col.ao));
+    vessel("iaa","Arco distal a la interrupción (recibe sangre del ductus)",[[0.6,2.39,-0.4],[0.8,2.3,-0.55],[1.02,1.85,-0.78]],aoR,C(col.desc));label("interrupción",[0.5,2.85,-0.3],.15);
+    ring("sv","Válvula aórtica",aoPts[0],V3(aoPts[1]).sub(V3(aoPts[0])).toArray(),aoR*1.02,.025,valveMat());}
+  else if(aoPts){vessel("ao",aoName,aoPts,aoR,C(col.ao),{narrow:st.as?{p:V3(aoPts[0]).lerp(V3(aoPts[1]),.12).toArray(),r:.22,k:.45}:null});
+    if(st.iaa===2){ring("iaa","Anastomosis del arco reconstruido",[0.5,2.4,-0.36],[1,0.15,-0.4],aoR+.02,.02,new T.MeshStandardMaterial({color:0x2b2f3a,emissive:new T.Color(0),emissiveIntensity:0}));label("anastomosis",[0.5,2.85,-0.3],.14);}
+    if(st.ross){const a=V3(aoPts[0]),b=a.clone().lerp(V3(aoPts[1]),.38);[a,b].forEach(p=>ring("autograft","Autoinjerto pulmonar en posición aórtica (Ross)",p.toArray(),V3(aoPts[1]).sub(V3(aoPts[0])).toArray(),aoR+.02,.03,patchMat()));label("autoinjerto",[b.x+0.55,b.y,b.z+0.3],.14);}
+    if(st.as) label("estenosis aórtica",[0.75,0.45,0.5],.14);
     ring("sv","Válvula "+(tr&&!st.trSep?"truncal":"aórtica"),aoPts[0],V3(aoPts[1]).sub(V3(aoPts[0])).toArray(),aoR*1.02,.025,valveMat());
     label(tr&&!st.trSep?"Tronco común":aoName.startsWith("Neoaorta")?"Neoaorta":"Ao",[V3(aoPts[2]).x-0.45,V3(aoPts[2]).y+0.1,V3(aoPts[2]).z+0.2]);}
   if(nw){vessel("aon","Aorta nativa hipoplásica (lleva sangre a las coronarias)",[[0.38,-0.3,-0.12],[0.15,0.9,-0.05],[0.02,1.45,0.32]],.055,C(col.ao));label("Ao nativa",[0.5,1.05,0.2],.13);}
   const descCurve=vessel("desc","Aorta descendente",[[1.02,1.85,-0.78],[1.05,1.1,-0.9],[1.05,0.2,-0.95],[1.0,-1.0,-0.95],[0.95,-1.9,-0.9]],shvi&&!nw?.16:.18,C(col.desc),{narrow:st.coarct?{p:[1.04,1.6,-0.84],r:.28,k:.32}:null});
   label("Ao desc",[1.55,-1.2,-0.9],.14);
+  if(st.dblArch){
+    const tr=new T.MeshPhysicalMaterial({color:0xd5dde8,roughness:.6,transparent:true,opacity:.85,emissive:new T.Color(0),emissiveIntensity:0});
+    vessel("trq","Tráquea",[[0.45,3.3,-0.62],[0.45,2.2,-0.62],[0.45,1.95,-0.62]],.12,0,{mat:tr,flow:false});
+    vessel("trq","Bronquio principal",[[0.45,1.95,-0.62],[0.0,1.6,-0.65]],.08,0,{mat:tr,flow:false});vessel("trq","Bronquio principal",[[0.45,1.95,-0.62],[0.9,1.65,-0.65]],.08,0,{mat:tr,flow:false});
+    for(let y=2.1;y<3.25;y+=.14) ring("trq","Anillo traqueal",[0.45,y,-0.62],[0,1,0],.125,.012,new T.MeshStandardMaterial({color:0x8a97a8,emissive:new T.Color(0),emissiveIntensity:0}));
+    if(st.dblArch===1) vessel("ao2","Arco aórtico derecho (posterior: rodea tráquea y esófago)",[[-0.08,2.15,-0.08],[-0.1,2.5,-0.7],[0.45,2.62,-1.05],[0.95,2.3,-0.95],[1.02,1.85,-0.78]],.12,C(col.ao));
+    else {vessel("ao2","Arco derecho: segmento proximal",[[-0.08,2.15,-0.08],[-0.1,2.5,-0.7],[0.2,2.62,-0.98]],.12,C(col.ao));vessel("ao2","Arco derecho: segmento distal",[[0.7,2.5,-1.02],[0.95,2.3,-0.95],[1.02,1.85,-0.78]],.12,C(col.ao),{flow:false});
+      [[0.2,2.62,-0.98],[0.7,2.5,-1.02]].forEach(p=>ring("cut","Ligadura y sección del arco menor",p,[1,0,0],.14,.03,metalMat()));label("sección",[0.45,2.95,-1.1],.14);}
+    label("tráquea",[0.85,3.2,-0.6],.14);label("arco derecho",[-0.55,2.75,-0.8],.14);
+  }
+  if(st.alcapa===1){vessel("alcapa","Coronaria izquierda que nace de la arteria pulmonar (ALCAPA)",[[-0.04,0.3,0.78],[0.15,0.05,0.8],[0.38,-0.4,0.66],[0.58,-0.95,0.48]],.04,C(col.pa));label("ALCAPA",[0.75,-0.1,0.9],.15);}
+  if(st.alcapa===2){vessel("alcapa","Coronaria izquierda reimplantada en la aorta",[[0.25,0.3,0.12],[0.25,0.1,0.62],[0.38,-0.4,0.66],[0.58,-0.95,0.48]],.04,C(col.ao));label("reimplante",[0.8,-0.1,0.9],.15);}
   // vasos del cuello
   vessel("head","Tronco braquiocefálico",[[-0.02,2.2,-0.08],[-0.12,2.85,-0.1]],.07,C(col.ao),{flow:false});
   vessel("head","Carótida izquierda",[[0.35,2.38,-0.3],[0.38,2.9,-0.32]],.055,C(col.ao),{flow:false});
@@ -1279,7 +1743,9 @@ function build3D(){
     if(st.paDiv){vessel("pa","Tronco pulmonar (muñón cerrado)",[paPts[0],V3(paPts[0]).lerp(V3(paPts[1]),.45).toArray()],paR,C(col.vi),{flow:false});
       ring("pa","Cierre del muñón pulmonar",V3(paPts[0]).lerp(V3(paPts[1]),.45).toArray(),V3(paPts[1]).sub(V3(paPts[0])).toArray(),paR,.03,metalMat());
       vessel("pa","Arteria pulmonar distal",[V3(paPts[1]).lerp(V3(paPts[2]),.5).toArray(),paPts[2],paPts[3]],paR,C(col.pa));}
-    else{vessel("pa",paName,paPts,paR,C(col.pa),{narrow:st.pst?{p:V3(paPts[0]).lerp(V3(paPts[1]),.4).toArray(),r:.3,k:.4}:null});
+    else{if(st.pvBalloon){const pc=new T.CatmullRomCurve3(paPts.map(V3));const c=pc.getPointAt(.1),tg=pc.getTangentAt(.1);const m=new T.Mesh(new T.CapsuleGeometry(paR*.95,.32,8,20),new T.MeshPhysicalMaterial({color:0xf5f5f5,roughness:.2,clearcoat:.8,transparent:true,opacity:.92,emissive:new T.Color(0),emissiveIntensity:0}));m.position.copy(c);m.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),tg);m.renderOrder=9;reg(m,"Balón de valvuloplastia inflado en la válvula pulmonar","pvballoon");
+        vessel("pvballoon","Catéter de valvuloplastia",[[-0.86,-1.95,-0.35],[-0.82,-0.2,-0.2],[-0.6,0.2,0.3],[-0.35,-0.3,0.55],P0,c.toArray()],.012,0,{mat:metalMat(),flow:false,noCaps:true});label("balón",[c.x-0.5,c.y+0.2,c.z+0.2],.14);}
+      vessel("pa",paName,paPts,paR,C(col.pa),{graft:!!st.paGraft,narrow:st.pst?{p:V3(paPts[0]).lerp(V3(paPts[1]),.4).toArray(),r:.3,k:.4}:null});
       ring("pv","Válvula pulmonar",paPts[0],V3(paPts[1]).sub(V3(paPts[0])).toArray(),paR*1.02,.025,valveMat());}
     label(paName==="Neopulmonar"?"Neo-AP":"AP",[V3(paPts[1]).x+0.45,V3(paPts[1]).y+0.2,V3(paPts[1]).z+0.15]);
   }
@@ -1307,7 +1773,12 @@ function build3D(){
 
   // venas cavas
   if(st.glenn){vessel("vcs","Vena cava superior anastomosada a la rama derecha (Glenn)",[[-0.95,2.85,-0.05],[-0.93,2.2,-0.25],[-0.9,1.78,-0.43]],.14,C(col.vcs));label("Glenn",[-1.45,2.25,-0.1],.15);}
+  else if(st.warden){vessel("vcs","VCS craneal anastomosada a la orejuela derecha (Warden)",[[-0.95,2.85,-0.05],[-0.93,2.4,0.02],[-0.62,1.75,0.45],[-0.36,1.42,0.55]],.14,C(col.vcs));
+    vessel("vcsst","Muñón de VCS que recibe la vena anómala y se dirige a la AI",[[-0.92,2.12,0.0],[-0.82,1.35,0.05]],.13,C(col.pv),{flow:false});
+    ring("vcsst","Sección y cierre de la VCS",[-0.92,2.2,0.0],[0,1,0],.15,.03,metalMat());
+    vessel("baffle","Parche que conduce el muñón de VCS a la AI por la CIA",[[-0.82,1.3,0.02],[-0.3,1.15,-0.15],[0.25,1.05,-0.45]],.08,C(col.pv),{ro:9});label("Warden",[-1.5,2.0,0.4],.15);}
   else vessel("vcs","Vena cava superior",[[-0.95,2.85,-0.05],[-0.9,2.0,0],[-0.82,1.35,0.05]],.15,C(col.vcs));
+  if(st.svasd){vessel("pvan","Vena pulmonar superior derecha que drena en la VCS",[[-1.75,1.9,-0.45],[-1.3,1.95,-0.25],[-0.94,1.95,-0.02]],.07,C(col.pv));label("vena anómala",[-1.6,2.3,-0.2],.14);}
   label("VCS",[-1.35,2.75,0.05],.15);
   if(st.fontan){vessel("vci","Vena cava inferior",[[-0.86,-1.95,-0.35],[-0.86,-0.75,-0.32]],.15,C(col.vci));
     vessel("fontan","Conducto de Fontan extracardíaco (VCI → rama pulmonar)",[[-0.86,-0.75,-0.32],[-1.12,0.2,-0.45],[-1.15,1.0,-0.5],[-1.1,1.62,-0.48]],.15,C(col.vci),{graft:true});label("Fontan",[-1.75,0.4,-0.3],.15);
@@ -1335,7 +1806,12 @@ function build3D(){
     [0.35,0.7,1.15].forEach(y=>ring("mapca","Ligadura del origen aórtico de la colateral",[1.03,y,-0.95],[0,1,0],.2,.03,metalMat()));label("unifocalización",[-1.9,0.65,-0.3],.14);}
 
   // CIA / CIV
-  if(st.cia){cyl("cia",st.cia===2?"CIA amplia (septectomía)":"Foramen oval / CIA restrictiva",[-0.3,0.9,-0.1],[0.2,0.93,-0.4],st.cia===2?.18:.08,vMat(C(col.cia),.85),7);label("CIA",[-0.05,1.35,-0.1],.14);
+  const CA=st.ciaHigh?[-0.38,1.22,-0.06]:[-0.3,0.9,-0.1], CB=st.ciaHigh?[0.12,1.16,-0.38]:[0.2,0.93,-0.4];
+  if(st.asdDev){const a=V3(CA),b=V3(CB),d=b.clone().sub(a).normalize();[a.clone().add(d.clone().multiplyScalar(-.02)),b.clone().add(d.clone().multiplyScalar(.02))].forEach(p=>cyl("device","Dispositivo de cierre de CIA (doble disco)",p.toArray(),p.clone().add(d.clone().multiplyScalar(.03)).toArray(),.22,metalMat(),8));cyl("device","Cintura del dispositivo",CA,CB,.08,metalMat(),8);label("dispositivo",[-0.05,1.45,-0.1],.14);}
+  if(st.ciaPatch){const m=V3(CA).lerp(V3(CB),.5),d=V3(CB).sub(V3(CA)).normalize();cyl("ciapatch","Parche de cierre de la CIA",m.toArray(),m.clone().add(d.multiplyScalar(.03)).toArray(),.22,patchMat(),8);label("parche",[-0.05,1.45,-0.1],.14);}
+  if(st.vsdDev){const a=V3([-0.12,-0.2,0.34]),b=V3([0.3,-0.3,0.05]),d=b.clone().sub(a).normalize();[a,b].forEach(p=>cyl("device","Dispositivo de cierre de CIV",p.toArray(),p.clone().add(d.clone().multiplyScalar(.03)).toArray(),.18,metalMat(),8));cyl("device","Cintura del dispositivo",a.toArray(),b.toArray(),.07,metalMat(),8);label("dispositivo",[0.3,-0.6,0.75],.14);}
+  if(st.konno){cyl("konno","Parche de Konno: ampliación del septum y del anillo aórtico",[0.1,0.0,0.18],[0.14,-0.03,0.15],.2,patchMat(),7);label("Konno",[0.45,-0.3,0.75],.14);}
+  if(st.cia){cyl("cia",st.ciaN||(st.cia===2?"CIA amplia (septectomía)":"Foramen oval / CIA restrictiva"),CA,CB,st.cia===2?.18:.08,vMat(C(col.cia),.85),7);label("CIA",[-0.05,st.ciaHigh?1.6:1.35,-0.1],.14);
     if(st.septStent) cyl("cia","Stent septal",[-0.3,0.9,-0.1],[0.2,0.93,-0.4],.2,new T.MeshBasicMaterial({color:0x8a949e,wireframe:true}),8);}
   if(st.civ){cyl("civ","Comunicación interventricular",[-0.12,-0.2,0.34],[0.3,-0.3,0.05],.12,vMat(C(col.civ),.85),7);label("CIV",[0.25,-0.55,0.75],.14);}
   if(st.civPatch){const m=cyl("patch","Parche de cierre de la CIV",[0.06,-0.24,0.2],[0.11,-0.26,0.16],.17,patchMat(),7);label("parche",[0.3,-0.6,0.7],.14);}
@@ -1383,17 +1859,43 @@ $("#v3rot").onclick=()=>{if(!T3)return;T3.rot.auto=!T3.rot.auto;$("#v3rot").setA
 setView3d(view3d);
 renderSch();
 
+/* ---------- UCI ---------- */
+let uciSel=null;
+function renderUCI(){
+  const P=uciSel?SCH.find(p=>p.id===uciSel):null;
+  const GRS=["Correctoras","Paliativas","Univentricular","Cateterismo"];
+  $("#uci").innerHTML=`<div><h2 style="font-size:26px">Postoperatorio en UCI</h2><p style="color:var(--muted);margin:4px 0 0">Qué esperar, qué vigilar y cómo actuar después de cada cirugía, y los problemas que se repiten en todas.</p></div>
+  <div class="uci-pick"><label for="ucisel"><b>Hoja por procedimiento</b></label><select id="ucisel" class="schsel" style="display:block"><option value="">Elegí un procedimiento…</option>${GRS.map(gname=>`<optgroup label="${gname}">${SCH.filter(p=>(SCHGR[p.id]||"Correctoras")===gname&&POSTOP[p.id]).map(p=>`<option value="${p.id}"${P===p?" selected":""}>${esc(p.n)}</option>`).join("")}</optgroup>`).join("")}</select></div>
+  ${P?uciSheet(P):""}
+  <div><h3 style="font-size:19px;margin:6px 0 10px">Problemas frecuentes</h3><div class="gpo">${GENPO.map(x=>`<details class="po card"${location.hash==="#uci-"+x.id?" open":""}><summary><b>${esc(x.n)}</b></summary><p class="hint" style="margin:6px 0">${esc(x.x)}</p><h4>Cómo se reconoce</h4><ul>${x.s.map(i=>`<li>${esc(i)}</li>`).join("")}</ul><h4>Qué hacer</h4><ul>${x.m.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></details>`).join("")}</div></div>
+  <p class="note">Orientación para estudio: las dosis, objetivos y secuencias dependen del protocolo de cada unidad y del paciente.</p>`;
+  $("#ucisel").onchange=e=>{if(e.target.value)openUCI(e.target.value);else{uciSel=null;renderUCI();}};
+  document.querySelectorAll("#uci [data-sch]").forEach(b=>b.onclick=()=>openSch(b.dataset.sch,b.dataset.step?+b.dataset.step:0));
+  document.querySelectorAll("#uci [data-go]").forEach(b=>b.onclick=e=>{e.preventDefault();openCC(b.dataset.go);});
+}
+function uciSheet(P){
+  const po=POSTOP[P.id], links=P.cc.map(id=>CC.find(c=>c.id===id)).filter(Boolean);
+  const L=(t,arr)=>`<div class="uci-col"><h4>${t}</h4><ul>${arr.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`;
+  return `<div class="uci-sheet"><div class="opt-h" style="margin-bottom:6px"><h3 style="font-size:20px">${esc(P.n)}</h3></div>
+  ${statHTML(STATSCH[P.id]||[])}
+  <div class="uci-grid">${L("Qué esperar",po.e)}${L("Qué vigilar",po.v)}${L("Cómo actuar",po.m)}</div>
+  <div class="chips"><button class="chip" data-sch="${P.id}">▶ Ver el esquema</button>${links.map(c=>`<a class="chip" href="#${c.id}" data-go="${c.id}">Ficha: ${esc(c.ab)}</a>`).join("")}</div></div>`;
+}
+function openUCI(id){uciSel=id;showView("uci");renderUCI();if(location.hash!=="#uci-"+id)history.replaceState(null,"","#uci-"+id);document.querySelector("#v-uci .wrap").scrollTop=0;}
+
 /* ---------- inicio y hash ---------- */
 function route(){
   const h=location.hash.slice(1);
   if(h==="procedimientos"){showView("pr");}
   else if(h==="estudiar"){showView("qz");}
+  else if(h==="uci"){showView("uci");renderUCI();}
+  else if(h.startsWith("uci-")&&SCH.some(p=>"uci-"+p.id===h)){openUCI(h.slice(4));}
   else if(h.startsWith("esq-")&&SCH.some(p=>"esq-"+p.id===h)){if(sch.p.id!==h.slice(4)||!$("#v-sc").classList.contains("active"))openSch(h.slice(4),0);}
   else if(CC.some(c=>c.id===h)){openCC(h,true);}
 }
 renderGloss(); qzHome();
 const startId=location.hash.slice(1);
-if(CC.some(c=>c.id===startId)||startId==="procedimientos"||startId==="estudiar"||startId.startsWith("esq-")) route();
+if(CC.some(c=>c.id===startId)||startId==="procedimientos"||startId==="estudiar"||startId.startsWith("esq-")||startId.startsWith("uci")) route();
 else { openCC("tof",true); if(window.matchMedia("(max-width:760px)").matches) $("#v-cc").classList.remove("showdetail"); }
 window.addEventListener("hashchange",route);
 </script>
