@@ -5,8 +5,8 @@ App web instalable (PWA) de estudio sobre las opciones quirúrgicas en cardiopat
 - **Cardiopatías:** 31 fichas con anatomía, indicación y momento quirúrgico, opciones paliativas, correctoras y percutáneas, riesgo STAT 2020, evolución, perlas y notas personales.
 - **Esquemas:** 25 procedimientos paso a paso en 2D y en corazón 3D.
 - **UCI:** postoperatorio por procedimiento (qué esperar, qué vigilar, cómo actuar) y problemas frecuentes (bajo gasto, crisis de HTP, JET, balance Qp/Qs, quilotórax, derrames, BAV).
-- **Procedimientos:** glosario de técnicas.
-- **Estudiar:** 88 preguntas por tema, repaso de errores, identificación de esquemas, tarjetas, progreso y respaldo de datos.
+- **Glosario:** técnicas y apuntes del artículo «Principales procedimientos quirúrgicos en cardiopatías congénitas» (Conejeros y col., Rev Hosp Niños B Aires 2017).
+- **Estudiar:** 100 preguntas por tema, repaso de errores, identificación de esquemas, tarjetas, progreso y respaldo de datos.
 
 Material de estudio: las indicaciones y técnicas varían según el centro.
 

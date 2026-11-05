@@ -248,6 +248,20 @@ svg .part:hover .vo{stroke:var(--ink)}
 .pn{color:var(--muted);font-size:12.5px}
 .weak{margin:0;font-size:14px;color:var(--accent)}
 @media (max-width:520px){.prow{grid-template-columns:1fr auto;}.prow .pbar{grid-column:1/-1;grid-row:2}.prow .pn{display:none}}
+
+.subtabs{margin-bottom:-4px}
+.subtabs .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.cite{font-size:13px;color:var(--muted);border-left:3px solid var(--accent);padding:4px 10px;margin:0;max-width:80ch}
+.hitos{margin:8px 0 0;padding-left:20px;columns:2 280px;column-gap:24px}
+.hitos li{margin:3px 0;break-inside:avoid}
+.hnlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card.hn ul,.hnf ul{margin:0;padding-left:18px;font-size:14px}
+.card.hn li,.hnf li{margin:4px 0}
+.hnf{display:flex;flex-direction:column;gap:6px}
+.hnf details summary{color:var(--ink)}
+.hntb{border-collapse:collapse;font-size:13.5px;margin:6px 0;width:100%;max-width:440px}
+.hntb th,.hntb td{border:1px solid var(--line);padding:4px 8px;text-align:left;font-variant-numeric:tabular-nums}
+.hntb th{background:var(--bg);font-weight:600}
 /* v3: UCI, riesgo, notas, captions */
 .statlist{display:flex;flex-wrap:wrap;gap:6px}
 .stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;background:var(--panel)}
@@ -354,9 +368,12 @@ main,.view,.wrap,.wrap-inner,.wrap-inner>*,section.detail,.detail-inner,.detail-
   </div></div></div>
   <div class="view" id="v-uci"><div class="wrap"><div class="wrap-inner" id="uci"></div></div></div>
   <div class="view" id="v-pr"><div class="wrap"><div class="wrap-inner">
+    <div class="modes subtabs"><button class="chip" id="gt-tec" aria-pressed="true">Técnicas</button><button class="chip" id="gt-ap" aria-pressed="false">Apuntes: Hospital de Niños (2017)</button></div>
+    <div id="g-tec" style="display:flex;flex-direction:column;gap:16px">
     <div><h2 style="font-size:26px">Glosario de procedimientos</h2><p style="color:var(--muted);margin:4px 0 0">Qué es cada técnica, en qué consiste y en qué cardiopatías se usa.</p></div>
     <div class="filters"><input id="pq" type="search" placeholder="Buscar procedimiento" aria-label="Buscar procedimiento"><select id="ptype" aria-label="Tipo"></select></div>
-    <div class="gloss" id="gloss"></div>
+    <div class="gloss" id="gloss"></div></div>
+    <div id="g-ap" hidden></div>
   </div></div></div>
   <div class="view" id="v-qz"><div class="wrap"><div class="wrap-inner" id="qz"></div></div></div>
 </main>
@@ -979,6 +996,7 @@ function openCC(id,fromHash){
     ${(()=>{const ps=SCH.filter(p=>p.cc.includes(id)&&POSTOP[p.id]);return ps.length?`<div class="block"><h3>Postoperatorio en UCI</h3><div class="chips">${ps.map(p=>`<button class="chip" data-uci="${p.id}">🩺 ${esc(p.n)}</button>`).join("")}</div></div>`:""})()}
     <div class="block"><h3>Evolución a largo plazo</h3><p>${esc(c.lp)}</p></div>
     <div class="pearls"><h3 style="font-size:16px;margin-bottom:6px">Perlas para el examen y la guardia</h3><ul>${c.pe.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+    ${(()=>{const hs=HNRG.filter(s=>(s.cc||[]).includes(id));return hs.length?`<div class="block"><h3>Hospital de Niños (2017)</h3><div class="hnf">${hs.map(s=>`<details class="po"><summary>${esc(s.t)}</summary>${s.tb?hnTable(s.tb):""}<ul>${s.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`).join("")}</div><p class="hint" style="margin-top:6px">Conejeros W y col. Rev Hosp Niños (B Aires) 2017;59(265):117-132.</p></div>`:""})()}
     <div class="block"><h3>Mis notas</h3><textarea id="note" class="note-ta" placeholder="Escribí tus notas: casos que viste, lo que dijo tu docente, dudas para repasar…">${esc((store.get("cc_notes",{})[id])||"")}</textarea><div class="hint" id="notesaved">Se guardan en este dispositivo.</div></div>
     <p class="note">Material de estudio. Las indicaciones, edades y técnicas varían según el centro; contrastá con Moss &amp; Adams, Jonas y las guías de tu institución.</p>
   </div>`;
@@ -1010,6 +1028,19 @@ function renderGloss(){
   document.querySelectorAll("#gloss [data-sch]").forEach(a=>a.onclick=e=>{e.preventDefault();openSch(a.dataset.sch,+a.dataset.step);});
 }
 $("#pq").oninput=renderGloss; $("#ptype").onchange=renderGloss;
+function hnTable(tb){return `<table class="hntb"><thead><tr><th>SatO₂</th><th>Qp/Qs</th><th>Clínica</th></tr></thead><tbody>${tb.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${esc(r[2])}</td></tr>`).join("")}</tbody></table>`;}
+function renderApuntes(){
+  $("#g-ap").innerHTML=`<div><h2 style="font-size:26px">Principales procedimientos quirúrgicos</h2><p style="color:var(--muted);margin:4px 0 0">Resumen para estudio del artículo del Servicio de Cirugía Cardiovascular del Hospital de Niños Ricardo Gutiérrez.</p></div>
+  <p class="cite">${esc(HNRG_CITA)}</p>
+  <details class="po card"><summary><b>Línea de tiempo</b></summary><ol class="hitos">${HNRG_HITOS.map(h=>`<li><b>${h[0]}</b> ${esc(h[1])}</li>`).join("")}</ol></details>
+  <div class="hnlist">${HNRG.map(s=>`<div class="card hn"><h4>${esc(s.t)}</h4>${s.tb?hnTable(s.tb):""}<ul>${s.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <div class="chips">${s.sch?`<button class="chip" data-sch="${s.sch}">▶ Esquema</button>`:""}${(s.cc||[]).map(id=>CC.find(c=>c.id===id)).filter(Boolean).map(c=>`<a class="chip" href="#${c.id}" data-go="${c.id}">${esc(c.ab)}</a>`).join("")}</div></div>`).join("")}</div>
+  <p class="note">Resumen con palabras propias para estudio personal; las figuras del original no se reproducen. Consultá el artículo completo para las imágenes y la bibliografía.</p>`;
+  document.querySelectorAll("#g-ap [data-sch]").forEach(b=>b.onclick=()=>openSch(b.dataset.sch,0));
+  document.querySelectorAll("#g-ap [data-go]").forEach(a=>a.onclick=e=>{e.preventDefault();openCC(a.dataset.go);});
+}
+function glossTab(ap){$("#gt-tec").setAttribute("aria-pressed",!ap);$("#gt-ap").setAttribute("aria-pressed",ap);$("#g-tec").style.display=ap?"none":"flex";$("#g-ap").hidden=!ap;if(ap)renderApuntes();history.replaceState(null,"","#"+(ap?"apuntes":"procedimientos"));}
+$("#gt-tec").onclick=()=>glossTab(false);$("#gt-ap").onclick=()=>glossTab(true);
 
 /* ---------- estudiar ---------- */
 let qz={mode:null,order:[],i:0,score:0,answered:false,flip:false};
@@ -1360,7 +1391,7 @@ const SCH=[
  {t:"Cierre del ductus",sat:"SatO₂ 75-85 %",x:"Se suspende la PGE1 o se liga el ductus. El flujo pulmonar queda limitado por el diámetro de la fístula. Se indica aspirina por el riesgo de trombosis.",st:{anat:"tof",civ:1,paw:7,bt:1,col:{ad:"D",vd:"D",ao:"M",ai:"O",vi:"O",pa:"M"},hi:["bt"]}}]},
 {id:"banding",n:"Banding de la arteria pulmonar",cc:["civ","cav","atric","vu","cctga"],steps:[
  {t:"CIV grande con hiperflujo pulmonar",sat:"SatO₂ normal",x:"El cortocircuito izquierda-derecha transmite presión sistémica a la pulmonar: insuficiencia cardíaca, falla de crecimiento y riesgo de enfermedad vascular pulmonar.",st:{anat:"normal",civ:1,paw:32,col:{vd:"M",pa:"M"},hi:["civ","pa"]}},
- {t:"Colocación de la banda",sat:"Sin circulación extracorpórea",x:"Se rodea el tronco pulmonar con una cinta y se ajusta hasta que la presión distal sea de un tercio a la mitad de la sistémica, controlando la saturación y la presión arterial.",st:{anat:"normal",civ:1,paw:32,band:1,col:{vd:"M",pa:"M"},hi:["band"]}},
+ {t:"Colocación de la banda",sat:"Sin circulación extracorpórea",x:"Se rodea el tronco pulmonar con una cinta y se ajusta hasta que la presión distal sea de un tercio a la mitad de la sistémica, controlando la saturación y la presión arterial. Regla de Trusler para el largo inicial: 20 mm + peso en kg (biventricular) o 24 mm + peso en kg (univentricular).",st:{anat:"normal",civ:1,paw:32,band:1,col:{vd:"M",pa:"M"},hi:["band"]}},
  {t:"Reparación en un segundo tiempo",sat:"SatO₂ normal",x:"Se retira la banda, se cierra la CIV con parche y, si quedó estrechez, se amplía el tronco pulmonar.",st:{anat:"normal",civPatch:1,hi:["patch"]}}]},
 {id:"tofrep",n:"Reparación completa de Fallot",cc:["tof"],steps:[
  {t:"Anatomía del Fallot",sat:"SatO₂ 75-90 % (variable)",x:"CIV por mala alineación con aorta acabalgada, estenosis infundibular y valvular pulmonar, e hipertrofia del VD. El cortocircuito derecha-izquierda depende del grado de obstrucción.",st:{anat:"tof",civ:1,paw:12,pst:1,col:{ad:"D",vd:"D",ao:"M",ai:"O",vi:"O",pa:"D"},hi:["civ","pst"]}},
@@ -1451,6 +1482,64 @@ SCH.push(
 const SCHGR={rashkind:"Cateterismo",valvpl:"Cateterismo",bt:"Paliativas",banding:"Paliativas",stages:"Univentricular",hybrid:"Univentricular",starnes:"Univentricular"};
 QIMG.push(["cia",1,"Cierre de CIA con dispositivo"],["cav",0,"Canal AV completo"],["ross",1,"Operación de Ross"],["alcapa",0,"ALCAPA"],["iaa",0,"Interrupción del arco aórtico"],["starnes",1,"Operación de Starnes"],["anillo",0,"Doble arco aórtico"],["warden",0,"CIA seno venoso con DVPAP"],["valvpl",1,"Valvuloplastia pulmonar con balón"]);
 Object.assign(PSCH,{"Ross":["ross",1],"Konno":["ross",2],"Starnes":["starnes",1],"Warden":["warden",1],"Valvuloplastia":["valvpl",1]});
+/* Aportes del artículo: Conejeros W, Pellicciari R, Navarro P, Garrido M, Rosso A.
+   Principales procedimientos quirúrgicos en cardiopatías congénitas. Rev Hosp Niños (B Aires) 2017;59(265):117-132.
+   Contenido parafraseado para estudio. */
+const HNRG_CITA="Conejeros W, Pellicciari R, Navarro P, Garrido M, Rosso A. Principales procedimientos quirúrgicos en cardiopatías congénitas. Rev Hosp Niños (B Aires) 2017;59(265):117-132. Servicio de Cirugía Cardiovascular, Hospital de Niños Ricardo Gutiérrez.";
+const HNRG=[
+ {t:"Anastomosis sistémico-pulmonares (fístulas)",sch:"bt",cc:["tof","apsi","atric"],p:["Indicadas en cardiopatías cianóticas con flujo pulmonar dependiente del ductus, uni o biventriculares, que no pueden corregirse en el período neonatal.","Blalock hizo la primera en 1944: anastomosis término-lateral de la subclavia a la pulmonar del mismo lado.","Gazzaniga (1976) introdujo el tubo de PTFE interpuesto: Blalock-Taussig modificada, por esternotomía o toracotomía derecha o izquierda.","Las fístulas de Waterston, Potts y Cooley hoy quedan para casos particulares."]},
+ {t:"Relación entre saturación y Qp/Qs",cc:["shvi","vu","atric"],tb:[["90 %","4:1","Insuficiencia cardíaca grave, sin cianosis"],["85 %","3:1","IC moderada, cianosis leve"],["80 %","2:1","IC leve, cianosis moderada"],["75 %","1,5:1","Cianosis moderada, sin IC"],["70 %","1:1","Cianosis moderada"]],p:["Referencia citada en el artículo: Kreutzer C, Grippo M. Rev Hosp Niños 2003;45(201):37-47. Orientativa en circulaciones con mezcla completa."]},
+ {t:"Cerclaje (banding) de la arteria pulmonar",sch:"banding",cc:["civ","cav","atric","dsvd"],p:["Procedimiento de elección ante hiperflujo pulmonar con insuficiencia cardíaca, uni o biventricular, cuando no se puede corregir de entrada: bajo peso, CIV múltiples, lesiones asociadas (DSVD, coartación, interrupción del arco, TGA) u otras comorbilidades.","Descripto por Muller y Dammann en 1952; busca un Qp/Qs adecuado reduciendo el flujo pulmonar.","Regla de Trusler para el largo de la cinta: 24 mm + peso en kg (en mm) en cardiopatías univentriculares, y 20 mm + peso en kg en biventriculares."]},
+ {t:"Glenn bidireccional (anastomosis cavopulmonar parcial)",sch:"stages",cc:["vu","atric","shvi"],p:["Anastomosis término-lateral de la VCS, seccionada en su unión con la AD, a la cara superior de la arteria pulmonar.","Es el segundo estadio de la paliación univentricular.","Aumenta el flujo pulmonar efectivo sin sobrecargar el ventrículo ni aumentar la resistencia pulmonar, a diferencia de la fístula sistémico-pulmonar o el cerclaje.","Con dos VCS se hace un Glenn bilateral (bi-Glenn): cada cava a su rama pulmonar."]},
+ {t:"Fontan-Kreutzer (bypass total del ventrículo venoso)",sch:"stages",cc:["vu","atric","shvi"],p:["Fontan (1971): Glenn clásico, conexión de la orejuela derecha a la rama derecha dividida (directa o con homoinjerto valvulado), cierre de la CIA, válvula en la VCI y ligadura del tronco pulmonar.","Kreutzer (1973, Buenos Aires): orejuela derecha a la arteria pulmonar (directa o con homoinjerto), cierre parcial de la CIA, que fue el primer concepto de fenestración, y sin válvula en la VCI.","Hoy: Glenn más derivación de la VCI con tubo de PTFE extracardíaco (Marcelletti, 1990) o con túnel lateral intracardíaco (de Leval, 1987-88)."]},
+ {t:"Rastelli",sch:"rastelli",cc:["tga","tof","truncus"],p:["Redirige la salida del VD a la arteria pulmonar con una prótesis tubular valvulada extracardíaca."]},
+ {t:"Drenaje venoso pulmonar anómalo total",sch:"dvpat",cc:["dvpat"],p:["Sea cual sea el tipo, la reparación consiste en conectar el colector de las venas pulmonares a la aurícula izquierda y cerrar la CIA.","Exposición por esternotomía, con luxación anterior del corazón o por vía transatrial."]},
+ {t:"Canal auriculoventricular completo",sch:"cav",cc:["cav"],p:["Cierre de ambos defectos septales, reparación del cleft mitral y plástica valvular si hace falta.","Técnicas más usadas: doble parche (Trusler, 1976) y parche simple modificado (Wilcox, 1997)."]},
+ {t:"CIA seno venoso superior con drenaje venoso pulmonar anómalo parcial",sch:"warden",cc:["cia","dvpap"],p:["Las venas pulmonares superiores derechas entran en la VCS.","Si el orificio de la VCS tiene un borde adecuado, alcanza con un parche de pericardio autólogo que tuneliza las venas derechas hacia la AI.","La orientación del parche es clave para evitar obstrucciones futuras."]},
+ {t:"Coartación de aorta",sch:"coarto",cc:["coa"],p:["La técnica más aceptada es la resección con anastomosis término-terminal ampliada al arco transverso.","Ventajas: reseca todo el tejido ductal, extiende la anastomosis al arco, usa tejido propio, preserva la subclavia izquierda y permite el crecimiento, con gradientes residuales bajos.","El colgajo de subclavia (Waldhausen) fue durante años la técnica de elección en neonatos y lactantes.","En la recoartación se usa ampliación con prótesis de PTFE."]},
+ {t:"Doble salida del ventrículo derecho",cc:["dsvd"],p:["Objetivo: reparación biventricular tunelizando el VI hacia la aorta sin obstruir ningún tracto de salida.","Suele lograrse entre los 6 y 12 meses sin paliación previa, según la ubicación de la CIV y su relación con los grandes vasos.","Si se prevé un conducto valvulado extracardíaco o una tunelización difícil, conviene diferir la corrección con un cerclaje pulmonar o una fístula sistémico-pulmonar."]},
+ {t:"Estenosis subaórtica",sch:"ross",cc:["esubao"],p:["Espectro desde la membrana discreta hasta el estrechamiento de todo el tracto de salida del VI.","La membrana se reseca a través de una aortotomía transversa justo por encima de los senos de Valsalva."]},
+ {t:"Ross",sch:"ross",cc:["eao"],p:["Reemplazo de la válvula o de la raíz aórtica con el autoinjerto pulmonar, y de la válvula pulmonar con un aloinjerto pulmonar o aórtico.","Muy usado en valvulopatía aórtica de niños y adultos jóvenes."]},
+ {t:"Konno modificado",sch:"ross",cc:["esubao","eao"],p:["Para la estenosis subaórtica en túnel: se reseca el septum subaórtico, lo que crea una CIV, y se cierra con un parche de PTFE que amplía el TSVI.","Riesgos: lesión de la mitral, de la válvula aórtica y del sistema de conducción."]},
+ {t:"Ross-Konno",sch:"ross",cc:["eao","esubao"],p:["Combina Ross y Konno cuando hay insuficiencia aórtica con estenosis subaórtica grave y se necesita reemplazar la válvula."]},
+ {t:"Estenosis aórtica supravalvular",cc:["esupra"],p:["Estrechez en la unión sinotubular, a menudo con síndrome de Williams e hipoplasia del arco o de la aorta ascendente.","Localizada: parche bifurcado invertido de Doty (1975): incisión en Y invertida sobre el seno no coronario que se extiende al coronario derecho, ampliada con un parche en pantalón.","Leve y sin hipoplasia del arco: parche simple sobre el seno no coronario (McGoon, 1961), luego modificado por Brom ampliando también la aorta ascendente distal."]},
+ {t:"Tetralogía de Fallot",sch:"tofrep",cc:["tof"],p:["Incidencia de 3 a 5 por 10.000 nacidos vivos; es la cardiopatía cianótica más frecuente.","BT modificado cuando las pulmonares no tienen el diámetro adecuado o hay comorbilidades graves (hemorragia intracraneal, disfunción hepática o renal grave, infección).","La tendencia actual es la reparación en un tiempo, independientemente de la edad.","Objetivos: eliminar cortocircuitos, bajar la presión y el volumen del VD y preservar la función miocárdica: cierre de CIV (y CIA) y desobstrucción del TSVD preservando una válvula pulmonar competente.","Si el anillo pulmonar tiene un z-score menor de −2: parche transanular con válvula monocúspide de PTFE.","Con coronaria anómala que cruza el TSVD: conducto valvulado VD-AP (tipo Rastelli).","La resección infundibular puede hacerse por vía transatrial o por ventriculotomía derecha."]},
+ {t:"Norwood y Norwood-Sano",sch:"stages",cc:["shvi"],p:["Tres objetivos: comunicación interauricular no restrictiva, fuente efectiva de flujo pulmonar con poca sobrecarga del ventrículo, y salida libre a la circulación sistémica.","La aorta hipoplásica se amplía con el tronco pulmonar y pericardio autólogo.","Flujo pulmonar: BT modificado o tubo de PTFE no valvulado del VD a la arteria pulmonar (Sano, 2003).","Es el primer paso del camino univentricular que termina en el Fontan-Kreutzer."]},
+ {t:"Switch auricular (Senning y Mustard)",sch:"dswitch",cc:["tga","cctga"],p:["Los primeros intentos para TGA fueron la septectomía auricular de Blalock y Hanlon (1950).","Senning (1956-59) redirige los retornos con colgajos de pared auricular; era difícil de replicar.","Mustard (1963) reseca el septum y redirige los retornos con un parche de pericardio; fue ampliamente adoptado.","Complicaciones alejadas del Mustard: arritmias, retracción del parche, insuficiencia tricuspídea grave y disfunción del VD."]},
+ {t:"Switch arterial (Jatene)",sch:"switch",cc:["tga"],p:["Jatene (1975) lo realizó con éxito en TGA con CIV.","La maniobra de Lecompte (1981) permitió anastomosar directamente los grandes vasos, con reimplante coronario en la neoaorta.","Castañeda (1982) hizo la primera corrección neonatal en TGA con septum íntegro."]},
+ {t:"Nikaidoh",sch:"rastelli",cc:["tga"],p:["En TGA con CIV y estenosis pulmonar el switch arterial está contraindicado: la válvula pulmonar displásica quedaría como válvula aórtica estenótica.","Alternativas: Rastelli con cierre de CIV (desventaja: recambios del tubo) o Nikaidoh (1984): traslocación de la raíz aórtica a la posición pulmonar, reconstrucción del TSVI con cierre de CIV con PTFE y del TSVD con pericardio autólogo."]},
+ {t:"Tronco arterioso",sch:"truncus",cc:["truncus"],p:["Anatomía biventricular con fisiología univentricular: un solo vaso con una válvula semilunar da las circulaciones coronaria, sistémica y pulmonar, casi siempre sobre una CIV subtroncal.","Clasificación de Collett y Edwards (1949), tipos I a IV; Van Praagh (1965) agregó la presencia o no de CIV.","Primera paliación exitosa: cerclaje de ramas pulmonares (1962).","Hoy: reparación en un tiempo con tunelización de la CIV hacia la válvula troncal (neoaórtica) y reconstrucción del TSVD con homoinjerto (McGoon-Rastelli, Wallace-Rastelli), tubo valvulado de pericardio autólogo (Kreutzer, Schlichter) o sin conducto (Barbero-Marcial)."]},
+ {t:"Damus-Kaye-Stansel",cc:["vu","atric","dsvd"],p:["Indicado en patologías troncoconales con obstrucción del tracto de salida del ventrículo sistémico; requiere un tronco pulmonar de tamaño adecuado.","Se secciona el tronco pulmonar y se une a la aorta en forma término-lateral (DKS clásico) o con la técnica de doble cañón (double-barrel).","Biventricular: se cierra la CIV con PTFE dejando ambos vasos en el ventrículo sistémico y se reconstruye el TSVD con un conducto valvulado.","Univentricular: el flujo pulmonar se asegura con BT modificado o Glenn."]}
+];
+const HNRG_HITOS=[["1944","Blalock: primera anastomosis sistémico-pulmonar"],["1950","Blalock-Hanlon: septectomía auricular para TGA"],["1952","Muller y Dammann: cerclaje de la arteria pulmonar"],["1955","Lillehei y Kirklin: primera reparación de Fallot"],["1956-59","Senning: switch auricular"],["1963","Mustard: switch auricular con parche"],["1971","Fontan: bypass del ventrículo derecho"],["1973","Kreutzer: técnica sin válvula en la VCI y cierre parcial de la CIA"],["1975","Jatene: switch arterial"],["1976","Gazzaniga: BT modificada con PTFE · Trusler: doble parche en canal AV"],["1981","Lecompte: maniobra para el switch"],["1982","Castañeda: switch neonatal con septum íntegro"],["1983","Norwood: paliación del SHVI"],["1984","Nikaidoh: traslocación aórtica"],["1987-90","de Leval: túnel lateral · Marcelletti: conducto extracardíaco"],["1997","Wilcox: parche simple modificado en canal AV"],["2003","Sano: conducto VD-AP en el Norwood"]];
+
+PROCS.push(
+ {n:"Fístulas de Waterston y Potts",t:"pal",d:"Anastomosis directas aorta ascendente-rama derecha (Waterston) o aorta descendente-rama izquierda (Potts). Hoy se reservan para casos particulares por el riesgo de hiperflujo y distorsión.",k:"Waterston"},
+ {n:"Glenn bilateral (bi-Glenn)",t:"uni",d:"Con VCS izquierda persistente, cada vena cava superior se anastomosa a su rama pulmonar.",k:"bi-Glenn"},
+ {n:"Fontan-Kreutzer",t:"uni",d:"Nombre con el que se conoce en Argentina al bypass total del ventrículo venoso: Kreutzer (1973) lo hizo sin válvula en la VCI y con cierre parcial de la CIA, primer concepto de fenestración.",k:"Kreutzer"},
+ {n:"Túnel lateral",t:"uni",d:"Variante del Fontan (de Leval): un deflector dentro de la aurícula derecha lleva la sangre de la VCI a la arteria pulmonar.",k:"túnel lateral"},
+ {n:"Válvula monocúspide de PTFE",t:"cor",d:"En el Fallot con anillo pulmonar de z menor que −2, el parche transanular se completa con una valva de PTFE para reducir la insuficiencia pulmonar.",k:"monocúspide"},
+ {n:"Septectomía de Blalock-Hanlon",t:"pal",d:"Resección quirúrgica del septum interauricular para mejorar la mezcla en TGA (1950); reemplazada por la atrioseptostomía con balón.",k:"Blalock-Hanlon"},
+ {n:"Parche bifurcado de Doty",t:"cor",d:"Para la estenosis aórtica supravalvular: incisión en Y invertida sobre los senos no coronario y coronario derecho y ampliación con un parche en pantalón.",k:"Doty"},
+ {n:"Reconstrucción del TSVD sin conducto (Barbero-Marcial)",t:"cor",d:"En el truncus, la rama pulmonar se conecta directamente al VD con un parche, sin conducto extracardíaco.",k:"Barbero-Marcial"},
+ {n:"Regla de Trusler",t:"pal",d:"Largo de la cinta del cerclaje pulmonar: 24 mm + peso en kg (en mm) en univentriculares y 20 mm + peso en kg en biventriculares.",k:"Trusler"}
+);
+Object.assign(PSCH,{"bi-Glenn":["stages",3],"Kreutzer":["stages",4],"túnel lateral":["stages",4],"monocúspide":["tofrep",2],"Trusler":["banding",1]});
+
+QUIZ.push(
+ {tg:"Univentricular",q:"Según la referencia citada por el artículo del Hospital de Niños, en una circulación con mezcla completa una saturación de 80 % corresponde aproximadamente a un Qp/Qs de:",a:["1:1","2:1","3:1","4:1"],r:1,e:"90 % ≈ 4:1, 85 % ≈ 3:1, 80 % ≈ 2:1, 75 % ≈ 1,5:1, 70 % ≈ 1:1."},
+ {tg:"Cortocircuitos",q:"Regla de Trusler: largo de la cinta para un cerclaje pulmonar en un lactante biventricular de 4 kg:",a:["20 mm","24 mm","28 mm","32 mm"],r:1,e:"Biventricular: 20 mm + peso en kg (4) = 24 mm. Univentricular: 24 mm + peso."},
+ {tg:"Univentricular",q:"¿Qué aportó Kreutzer (1973) a la operación de Fontan?",a:["Una válvula en la VCI","Eliminó la válvula en la VCI y dejó un cierre parcial de la CIA, primer concepto de fenestración","El conducto extracardíaco","El túnel lateral"],r:1,e:"Por eso en Argentina se habla de Fontan-Kreutzer."},
+ {tg:"Univentricular",q:"El Fontan con conducto extracardíaco de PTFE fue propuesto por:",a:["De Leval","Marcelletti","Norwood","Glenn"],r:1,e:"Marcelletti (1990); el túnel lateral intracardíaco es de de Leval (1987-88)."},
+ {tg:"Cianóticas",q:"En la reparación de Fallot, ¿cuándo se indica parche transanular con monocúspide de PTFE según el artículo?",a:["Siempre","Cuando el anillo pulmonar tiene un z-score menor de −2","Cuando hay CIA","Solo en mayores de 2 años"],r:1,e:"Si el anillo es adecuado se busca preservar una válvula pulmonar competente."},
+ {tg:"Mezcla y transposición",q:"¿Por qué el switch arterial está contraindicado en TGA con CIV y estenosis pulmonar valvular?",a:["Por el riesgo coronario","Porque la válvula pulmonar displásica quedaría como válvula aórtica estenótica","Porque la CIV no se puede cerrar","Por la edad"],r:1,e:"Opciones: Rastelli con cierre de CIV o Nikaidoh (traslocación aórtica)."},
+ {tg:"Mezcla y transposición",q:"Complicación alejada típica del switch auricular de Mustard:",a:["Estenosis supravalvular pulmonar","Arritmias auriculares, insuficiencia tricuspídea y disfunción del VD sistémico","Coartación","Estenosis coronaria ostial"],r:1,e:"Estas complicaciones impulsaron el switch arterial de Jatene."},
+ {tg:"Mezcla y transposición",q:"Reconstrucción del TSVD en el truncus sin conducto extracardíaco: técnica de",a:["Rastelli","Barbero-Marcial","Kreutzer","Lecompte"],r:1,e:"Otras opciones: homoinjerto (McGoon/Wallace-Rastelli) o tubo valvulado de pericardio autólogo (Kreutzer, Schlichter)."},
+ {tg:"Obstrucciones izquierdas",q:"Ventaja de la anastomosis término-terminal ampliada frente al colgajo de subclavia en la coartación:",a:["Usa prótesis","Reseca todo el tejido ductal, amplía el arco y preserva la subclavia izquierda","Evita la toracotomía","No requiere pinzar la aorta"],r:1,e:"Además usa tejido propio, que crece, con gradientes residuales bajos."},
+ {tg:"Obstrucciones izquierdas",q:"Konno modificado: ¿cuál es su principal riesgo?",a:["Coartación","Lesión de la mitral, de la válvula aórtica o del sistema de conducción","Trombosis venosa","Estenosis pulmonar"],r:1,e:"Se reseca el septum subaórtico creando una CIV que se cierra con un parche que amplía el TSVI."},
+ {tg:"Mezcla y transposición",q:"Doble salida del VD con CIV fácil de tunelizar: momento habitual de la reparación biventricular según el artículo:",a:["Período neonatal siempre","6 a 12 meses, sin paliación previa","Después de los 5 años","Solo tras un Glenn"],r:1,e:"Si se prevé conducto o tunelización difícil, se difiere con cerclaje o fístula."},
+ {tg:"Univentricular",q:"¿Cuál de estos NO es uno de los tres objetivos del Norwood?",a:["CIA no restrictiva","Fuente efectiva de flujo pulmonar","Salida sistémica libre","Cierre de la circulación coronaria nativa"],r:3,e:"Los tres objetivos son mezcla auricular libre, flujo pulmonar controlado y salida sistémica sin obstrucción."}
+);
 
 
 let sch={p:SCH[0],i:0,timer:null};
@@ -1867,7 +1956,7 @@ function renderUCI(){
   $("#uci").innerHTML=`<div><h2 style="font-size:26px">Postoperatorio en UCI</h2><p style="color:var(--muted);margin:4px 0 0">Qué esperar, qué vigilar y cómo actuar después de cada cirugía, y los problemas que se repiten en todas.</p></div>
   <div class="uci-pick"><label for="ucisel"><b>Hoja por procedimiento</b></label><select id="ucisel" class="schsel" style="display:block"><option value="">Elegí un procedimiento…</option>${GRS.map(gname=>`<optgroup label="${gname}">${SCH.filter(p=>(SCHGR[p.id]||"Correctoras")===gname&&POSTOP[p.id]).map(p=>`<option value="${p.id}"${P===p?" selected":""}>${esc(p.n)}</option>`).join("")}</optgroup>`).join("")}</select></div>
   ${P?uciSheet(P):""}
-  <div><h3 style="font-size:19px;margin:6px 0 10px">Problemas frecuentes</h3><div class="gpo">${GENPO.map(x=>`<details class="po card"${location.hash==="#uci-"+x.id?" open":""}><summary><b>${esc(x.n)}</b></summary><p class="hint" style="margin:6px 0">${esc(x.x)}</p><h4>Cómo se reconoce</h4><ul>${x.s.map(i=>`<li>${esc(i)}</li>`).join("")}</ul><h4>Qué hacer</h4><ul>${x.m.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></details>`).join("")}</div></div>
+  <div><h3 style="font-size:19px;margin:6px 0 10px">Problemas frecuentes</h3><div class="gpo">${GENPO.map(x=>`<details class="po card"${location.hash==="#uci-"+x.id?" open":""}><summary><b>${esc(x.n)}</b></summary><p class="hint" style="margin:6px 0">${esc(x.x)}</p>${x.id==="qpqs"?`<h4>Saturación y Qp/Qs (mezcla completa)</h4>${hnTable(HNRG[1].tb)}<p class="hint">Kreutzer C, Grippo M, citado en Conejeros y col. 2017.</p>`:""}<h4>Cómo se reconoce</h4><ul>${x.s.map(i=>`<li>${esc(i)}</li>`).join("")}</ul><h4>Qué hacer</h4><ul>${x.m.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></details>`).join("")}</div></div>
   <p class="note">Orientación para estudio: las dosis, objetivos y secuencias dependen del protocolo de cada unidad y del paciente.</p>`;
   $("#ucisel").onchange=e=>{if(e.target.value)openUCI(e.target.value);else{uciSel=null;renderUCI();}};
   document.querySelectorAll("#uci [data-sch]").forEach(b=>b.onclick=()=>openSch(b.dataset.sch,b.dataset.step?+b.dataset.step:0));
@@ -1886,7 +1975,8 @@ function openUCI(id){uciSel=id;showView("uci");renderUCI();if(location.hash!=="#
 /* ---------- inicio y hash ---------- */
 function route(){
   const h=location.hash.slice(1);
-  if(h==="procedimientos"){showView("pr");}
+  if(h==="procedimientos"){showView("pr");glossTab(false);}
+  else if(h==="apuntes"){showView("pr");glossTab(true);}
   else if(h==="estudiar"){showView("qz");}
   else if(h==="uci"){showView("uci");renderUCI();}
   else if(h.startsWith("uci-")&&SCH.some(p=>"uci-"+p.id===h)){openUCI(h.slice(4));}
@@ -1895,7 +1985,7 @@ function route(){
 }
 renderGloss(); qzHome();
 const startId=location.hash.slice(1);
-if(CC.some(c=>c.id===startId)||startId==="procedimientos"||startId==="estudiar"||startId.startsWith("esq-")||startId.startsWith("uci")) route();
+if(CC.some(c=>c.id===startId)||startId==="procedimientos"||startId==="apuntes"||startId==="estudiar"||startId.startsWith("esq-")||startId.startsWith("uci")) route();
 else { openCC("tof",true); if(window.matchMedia("(max-width:760px)").matches) $("#v-cc").classList.remove("showdetail"); }
 window.addEventListener("hashchange",route);
 </script>
