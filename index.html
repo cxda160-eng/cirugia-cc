@@ -400,11 +400,11 @@ const CC=[
 
 {id:"civ",n:"Comunicación interventricular",ab:"CIV",g:0,
  res:"Defecto del septum interventricular: perimembranosa (la más frecuente), muscular (a veces múltiples), de entrada (inlet) y subarterial doblemente relacionada (subpulmonar, más frecuente en asiáticos). Las grandes generan hiperflujo pulmonar, IC y riesgo de enfermedad vascular pulmonar.",
- ind:"CIV grande con IC refractaria o falla de crecimiento: cirugía a los 3-6 meses. Idealmente antes de los 6-12 meses para evitar HTP fija. CIV restrictiva: control, salvo prolapso de valva aórtica o insuficiencia aórtica, endocarditis o doble cámara de VD.",
+ ind:"CIV grande con IC mal controlada, falla de crecimiento, resistencia pulmonar levemente elevada pero reactiva o infecciones respiratorias recurrentes: cierre antes de los 1-2 años (habitualmente 3-6 meses; si la CIV no se achica en los primeros meses). CIV restrictiva: control, salvo prolapso aórtico con insuficiencia progresiva, VD de doble cámara o endocarditis recurrente.",
  opts:[
- {t:"cor",n:"Cierre quirúrgico con parche",c:"Tratamiento estándar de la CIV hemodinámicamente significativa.",h:"CEC, abordaje transauricular a través de la tricúspide (perimembranosas); las subarteriales por la arteria pulmonar; parche de dacron o pericardio.",x:"BAV completo (~1%), CIV residual, insuficiencia tricuspídea o aórtica."},
- {t:"pal",n:"Banding (cerclaje) de la arteria pulmonar",c:"CIV musculares múltiples (queso suizo), lactantes de muy bajo peso o comorbilidad grave.",h:"Banda alrededor del tronco pulmonar para restringir el flujo pulmonar; reparación y retiro de la banda en un segundo tiempo.",x:"Banda migrada (estenosis de rama), distorsión de la válvula pulmonar, banda demasiado ajustada (cianosis) o floja."},
- {t:"per",n:"Cierre percutáneo o perventricular",c:"CIV musculares; algunas perimembranosas en centros seleccionados.",h:"Dispositivo vía catéter o colocado a través de la pared del VD sin CEC (híbrido).",x:"BAV (sobre todo perimembranosas), embolización, hemólisis."}],
+ {t:"cor",n:"Cierre quirúrgico con parche",c:"Tratamiento estándar de la CIV hemodinámicamente significativa.",h:"CEC, abordaje transauricular a través de la tricúspide (perimembranosas); las subarteriales por la arteria pulmonar; parche de dacron o pericardio.",x:"CIV residual periparche (complicación más frecuente, hasta 25 %), BAV completo hasta 3 % (casi siempre transitorio; más en pacientes chicos y CIV de entrada), bloqueo de rama derecha, lesión tricuspídea o aórtica. Mortalidad 0,3-0,6 %."},
+ {t:"pal",n:"Banding (cerclaje) de la arteria pulmonar",c:"CIV complejas: musculares múltiples (queso suizo), straddling de válvulas AV o doble salida; excepcionalmente comorbilidad grave (el cierre primario se hace incluso con 1,5-2 kg).",h:"Banda alrededor del tronco pulmonar para restringir el flujo pulmonar; reparación y retiro de la banda en un segundo tiempo.",x:"Banda migrada (estenosis de rama), distorsión de la válvula pulmonar, banda demasiado ajustada (cianosis) o floja."},
+ {t:"per",n:"Cierre percutáneo o perventricular",c:"CIV musculares de difícil acceso; en muchos países también perimembranosas con reborde que las separa de la aorta.",h:"Dispositivo vía catéter o colocado a través de la pared del VD sin CEC (híbrido, útil en las apicales).",x:"BAV completo hasta 6 %, embolización, hemólisis, lesión valvular."}],
  lp:"Pronóstico excelente con cierre oportuno. Controlar BAV tardío, insuficiencia aórtica y CIV residuales.",
  pe:["Cuanto más chica la CIV, más fuerte el soplo; la grande puede tener soplo suave y retumbo mitral por hiperflujo.","La subarterial con prolapso aórtico se opera aunque sea pequeña.","El haz de His pasa por el borde posteroinferior de la CIV perimembranosa: ahí se sutura con cuidado."]},
 
@@ -1679,6 +1679,129 @@ QUIZ.push(
  {tg:"Cortocircuitos",q:"En el registro de pacientes con cierre de CIA, la fibrilación o aleteo auricular después de los 60 años alcanza aproximadamente:",a:["1 %","15 %","61 %","90 %"],r:2,e:"< 1 % antes de los 40 años y 15 % entre los 40 y 60. (Moss & Adams, cap. 28)"},
  {tg:"Cortocircuitos",q:"Respecto del cierre del FOP tras un ACV criptogénico, los ensayos posteriores a 2016 mostraron:",a:["Ningún beneficio","Menor recurrencia de ACV con el cierre, sobre todo con aneurisma septal o cortocircuito grande","Más ACV con el cierre","Beneficio solo en migraña"],r:1,e:"RESPECT extendido, CLOSE, Gore-REDUCE y DEFENSE-PFO. (Moss & Adams, cap. 28)"}
 );
+MOSS.civ={cap:"Cap. 30 · Ventricular Septal Defects (Cohen MS, Lopez L)",sec:[
+ {t:"Epidemiología y etiología",p:[
+  "Después de la válvula aórtica bicúspide es la cardiopatía congénita más frecuente: hasta 40 % de los defectos. Incidencia de 5 a 50 por 1.000 nacidos vivos (muchas cierran en el útero o en la lactancia) y 0,3 por 1.000 adultos; alrededor de una quinta parte de las CIV aisladas se operan.",
+  "Acompaña a muchas cardiopatías: conotruncales (Fallot, truncus, TGA, doble salida) y obstrucción del arco aórtico.",
+  "Etiología multifactorial: trisomías 13, 18 y 21, Holt-Oram (TBX5); se describió asociación con consumo paterno de marihuana y cocaína y exposición paterna a decapantes de pintura.",
+  "Embriología: el foramen interventricular primario separa el VI embrionario (que recibe las aurículas) del VD y el tracto de salida. El septum muscular se forma con los componentes trabecular, de entrada y conal; el membranoso, con la fusión de los cojines AV y el capuchón mesenquimático. La septación termina cuando la válvula AV derecha pasa sobre el VD y la aorta se ubica sobre el VI, encajada junto a la mitral."]},
+ {t:"Morfología y clasificación",p:[
+  "Enfoque tripartito del ventrículo: entrada, porción apical trabecular y salida. El cono subpulmonar separa tricúspide y pulmonar; el subaórtico regresa y deja continuidad fibrosa mitroaórtica. La banda septal (trabécula septomarginal) tiene forma de Y y entre sus ramas se ubica el septum conal.",
+  "Dos enfoques históricos: geográfico (ubicación en el septum) y por bordes (estructuras vecinas, sobre todo las zonas de continuidad fibrosa entre válvulas). La STS usa: tipo 1 subarterial, tipo 2 perimembranosa, tipo 3 de entrada, tipo 4 muscular.",
+  "Clasificación actual de la Sociedad Internacional de Nomenclatura (ISNPCHD): cuatro tipos (central perimembranosa, de entrada, muscular trabecular y de salida), definidos por sus bordes.",
+  "Central perimembranosa: en la base, con un borde en la continuidad fibrosa tricúspide-aórtica, detrás de la valva septal tricuspídea y debajo de las valvas aórticas derecha o no coronaria. El tejido tricuspídeo accesorio puede restringirla o cerrarla; por efecto Venturi puede prolapsar una valva aórtica e insuficiencia. Si hay un reborde muscular que la separa de la aorta, el prolapso es menos probable y se presta mejor para dispositivo.",
+  "Defecto de Gerbode: comunicación VI-AD en la porción auriculoventricular del septum membranoso (donde la tricúspide está desplazada respecto de la mitral y pasa el haz penetrante). Muy raro; distinguirlo del jet de una perimembranosa que atraviesa tejido tricuspídeo hacia la AD.",
+  "De entrada: abren en la entrada del VD a lo largo de la valva septal tricuspídea. Pueden ser musculares (borde superior muscular) o perimembranosas; estas últimas, alineadas o con mala alineación de los septos auricular y ventricular y cabalgamiento o straddling tricuspídeo. Distinguirlas de los canales AV con válvula común y cortocircuito solo ventricular.",
+  "Muscular trabecular: bordes completamente musculares; medioseptal, apical, anterior o inferior (posterior). Pueden tener una entrada izquierda y varias salidas derechas entre las trabéculas, o ser múltiples (queso suizo). Las pequeñas del neonato suelen cerrar.",
+  "De salida: bajo la válvula pulmonar; casi nunca cierran. Con septum conal ausente (doblemente relacionadas o yuxtaarteriales, subarteriales, supracristales, tipo 1) el techo es la continuidad fibrosa aorto-pulmonar; la valva coronaria derecha sin soporte prolapsa y genera insuficiencia aórtica. Con septum conal hipoplásico los bordes son musculares.",
+  "Por mala alineación: el septum conal rota fuera del plano de la banda septal. Anterior: Fallot (si no hay obstrucción subpulmonar significativa se la llamó CIV tipo Eisenmenger, que no cierra sola). Posterior: estenosis subaórtica y obstrucción o interrupción del arco; tampoco cierra. La mitral puede hacer straddling en la doble salida del VD."]},
+ {t:"Sistema de conducción",p:[
+  "El tipo de CIV predice dónde corre el tejido de conducción, clave para la cirugía: el haz penetrante está en la porción AV del septum membranoso, por encima de la tricúspide.",
+  "Central perimembranosa: el eje de conducción corre siempre por el borde posteroinferior, sobre la cresta del septum muscular; más cerca de la cresta si se extiende hacia la entrada que si se extiende hacia la salida.",
+  "De entrada muscular (sin llegar al membranoso): el eje corre por el borde anterosuperior, a diferencia de las perimembranosas.",
+  "Musculares trabeculares y de salida sin extensión al membranoso: casi siempre lejos del eje de conducción."]},
+ {t:"Lesiones asociadas",p:[
+  "Mala alineación anterior: obstrucción del TSVD (Fallot), que puede no ser evidente al principio pero progresa por hipertrofia del septum y la pared conal.",
+  "VD de doble cámara: bandas musculares en la unión entre la porción trabecular y el cono, asociado a CIV perimembranosa (posiblemente por el jet). Se diferencia del Fallot porque el cono está bien desarrollado y alineado, y el anillo y el tronco pulmonar son normales.",
+  "Estenosis subaórtica: con mala alineación posterior, o como rodete fibromuscular en el borde superior (o inferior) de la CIV; también membrana subaórtica en perimembranosas con VD de doble cámara.",
+  "Prolapso aórtico con insuficiencia progresiva: en CIV de salida sin septum conal o perimembranosas en continuidad con la aorta; casi siempre la valva coronaria derecha."]},
+ {t:"Fisiopatología",p:[
+  "Dirección y magnitud del cortocircuito: tamaño del defecto y relación entre resistencias pulmonar y sistémica; la obstrucción fija de un tracto de salida también influye.",
+  "CIV grande: al nacer la resistencia pulmonar alta limita el flujo; en las primeras semanas cae, aumenta el cortocircuito y aparece sobrecarga de volumen de AI y VI. La presión pulmonar queda cerca de la sistémica y el flujo sistémico puede comprometerse.",
+  "La hipertrofia compensadora del VI reduce su distensibilidad y aumenta la presión de fin de diástole: dilatación de AI, hipertensión venosa pulmonar, líquido intersticial e insuficiencia cardíaca, a veces con menor contractilidad.",
+  "CIV pequeña: restrictiva en presión, sin sobrecarga relevante ni riesgo de enfermedad vascular; tiende a achicarse, sobre todo las apicales trabeculares y las perimembranosas con tejido accesorio.",
+  "CIV moderada: presión pulmonar baja con dilatación del VI; a la larga se comporta como grande (requiere intervención) o como pequeña.",
+  "Sin tratamiento, la CIV grande lleva a remodelado vascular pulmonar (muscularización, daño endotelial, proliferación de músculo liso), al principio reversible y luego irreversible: síndrome de Eisenmenger con cortocircuito derecha-izquierda, cianosis, hipertrofia y falla del VD."]},
+ {t:"Clínica según el tamaño",p:[
+  "CIV grande: tan grande como la válvula aórtica o que iguala presiones. El tamaño es relativo al paciente (5 mm es grande en un lactante y chico en un adulto). Suele pasar inadvertida al nacer (poco soplo).",
+  "Se presenta a las 4-8 semanas: taquicardia, taquipnea, sudoración y cansancio con las tomas (se duerme antes de terminar), mal progreso de peso. Una infección respiratoria previa puede confundir.",
+  "Examen: precordio hiperdinámico (VD y VI), choque desplazado si el VI está dilatado, soplo holosistólico que decrece al final de la sístole, P2 intensa con desdoblamiento estrecho o S2 único, soplo eyectivo pulmonar, retumbo mesodiastólico apical por 'estenosis mitral relativa', tercer ruido o galope.",
+  "Con resistencia pulmonar en aumento, el lactante 'mejora' y gana peso un tiempo hasta que aparece la cianosis; el soplo se apaga, P2 se hace palpable y pueden aparecer soplos de insuficiencia tricuspídea y pulmonar.",
+  "CIV pequeña: menos de un tercio de la válvula aórtica; presión del VD normal. Asintomática; soplo holosistólico 4-5/6, en meseta, agudo, a veces con frémito; cuanto más chica, más intenso. En las musculares pequeñas el soplo termina antes de fin de sístole (el defecto se cierra al contraerse el músculo), lo que anticipa el cierre espontáneo.",
+  "CIV moderada: presión del VD subsistémica pero elevada; insuficiencia cardíaca más leve y soplo más intenso que en la grande.",
+  "Hallazgos atípicos: Gerbode (holosistólico en borde esternal medio-bajo), insuficiencia aórtica (soplo diastólico decreciente), VD de doble cámara (eyectivo en foco pulmonar), membrana subaórtica (eyectivo en foco aórtico)."]},
+ {t:"ECG y radiografía",p:[
+  "CIV grande en el lactante: hipertrofia del VD (T positiva en V1, R alta en V1, S profunda en V6-V7) o biventricular (complejos isodifásicos altos en precordiales medias); a veces asa antihoraria. Agrandamiento de AI si el cortocircuito es prolongado.",
+  "CIV pequeña: ECG normal. Resistencia pulmonar alta: hipertrofia del VD, a veces con sobrecarga.",
+  "Radiografía: normal al principio en cualquier tamaño. Con la CIV grande, al caer la resistencia: hiperflujo, arteria pulmonar prominente y cardiomegalia a expensas de AI y VI. Con enfermedad vascular pulmonar, campos normales u oscuros con cardiomegalia que puede persistir."]},
+ {t:"Ecocardiografía",p:[
+  "Es la herramienta principal y casi siempre la única necesaria.",
+  "Central perimembranosa: detrás de la valva septal tricuspídea y bajo la aorta; en el eje corto paraesternal, entre las 10 y 12 de la esfera aórtica.",
+  "De entrada: posterior, a lo largo de la valva septal; se pierde el desplazamiento normal entre tricúspide y mitral (apical 4 cámaras).",
+  "De salida: con septum conal ausente, el borde anterosuperior es la continuidad aorto-pulmonar; en el eje corto, entre las 12 y las 2.",
+  "Mala alineación: el vaso del otro lado del septum conal cabalga la CIV. La anterior se ve en subcostal sagital y oblicua anterior derecha; la posterior es más sutil: la aorta queda entera sobre el VI (subcostal oblicua anterior izquierda, eje largo apical o paraesternal).",
+  "Medir en planos ortogonales (no suelen ser circulares) y comparar con el diámetro de la aorta proximal; el 3D muestra el septum de frente. Describir bordes, septum conal, straddling tricuspídeo y buscar CIV adicionales con Doppler color a Nyquist bajo (difíciles de ver si hay una grande).",
+  "Doppler: dirección y restricción; con Bernoulli modificado se estima el gradiente VI-VD y la presión del VD (confirmar con la insuficiencia tricuspídea o el ductus). Signos indirectos de cortocircuito grande: dilatación de AI, VI y arteria pulmonar.",
+  "Tras el cierre: buscar CIV residuales y estimar presiones; en CIV grandes con VI dilatado es frecuente la disfunción del VI en el postoperatorio inmediato (aumento brusco de la poscarga). En el seguimiento, z-score del VI, VD de doble cámara y prolapso aórtico."]},
+ {t:"RMN, TAC y cateterismo",p:[
+  "RMN: tamaño, forma y relaciones del defecto con reconstrucción 3D; volúmenes de AI y VI y Qp/Qs por contraste de fase (aorta y tronco pulmonar, o válvulas AV), lo que a menudo evita el cateterismo. La TAC aporta anatomía cuando la RMN no es posible (por ejemplo, con marcapasos), con radiación y menos datos fisiológicos.",
+  "Cateterismo: cuando se sospecha enfermedad vascular pulmonar (resistencias y prueba con oxígeno al 100 % u otros vasodilatadores), para definir CIV múltiples y, sobre todo, para el cierre con dispositivo.",
+  "Angiografía del VI en oblicua axial (eje largo del VI) para perimembranosas, musculares y de salida; otras proyecciones para las de entrada e inferiores. Aortograma para insuficiencia aórtica y ductus.",
+  "CIV residual: un Qp/Qs menor de 2:1 sugiere que puede evitarse la reoperación; el dispositivo puede ser alternativa si hay que reintervenir."]},
+ {t:"Historia natural",p:[
+  "Pueden cerrar espontáneamente las centrales perimembranosas (por tejido tricuspídeo accesorio 'aneurismático'; el defecto anatómico persiste debajo) y las musculares (por hipertrofia). Una CIV abierta a los 2 años probablemente siga abierta, aunque las pequeñas pueden cerrar incluso en la adultez.",
+  "Las de entrada, de salida y por mala alineación no tienen mecanismo de cierre.",
+  "Mala alineación posterior: suele acompañarse de obstrucción o interrupción del arco, ductus-dependiente; la obstrucción no crítica adelanta la insuficiencia cardíaca a las 2-4 semanas (en lugar de 6-8).",
+  "Perimembranosas y de salida pueden ocluirse parcialmente por el prolapso de una valva aórtica, con insuficiencia. Las perimembranosas restrictivas pueden desarrollar VD de doble cámara y membrana subaórtica.",
+  "CIV grande sin cerrar en los primeros 2 años: riesgo de muerte prematura; hasta una cuarta parte tienen resistencia pulmonar elevada que no responde al tratamiento.",
+  "CIV pequeña: no acorta la vida (Qp/Qs < 2 y presión pulmonar normal); solo 14 % cerró espontáneamente después de los 2 años.",
+  "Eisenmenger: cianosis progresiva, poliglobulia, mala tolerancia al ejercicio, escoliosis, síncope, ACV y absceso cerebral; falla del VD y muerte temprana.",
+  "Estudio de historia natural (1.280 pacientes, segundo reporte en 1993): supervivencia a 25 años de 87 %; Eisenmenger multiplicó por 12 el riesgo de muerte; casi 30 % de las muertes cardíacas en no operados fueron súbitas. Endocarditis 14,5 por 10.000 pacientes-año, sin relación con el tamaño y el doble de frecuente antes del cierre."]},
+ {t:"Diagnóstico diferencial",p:[
+  "Otras sobrecargas de volumen del VI: canal AV completo (eje noroeste con asa antihoraria, regurgitación AV), ductus grande y ventana aortopulmonar (soplo continuo infraclavicular), doble salida del VD con CIV subaórtica sin estenosis pulmonar (difícil de distinguir clínicamente).",
+  "El soplo de la CIV restrictiva empieza con el S1 (holosistólico); las estenosis semilunares dan soplos eyectivos que empiezan después de la apertura valvular."]},
+ {t:"Tratamiento médico",p:[
+  "No cambia el tamaño ni la historia natural; trata la insuficiencia cardíaca.",
+  "Furosemida 1-3 mg/kg/día en 2-3 dosis (controlar sodio, potasio y calcio; a veces suplementar).",
+  "Reducción de poscarga con IECA cuando el Qp/Qs es alto (efectos adversos: daño renal, tos).",
+  "Digoxina (10 μg/kg/día en 2 dosis) con poca evidencia; vigilar la hipopotasemia. Hay reportes de mejoría con betabloqueantes.",
+  "Lo más importante: aporte calórico suficiente, con suplementos y alimentación por sonda nasogástrica si se fatiga; la sonda debe ser transitoria: si pierde peso, se opera.",
+  "Mejorar con tratamiento no significa que no necesite cirugía: vigilar que la resistencia pulmonar no aumente. Si la CIV no se achica en los primeros meses, se recomienda el cierre.",
+  "Enfermedad vascular pulmonar: prostaciclina, bosentán o sildenafil, con especialista en hipertensión pulmonar."]},
+ {t:"Indicaciones de cierre",p:[
+  "Menores de 1-2 años con insuficiencia cardíaca mal controlada, falla de crecimiento (sin otra causa), resistencia pulmonar levemente elevada pero reactiva, o infecciones respiratorias recurrentes con internación.",
+  "Más discutidas: Qp/Qs > 2 medido (cateterismo o RMN) o dilatación del VI. Un estudio reciente mostró que la mayoría de las CIV restrictivas con VI dilatado, sin insuficiencia cardíaca, falla de crecimiento ni presión pulmonar elevada, normalizan el VI sin intervención.",
+  "Indicaciones tardías: VD de doble cámara significativo, prolapso aórtico con insuficiencia progresiva y endocarditis recurrente.",
+  "Banding: hoy reservado para CIV complejas (queso suizo, straddling de válvulas AV, doble salida). El cierre primario se hace incluso con 1,5-2 kg."]},
+ {t:"Cierre quirúrgico",p:[
+  "Parche (pericardio o protésico) en las grandes; sutura directa en restrictivas que se operan por otra causa.",
+  "Abordajes: perimembranosas y de entrada por la AD (a veces desinsertando la valva septal tricuspídea); de salida por la válvula pulmonar o infundibulotomía derecha; musculares según su ubicación (las apicales son difíciles: técnica de doble paraguas o híbrida).",
+  "Mortalidad 0,3-0,6 %; mayor con CIV múltiples o resistencia pulmonar elevada.",
+  "BAV completo hasta 3 %, en su mayoría transitorio; factores de riesgo de BAV permanente: paciente pequeño y CIV de entrada. El bloqueo de rama derecha es frecuente (a veces bifascicular) y produce desdoblamiento amplio del S2.",
+  "Complicación más frecuente: CIV residual periparche (hasta 25 %), en las perimembranosas detrás de la valva septal o bajo la aorta; las pequeñas suelen cerrar. La dehiscencia del parche es rara (temprana o por endocarditis).",
+  "En conotruncales (Fallot) pueden quedar CIV residuales intramurales si el parche se fija a una trabécula en lugar del anillo aórtico: tienden a crecer y requieren reintervención.",
+  "Con prolapso aórtico: parche solo o agregar valvuloplastia aórtica si la insuficiencia es significativa; la insuficiencia leve suele evolucionar bien.",
+  "Síndrome pospericardiotomía: considerarlo en los primeros controles."]},
+ {t:"Cierre percutáneo e híbrido",p:[
+  "Indicado sobre todo en CIV musculares de difícil acceso quirúrgico; en las apicales, abordaje híbrido con dispositivo a través de la pared libre del VD expuesta.",
+  "BAV completo hasta 6 % con dispositivo.",
+  "Fuera de Estados Unidos se cierran con frecuencia las perimembranosas con dispositivo; un estudio aleatorizado no mostró muertes ni morbilidad importante en ninguno de los grupos, con menos complicaciones, internación y costos con el dispositivo.",
+  "Útil también en CIV residuales cuando la reoperación es de alto riesgo."]},
+ {t:"Evolución, adultos y embarazo",p:[
+  "Supervivencia a largo plazo excelente; la mayoría lleva una vida normal y puede hacer deporte competitivo, aunque la calidad de vida reportada tras el cierre temprano es algo menor que la normal.",
+  "Seguimiento para arritmias, disfunción ventricular tardía o hipertensión pulmonar.",
+  "Adultos con CIV pequeña (serie británica, edad media 29 años): cierre espontáneo hasta 10 %, endocarditis 11 %, insuficiencia aórtica casi 20 %, arritmias 8 % (sobre todo fibrilación auricular). Control de por vida, sin restricción deportiva.",
+  "Profilaxis de endocarditis solo si hubo intervención y queda CIV residual.",
+  "Embarazo bien tolerado con CIV pequeña. Con Eisenmenger, mortalidad materna de 25-50 % y fetal o neonatal de 7-15 %."]}
+]};
+QUIZ.push(
+ {tg:"Cortocircuitos",q:"Clasificación de la STS: ¿qué tipo de CIV es el tipo 1?",a:["Perimembranosa","Subarterial (doblemente relacionada)","De entrada","Muscular"],r:1,e:"Tipo 2 perimembranosa, tipo 3 de entrada, tipo 4 muscular. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Defecto de Gerbode:",a:["CIV muscular apical","Comunicación entre el VI y la AD","CIV con prolapso aórtico","CIV de entrada con straddling"],r:1,e:"En la porción auriculoventricular del septum membranoso; soplo holosistólico intenso. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"En la CIV de entrada muscular (sin extensión al membranoso), el eje de conducción corre por el borde:",a:["Posteroinferior","Anterosuperior","No hay riesgo de conducción","Apical"],r:1,e:"A diferencia de las perimembranosas, donde corre por el borde posteroinferior. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"¿Qué CIV tienen mecanismo de cierre espontáneo?",a:["De salida y por mala alineación","Central perimembranosa y muscular trabecular","De entrada","Todas por igual"],r:1,e:"La perimembranosa por tejido tricuspídeo accesorio y la muscular por hipertrofia. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"En una CIV muscular pequeña, un soplo que termina antes del final de la sístole sugiere:",a:["Hipertensión pulmonar","Que probablemente cerrará espontáneamente","Prolapso aórtico","Insuficiencia mitral"],r:1,e:"El defecto se cierra al contraerse el músculo. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Ubicación ecográfica en el eje corto paraesternal: una CIV de salida (septum conal ausente) aparece aproximadamente a las:",a:["10-12 de la esfera aórtica","12-2 de la esfera aórtica","6","No se ve en ese eje"],r:1,e:"La central perimembranosa queda a las 10-12, junto a la tricúspide. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"CIV con mala alineación posterior del septum conal: ¿qué lesión hay que buscar?",a:["Estenosis pulmonar","Obstrucción o interrupción del arco aórtico y estenosis subaórtica","DVPAT","Ebstein"],r:1,e:"Suelen ser ductus-dependientes y dan síntomas a las 2-4 semanas. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Incidencia de BAV completo tras el cierre quirúrgico de CIV y principal factor de riesgo de BAV permanente:",a:["< 0,1 %; CIV muscular","Hasta 3 %; paciente pequeño y CIV de entrada","15 %; CIV de salida","Hasta 3 %; CIV apical"],r:1,e:"La mayoría es transitorio. Con dispositivo, hasta 6 %. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Complicación más frecuente del cierre quirúrgico primario de la CIV:",a:["BAV completo","CIV residual periparche","Endocarditis","Insuficiencia aórtica"],r:1,e:"Hasta 25 %; las pequeñas suelen cerrar solas. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Hoy el banding pulmonar en CIV se reserva para:",a:["Toda CIV grande en menores de 3 meses","CIV complejas: queso suizo, straddling de válvulas AV o doble salida","CIV restrictivas","CIV con prolapso aórtico"],r:1,e:"El cierre primario se hace incluso con 1,5-2 kg. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"En el estudio de historia natural de la CIV, la endocarditis fue:",a:["Más frecuente en las CIV grandes","Independiente del tamaño y el doble de frecuente antes del cierre que después","Inexistente tras la cirugía","Más frecuente después del cierre"],r:1,e:"14,5 por 10.000 pacientes-año. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"VD de doble cámara asociado a CIV: ¿qué lo diferencia del Fallot?",a:["Hay cianosis","El cono del VD está bien desarrollado y alineado, con anillo y tronco pulmonar normales","Siempre hay estenosis valvular","La aorta cabalga"],r:1,e:"Son bandas musculares en la unión entre la porción trabecular y el cono. (Moss & Adams, cap. 30)"},
+ {tg:"Postoperatorio",q:"Tras cerrar una CIV grande con VI dilatado, es frecuente en el postoperatorio inmediato:",a:["Hipertensión pulmonar fija","Disfunción sistólica del VI por el aumento brusco de la poscarga","Insuficiencia aórtica aguda","Taquicardia ventricular"],r:1,e:"El VI deja de descargar en el lecho pulmonar de baja resistencia. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Un Qp/Qs residual menor de 2:1 tras el cierre de una CIV sugiere:",a:["Reoperación urgente","Que el cortocircuito residual es lo bastante chico para evitar otra cirugía","Necesidad de banding","Eisenmenger"],r:1,e:"Si hay que reintervenir, el dispositivo puede ser alternativa. (Moss & Adams, cap. 30)"},
+ {tg:"Cortocircuitos",q:"Mortalidad materna reportada en embarazadas con síndrome de Eisenmenger:",a:["1-2 %","5 %","25-50 %","> 80 %"],r:2,e:"Por crisis de hipertensión pulmonar, insuficiencia cardíaca, tromboembolia, disección o arritmias. (Moss & Adams, cap. 30)"}
+);
+
 
 
 
