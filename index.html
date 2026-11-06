@@ -412,9 +412,9 @@ const CC=[
  res:"Persistencia de la conexión entre aorta descendente y arteria pulmonar. En prematuros produce robo diastólico sistémico, edema pulmonar y se asocia a DBP, ECN y HIV.",
  ind:"Prematuro con ductus hemodinámicamente significativo (diámetro > 1,5 mm, relación AI/Ao aumentada, flujo diastólico reverso en aorta descendente) que no responde al tratamiento médico. En niños mayores: cierre si hay sobrecarga de cavidades izquierdas; el ductus silente es controvertido.",
  opts:[
- {t:"cor",n:"Tratamiento farmacológico",c:"Primera línea en prematuros.",h:"Ibuprofeno, indometacina o paracetamol.",x:"Oliguria, hemorragia, perforación intestinal (más con corticoides simultáneos)."},
- {t:"cor",n:"Ligadura o clip quirúrgico",c:"Falla o contraindicación del tratamiento médico.",h:"Toracotomía posterolateral izquierda, ligadura o clip; en el prematuro puede hacerse en la UCIN.",x:"Lesión del nervio laríngeo recurrente (parálisis cordal), quilotórax, síndrome posligadura (disfunción del VI e hipotensión a las 6-12 h), ligadura equivocada de rama pulmonar izquierda o aorta."},
- {t:"per",n:"Cierre percutáneo",c:"Niños mayores; cada vez más en prematuros desde ~700 g (Amplatzer Piccolo).",h:"Coil o dispositivo, por vía venosa en prematuros, guiado por eco y fluoroscopía.",x:"Embolización, obstrucción de la rama pulmonar izquierda o de la aorta, hemólisis."}],
+ {t:"cor",n:"Tratamiento farmacológico",c:"Primera línea en prematuros.",h:"Ibuprofeno (IV u oral; eficacia similar a indometacina con menos efectos adversos), indometacina o paracetamol. Cierra el 60-80 %, con posible reapertura.",x:"Insuficiencia renal y enterocolitis necrotizante (más con indometacina), hemorragia, perforación intestinal (más con corticoides simultáneos)."},
+ {t:"cor",n:"Ligadura o clip quirúrgico",c:"Falla o contraindicación del tratamiento médico.",h:"Toracotomía posterolateral izquierda, ligadura o clip; en el prematuro puede hacerse en la UCIN.",x:"Parálisis de cuerda vocal (~9 %), transfusión (~30 % en neonatos), quilotórax, síndrome posligadura (disfunción del VI e hipotensión a las 6-12 h), ligadura equivocada de rama izquierda o aorta. Mortalidad operatoria < 5 % en prematuros muy pequeños; casi nula en término."},
+ {t:"per",n:"Cierre percutáneo",c:"Tratamiento estándar fuera del período neonatal; en prematuros desde 700 g con Amplatzer Piccolo (implante intraductal).",h:"Coil o dispositivo, por vía venosa en prematuros, guiado por eco y fluoroscopía.",x:"Embolización, obstrucción de la rama pulmonar izquierda o de la aorta, hemólisis."}],
  lp:"Curación definitiva con cierre completo. En prematuros, el impacto del cierre en resultados a largo plazo sigue en discusión.",
  pe:["El síndrome posligadura responde a milrinona: anticiparlo en prematuros extremos.","Antes de cerrar, confirmar que no es un ductus dependiente (coartación, atresia pulmonar).","Soplo continuo en maquinaria en el niño mayor; en el prematuro puede ser solo sistólico."]},
 
@@ -752,10 +752,10 @@ QUIZ.push(
 
 CC.push(
 {id:"ventana",n:"Ventana aortopulmonar",ab:"Ventana AP",g:0,
- res:"Comunicación directa entre la aorta ascendente y el tronco pulmonar, con dos válvulas semilunares separadas (a diferencia del truncus). Cortocircuito izquierda-derecha grande con hiperflujo e hipertensión pulmonar precoz. Puede asociarse a IAA tipo A, origen anómalo de la rama derecha desde la aorta o anomalías coronarias.",
+ res:"Comunicación directa entre la aorta ascendente y el tronco pulmonar, con dos válvulas semilunares separadas (a diferencia del truncus). Clasificación de Mori/STS: tipo I proximal, II distal, III total e intermedio. Cortocircuito izquierda-derecha grande con hiperflujo e hipertensión pulmonar precoz. Más de la mitad tiene lesiones asociadas, sobre todo interrupción del arco; también origen de la rama derecha desde la aorta o anomalías coronarias.",
  ind:"Cirugía al diagnóstico, en general en las primeras semanas o meses: la enfermedad vascular pulmonar se instala rápido.",
  opts:[
- {t:"cor",n:"Cierre con parche por vía transaórtica",c:"Técnica de elección.",h:"Con CEC se abre la ventana desde la aorta y se cierra con un parche, cuidando los ostia coronarios y el origen de la rama derecha.",x:"Estenosis supravalvular aórtica o pulmonar residual, lesión coronaria, crisis de HTP."},
+ {t:"cor",n:"Cierre con parche por vía transaórtica",c:"Técnica de elección.",h:"Con CEC se abre la ventana desde la aorta y se cierra con un parche, cuidando los ostia coronarios y el origen de la rama derecha.",x:"Estenosis supravalvular aórtica o pulmonar residual, lesión coronaria, crisis de HTP. Mortalidad operatoria 5-25 % según complejidad; mayor con < 2,5 kg y lesiones asociadas."},
  {t:"cor",n:"Reparación de lesiones asociadas",c:"IAA, rama pulmonar derecha desde la aorta.",h:"Reconstrucción del arco y reimplante de la rama en el mismo acto.",x:"Las de cada reparación."},
  {t:"per",n:"Cierre con dispositivo",c:"Excepcional: defectos pequeños y bordes adecuados.",h:"Dispositivo por cateterismo.",x:"Obstrucción coronaria o de ramas."}],
  lp:"Excelente si se opera antes de la enfermedad vascular pulmonar.",
@@ -1801,6 +1801,127 @@ QUIZ.push(
  {tg:"Cortocircuitos",q:"Un Qp/Qs residual menor de 2:1 tras el cierre de una CIV sugiere:",a:["Reoperación urgente","Que el cortocircuito residual es lo bastante chico para evitar otra cirugía","Necesidad de banding","Eisenmenger"],r:1,e:"Si hay que reintervenir, el dispositivo puede ser alternativa. (Moss & Adams, cap. 30)"},
  {tg:"Cortocircuitos",q:"Mortalidad materna reportada en embarazadas con síndrome de Eisenmenger:",a:["1-2 %","5 %","25-50 %","> 80 %"],r:2,e:"Por crisis de hipertensión pulmonar, insuficiencia cardíaca, tromboembolia, disección o arritmias. (Moss & Adams, cap. 30)"}
 );
+MOSS.dap={cap:"Cap. 31 · Patent Ductus Arteriosus and Aortopulmonary Window (Taggart NW, Anderson JH, Qureshi MY)",sec:[
+ {t:"Epidemiología",p:[
+  "El ductus deriva del sexto arco branquial (sexta semana) y es universal al nacer.",
+  "Ductus aislado: 0,3-4 por 1.000 nacidos vivos, alrededor del 10 % de las cardiopatías; la cifra sube con el eco Doppler, que detecta ductus 'silentes' sin soplo.",
+  "Mucho más frecuente en prematuros; relación mujer:varón aproximadamente 2:1.",
+  "A gran altura la incidencia puede ser hasta 30 veces mayor (menor pO₂).",
+  "Riesgo en hermanos ~3 %; un locus recesivo (12q24) en poblaciones con consanguinidad.",
+  "Síndrome de Char (TFAP2B, autosómico dominante): ductus, filtrum corto, labios prominentes ('pico de pato'), nariz respingada y anomalías del quinto dedo; TFAP2B también en ductus familiar sin el fenotipo.",
+  "Rubéola congénita: ductus en 60-70 %, junto con estenosis de ramas pulmonares; el ductus tiene histología 'inmadura'."]},
+ {t:"Fisiología fetal y cierre normal",p:[
+  "En el feto la resistencia pulmonar alta y la placentaria baja hacen que el flujo vaya de la pulmonar a la aorta.",
+  "Mantienen la permeabilidad la pO₂ baja (unos 18 mm Hg en la luz) y las prostaglandinas (sobre todo PGE₂ circulante, también PGI₂), sintetizadas por la COX en la pared ductal; también el óxido nítrico y, posiblemente, la adenosina.",
+  "Al nacer: cae la resistencia pulmonar, se retira la placenta, el flujo se invierte (aorta→pulmonar) y el ductus queda expuesto a pO₂ cercana a 100 mm Hg; los canales de potasio sensibles a O₂ activan canales de calcio y el músculo se contrae. La PGE₂ cae rápidamente porque se metaboliza en el pulmón.",
+  "Cierre funcional: ~50 % de los recién nacidos de término a las 24 h y casi todos a las 72 h. En los primeros días todavía se puede reabrir con PGE₁.",
+  "La constricción empieza en el extremo pulmonar: el ductus persistente es más estrecho del lado pulmonar y ancho del lado aórtico (ampolla).",
+  "Cierre anatómico: la hipoxia de las capas internas produce necrosis y fibrosis; queda el ligamento arterioso.",
+  "Prematuro: pO₂ más baja, menor respuesta del ductus al oxígeno, PGE₂ elevada por pulmón inmaduro y posiblemente más óxido nítrico.",
+  "En cardiopatías ductus-dependientes el ductus puede cerrarse aun con cianosis grave: se mantiene con PGE₁."]},
+ {t:"Morfología",p:[
+  "Recorrido normal: de la cara anterior del istmo aórtico al origen de la rama pulmonar izquierda, a la izquierda de la tráquea, en dirección anterior y superior. El nervio laríngeo recurrente izquierdo lo rodea por debajo: clave en la ligadura.",
+  "Clasificación de Krichenko (Toronto), por el sitio más estrecho: tipo A cónico, con ampolla aórtica y estrechez pulmonar (~65 %); tipo B corto o 'en ventana', estrecho del lado aórtico (~18 %); tipo C tubular sin estrechez; tipo D con varias constricciones; tipo E largo con estrechez muy anterior a la tráquea; tipo F (agregado después): el ductus fetal largo y ancho del prematuro.",
+  "Variantes: ductus derecho (a la derecha de la tráquea hacia la rama derecha), parte de anillos vasculares, u originado en ramas braquiocefálicas; ductus vertical o tortuoso en la atresia pulmonar, que nace de la cara inferior del arco."]},
+ {t:"Fisiopatología",p:[
+  "El cortocircuito depende de la resistencia del propio ductus y de la relación entre resistencias pulmonar y sistémica. En un ductus sin restricción, Qp/Qs = Rs/Rp: con una Rp de ~25 % de la Rs, el Qp/Qs sería de 4:1.",
+  "La sobrecarga de volumen dilata la circulación pulmonar, la AI y el VI. Más allá del período neonatal, la dilatación de AI y VI es el rasgo que define un ductus hemodinámicamente significativo; progresa con el tiempo.",
+  "Un ductus grande, de alta presión y alto flujo, puede llevar a enfermedad vascular pulmonar irreversible (Eisenmenger). La mayoría tiene cierta constricción que limita flujo y presión."]},
+ {t:"Clínica",p:[
+  "Prematuro con ductus grande: sin el soplo continuo típico; hipotensión con presión diferencial amplia, hiperflujo y edema pulmonar.",
+  "Neonato con resistencia pulmonar elevada pero subsistémica y ductus restrictivo: solo soplo sistólico. Con resistencia suprasistémica: cianosis diferencial (miembros superiores bien saturados, inferiores cianóticos).",
+  "Término y niños: soplo continuo con refuerzo sistólico (el gradiente sistólico aorta-pulmonar es mayor que el diastólico).",
+  "Ductus silente: sin soplo, cortocircuito despreciable, sin dilatación de cavidades.",
+  "Eisenmenger: sin soplo típico, P2 intensa, cianosis y limitación al esfuerzo."]},
+ {t:"Estudios",p:[
+  "Radiografía: normal en el restrictivo; congestión, compresión del bronquio izquierdo por la AI y cardiomegalia en los grandes.",
+  "ECG: poco sensible; P ancha (AI), hipertrofia del VI en los crónicos; rara vez isquemia por robo coronario diastólico (el oxígeno durante la anestesia puede empeorarla al aumentar el Qp/Qs).",
+  "Eco: entre el origen de la rama izquierda y la aorta descendente, distal a la subclavia izquierda. Vistas: eje corto paraesternal, paraesternal izquierda alta ('trifurcación': ramas derecha, izquierda y ductus) y supraesternal sagital (ductus vertical en atresia pulmonar).",
+  "Doppler: el izquierda-derecha va en sentido opuesto al flujo de las ramas; bajar el Nyquist para flujos lentos o derecha-izquierda; el pulsado se coloca en el extremo pulmonar. El continuo estima el gradiente (poco fiable si es tortuoso).",
+  "Lo que decide es la repercusión, no el tamaño: flujo diastólico anterógrado continuo en la rama izquierda, reflujo holodiastólico en la aorta descendente, dilatación de AI y VI y aumento de velocidades en venas pulmonares.",
+  "TAC y RMN: ventanas malas o sospecha de coartación o anillo; sincronizar el contraste con la aorta (o con la pulmonar si hay Eisenmenger). Útiles para planificar el stent ductal.",
+  "Cateterismo: sobre todo para el cierre; mide cortocircuito y resistencias, prueba de vasodilatadores en adultos con HTP. El Fick es impreciso por diferencias de saturación entre las ramas.",
+  "Angiografía: lateral estricta (relación con la tráquea) y oblicua anterior derecha caudal (ampolla); oblicua anterior izquierda caudal para verificar que el dispositivo no obstruya la rama izquierda. Medir ampolla, extremo pulmonar, diámetro mínimo y longitud."]},
+ {t:"Historia natural y complicaciones",p:[
+  "Mitchell (1968): puede cerrar durante el primer año; Toronto (1970): improbable después del primer mes. Con el eco y la supervivencia de prematuros ya no hay una sola historia natural.",
+  "Insuficiencia cardíaca en los grandes; los diuréticos alivian, pero el tratamiento definitivo es el cierre.",
+  "Eisenmenger: presión pulmonar igual a la sistémica, falla derecha, cortocircuito nulo o invertido.",
+  "Endarteritis: históricamente ~1 % por año, hoy mucho menos. Las vegetaciones asientan en el extremo pulmonar, por lo que los émbolos sépticos van al pulmón. Por eso muchos cierran todo ductus audible.",
+  "Aneurisma ductal (1-8,8 % según la definición): muchos regresan; si persisten se asocian a cardiopatías o colagenopatías y pueden trombosarse, romperse o disecarse (más tras cierre o endarteritis). En colagenopatías puede indicarse cirugía profiláctica."]},
+ {t:"Diagnóstico diferencial",p:[
+  "Zumbido venoso: soplo continuo inocente, en hemitórax derecho con refuerzo diastólico; desaparece al girar la cabeza a la izquierda, al comprimir las venas del cuello o en decúbito.",
+  "Malformaciones arteriovenosas (cerebrales, hepáticas, pulmonares): soplo continuo y presión diferencial amplia; fontanela o hígado pulsátil; dilatación del retorno venoso correspondiente en el eco.",
+  "Colaterales aortopulmonares: en cardiopatías cianóticas con flujo pulmonar disminuido.",
+  "Ventana aortopulmonar: fisiología igual a un ductus del mismo tamaño.",
+  "Fístula coronaria: soplo continuo más intenso en diástole, drena en cavidades derechas.",
+  "Insuficiencia aórtica y túnel aorta-VI: soplo solo diastólico.",
+  "CIV: soplo sistólico."]},
+ {t:"Indicaciones y tratamiento sintomático",p:[
+  "Cierre indicado si hay síntomas de insuficiencia cardíaca o dilatación de cavidades izquierdas.",
+  "La mayoría recomienda cerrar el ductus con soplo aunque no tenga repercusión; el ductus silente es controvertido.",
+  "Prematuro con ductus moderado o grande poco sintomático: la mayoría lo cierra, pero no está demostrado que cambie la evolución.",
+  "Cortocircuito derecha-izquierda: el ductus descarga al VD; cerrarlo en el neonato es controvertido y puede ser perjudicial. En niños mayores y adultos con HTP: cateterismo con prueba de vasodilatadores, tratamiento de la HTP y eventualmente oclusión de prueba.",
+  "Tratamiento sintomático: furosemida (clorotiazida en prematuros); no hay datos para digoxina ni IECA, y los IECA pueden empeorar la perfusión sistémica."]},
+ {t:"Prematuros y cierre farmacológico",p:[
+  "Alrededor del 20 % de los recién nacidos de muy bajo peso recibe alguna intervención por el ductus; no hay estrategia óptima demostrada y la práctica varía.",
+  "Indometacina: la primera usada; eficaz pero con más insuficiencia renal y enterocolitis necrotizante.",
+  "Ibuprofeno (intravenoso u oral): eficacia similar con mejor perfil de efectos adversos.",
+  "Paracetamol: alternativa a los inhibidores de la COX.",
+  "Eficacia global del tratamiento farmacológico: 60-80 %, con posibilidad de reapertura."]},
+ {t:"Cierre quirúrgico",p:[
+  "Munro lo propuso en 1905; Gross hizo la primera ligadura exitosa en 1939 por toracotomía izquierda.",
+  "Hoy, toracotomía izquierda con anestesia general; puede hacerse en la UCIN en prematuros inestables.",
+  "Mortalidad prácticamente nula en término y niños sanos; en prematuros muy pequeños, mortalidad operatoria < 5 % y global cercana al 10 %.",
+  "Morbilidad en prematuros: cambios bruscos de la resistencia sistémica, compromiso respiratorio, infección, hemorragia intraventricular, quilotórax, displasia broncopulmonar, transfusión en ~30 % y parálisis de cuerda vocal unilateral en ~9 %."]},
+ {t:"Cierre percutáneo",p:[
+  "Primer cierre percutáneo en 1979; hoy es el tratamiento estándar con coils, plugs vasculares y dispositivos específicos.",
+  "Amplatzer Piccolo: malla autoexpandible 'del tamaño de una arveja', por vena femoral a través del corazón derecho, con implante intraductal que evita protruir en la aorta o la bifurcación pulmonar. Aprobado desde 700 g (hay casos por debajo).",
+  "Muy seguro: mortalidad rara; el cortocircuito residual inmediato desaparece casi siempre al año.",
+  "Riesgos: lesión vascular (pérdida del pulso femoral en lactantes chicos), embolización y obstrucción de la aorta o de la rama izquierda.",
+  "Profilaxis de endarteritis: solo los primeros 6 meses tras el dispositivo o coil, si queda cortocircuito residual alrededor del dispositivo, o si hubo endarteritis previa (se infiere también en Eisenmenger)."]}
+]};
+MOSS.ventana={cap:"Cap. 31 · Patent Ductus Arteriosus and Aortopulmonary Window (Taggart NW, Anderson JH, Qureshi MY)",sec:[
+ {t:"Epidemiología y etiología",p:[
+  "Muy rara: 0,1 % de las cardiopatías congénitas; predominio masculino 2:1 en algunas series.",
+  "Más de la mitad tiene otras cardiopatías que requieren cirugía, con frecuencia interrupción del arco aórtico.",
+  "Déficit de la septación del tronco arterioso: la comunicación está entre la cara posterior izquierda de la aorta y la anterior derecha del tronco pulmonar. Si falta toda la pared, solo la distinguen del truncus las dos válvulas semilunares y la ausencia de CIV."]},
+ {t:"Clasificación",p:[
+  "Mori (1978), aceptada por la STS: tipo I proximal (poco borde sobre las válvulas semilunares), tipo II distal (sin borde superior en la bifurcación pulmonar), tipo III grande, desde las válvulas hasta la bifurcación.",
+  "La STS agregó el tipo intermedio: defecto central chico con borde circunferencial.",
+  "El 'tipo III' de Richardson (origen de una rama pulmonar desde la aorta sin comunicación aorto-pulmonar, mal llamado 'hemitruncus') hoy se considera una entidad distinta."]},
+ {t:"Fisiopatología y clínica",p:[
+  "Igual a un ductus del mismo tamaño; como no tiene longitud, el cortocircuito depende del diámetro y de la relación Rp/Rs. Dilatación inevitable de AI y VI si es moderada o grande; riesgo alto de enfermedad vascular pulmonar si se diagnostica tarde.",
+  "Insuficiencia cardíaca, presión diferencial amplia y pulsos saltones, choque apical desplazado, soplo continuo si hay algo de restricción, retumbo mitral si el cortocircuito es grande; con HTP, solo una P2 intensa. Hepatomegalia o edemas indican falla derecha.",
+  "Radiografía y ECG inespecíficos (hiperflujo, cardiomegalia, AI grande, hipertrofia del VD o del VI)."]},
+ {t:"Estudios",p:[
+  "El eco transtorácico basta en niños: 'falta' de pared entre aorta y tronco pulmonar en el eje corto paraesternal alto, flujo diastólico anterógrado en las ramas y reflujo diastólico en la aorta descendente.",
+  "Definir el origen de la rama derecha (puede nacer de la aorta) y la distancia a la coronaria izquierda (vistas subcostal y supraesternal).",
+  "TAC o RMN si la ventana acústica es mala; Qp/Qs por contraste de fase.",
+  "Cateterismo si hay resistencia pulmonar elevada o cortocircuito derecha-izquierda: prueba de vasodilatadores para decidir si operar, diferir o no operar, y anticipar HTP postoperatoria."]},
+ {t:"Tratamiento y resultados",p:[
+  "Diuréticos y eventualmente reducción de poscarga mientras tanto; tratar enérgicamente la hipertensión pulmonar.",
+  "Es quirúrgica y no debe diferirse: esternotomía con CEC, abordaje por la aorta ascendente y cierre con parche; las lesiones asociadas se reparan en el mismo acto (o por etapas en pacientes muy graves o chicos).",
+  "Los defectos intermedios con borde circunferencial pueden cerrarse con dispositivos de CIA o ductus, una estrategia todavía no probada.",
+  "Mortalidad operatoria de 5-25 % según la complejidad y la edad; mayor con < 2,5 kg y lesiones asociadas. Supervivencia a largo plazo excelente."]}
+]};
+QUIZ.push(
+ {tg:"Cortocircuitos",q:"Clasificación de Krichenko: ¿cuál es el tipo de ductus más frecuente?",a:["Tipo A (cónico, con ampolla aórtica y estrechez pulmonar)","Tipo B (en ventana)","Tipo C (tubular)","Tipo E (largo)"],r:0,e:"Alrededor del 65 %. El tipo F es el ductus fetal, largo y ancho, del prematuro. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"¿En qué extremo empieza la constricción normal del ductus y dónde suele quedar su parte más estrecha?",a:["Aórtico; aórtico","Pulmonar; pulmonar","Aórtico; pulmonar","Pulmonar; aórtico"],r:1,e:"Por eso el lado aórtico suele ser ancho (ampolla). (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Cierre funcional del ductus en el recién nacido de término sano:",a:["50 % a las 24 h y casi todos a las 72 h","Todos en la primera hora","50 % a la semana","Al mes"],r:0,e:"En los primeros días todavía puede reabrirse con PGE₁. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Síndrome de Char: gen y hallazgos:",a:["TBX5; anomalías del pulgar","TFAP2B; ductus, labios prominentes, filtrum corto y anomalías del quinto dedo","ELN; estenosis supravalvular","NKX2.5; BAV"],r:1,e:"Herencia autosómica dominante. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"En la rubéola congénita, el ductus aparece en:",a:["5 %","20 %","60-70 %","100 %"],r:2,e:"Junto con estenosis de ramas pulmonares. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Signo Doppler de ductus hemodinámicamente significativo:",a:["Flujo sistólico aislado en la rama izquierda","Reflujo holodiastólico en la aorta descendente y flujo diastólico anterógrado continuo en la rama izquierda","Gradiente aorta-pulmonar de 80 mm Hg","Cortocircuito bidireccional"],r:1,e:"Más la dilatación de AI y VI; la repercusión importa más que el tamaño. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Zumbido venoso frente a ductus: ¿qué lo distingue?",a:["Es sistólico","Se oye a la derecha, con refuerzo diastólico, y desaparece al girar la cabeza o en decúbito","Se asocia a presión diferencial amplia","Tiene refuerzo sistólico a la izquierda"],r:1,e:"El ductus se oye a la izquierda con refuerzo sistólico. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"¿Dónde asientan típicamente las vegetaciones en la endarteritis del ductus?",a:["Extremo aórtico","Extremo pulmonar, con émbolos al pulmón","Válvula mitral","Aorta descendente"],r:1,e:"Es el sitio de estrechez con flujo turbulento de alta velocidad. (Moss & Adams, cap. 31)"},
+ {tg:"Postoperatorio",q:"Frecuencia aproximada de parálisis de cuerda vocal unilateral tras la ligadura quirúrgica del ductus:",a:["< 1 %","~9 %","~30 %","~50 %"],r:1,e:"La transfusión postoperatoria en neonatos ronda el 30 %. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Peso mínimo de aprobación del Amplatzer Piccolo para cierre percutáneo del ductus:",a:["700 g","1.500 g","2.500 g","5 kg"],r:0,e:"Se implanta intraductal por vía venosa; hay casos por debajo de ese peso. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Eficacia aproximada del cierre farmacológico del ductus en prematuros:",a:["10-20 %","30-40 %","60-80 %","> 95 %"],r:2,e:"Indometacina, ibuprofeno o paracetamol; puede reabrirse. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"¿Quién realizó la primera ligadura exitosa del ductus y en qué año?",a:["Blalock, 1944","Gross, 1939","Gibbon, 1953","Munro, 1905"],r:1,e:"Munro la había propuesto en 1905. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Hoy, ¿en qué paciente con ductus se indica profilaxis de endarteritis?",a:["Todo ductus audible","Los primeros 6 meses tras el dispositivo, con cortocircuito residual o con endarteritis previa","Solo en prematuros","Nunca"],r:1,e:"Se infiere también en Eisenmenger. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Ventana aortopulmonar: ¿qué lesión asociada es frecuente?",a:["Coartación aislada","Interrupción del arco aórtico","Ebstein","DVPAT"],r:1,e:"Más de la mitad tiene lesiones asociadas que requieren cirugía. (Moss & Adams, cap. 31)"},
+ {tg:"Cortocircuitos",q:"Ventana aortopulmonar tipo II (Mori):",a:["Defecto proximal sobre las válvulas semilunares","Defecto distal sin borde superior en la bifurcación pulmonar","Defecto que abarca toda la pared","Defecto central con borde circunferencial"],r:1,e:"Tipo I proximal, tipo III total, intermedio (STS) central con borde. (Moss & Adams, cap. 31)"}
+);
+
 
 
 
