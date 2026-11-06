@@ -833,7 +833,19 @@ CC.push(
  opts:[
  {t:"cor",n:"Resección de las bandas musculares",c:"Tratamiento de elección.",h:"Por vía transauricular-transtricuspídea se resecan las bandas; se cierra la CIV y se trata la membrana subaórtica si existe.",x:"Obstrucción residual (rara), BAV, CIV iatrogénica."}],
  lp:"Excelente: recurrencia rara tras la resección completa.",
- pe:["Toda CIV seguida en el tiempo: medir el gradiente dentro del VD.","No responde a valvuloplastia (es muscular)."]}
+ pe:["Toda CIV seguida en el tiempo: medir el gradiente dentro del VD.","No responde a valvuloplastia (es muscular)."]},
+
+{id:"vsist",n:"Conexiones venosas sistémicas anómalas",ab:"Venas sistémicas",g:5,
+ res:"Espectro desde variantes asintomáticas hasta lesiones que causan cianosis o complican la cirugía; presentes en más del 90 % de las heterotaxias. La más común es la VCS izquierda persistente al seno coronario (~0,3 % de la población; 11-19 % en Fallot y canal AV), de fisiología normal. Si el seno coronario está destechado, la VCS izquierda drena en la AI (síndrome de Raghib: cianosis y cortocircuito por el ostio del seno). Otras: VCS derecha ausente, VCS derecha a la AI, innominada retroaórtica, atresia del ostio del seno coronario, VCI interrumpida con continuación ácigos (poliesplenia), VCI dobles, ductus venoso ausente o persistente y válvula del seno venoso persistente.",
+ ind:"Las variantes con fisiología normal (VCS izquierda a seno coronario intacto, VCS derecha ausente, innominada retroaórtica, continuación ácigos) no se tratan, pero deben conocerse antes de cateterismos, marcapasos, ECMO, CEC y cirugías cavopulmonares. Se reparan las que producen cortocircuito derecha-izquierda (cianosis): VCS izquierda a la AI, VCS derecha a la AI, VCI dirigida a la AI y velos del seno venoso obstructivos.",
+ opts:[
+ {t:"cor",n:"Ligadura de la VCS izquierda",c:"VCS izquierda a la AI (seno destechado) pequeña, con innominada izquierda adecuada; prueba de oclusión con presión venosa aceptable.",h:"Se liga la VCS izquierda y se cierra la comunicación por el ostio del seno coronario.",x:"Hipertensión venosa cefálica izquierda si la innominada no alcanza; isquemia miocárdica si el ostio del seno coronario estaba atrésico."},
+ {t:"cor",n:"Retechado del seno coronario (túnel intraauricular)",c:"VCS izquierda a la AI sin innominada adecuada.",h:"Se construye un túnel con parche por la pared posterior de la AI, desde la VCS izquierda hasta la AD, evitando los orificios de las venas pulmonares.",x:"Obstrucción del túnel o de las venas pulmonares, arritmias."},
+ {t:"per",n:"Cierre del defecto del seno coronario con dispositivo",c:"Seno coronario destechado con anatomía favorable.",h:"Dispositivo de cierre de CIA en el defecto del seno coronario.",x:"Embolización, obstrucción venosa."},
+ {t:"cor",n:"Redirección de la VCS derecha o de la VCI a la AD",c:"VCS derecha que drena en la AI (seno venoso con atresia del orificio derecho) o VCI dirigida a la AI.",h:"VCS: sección por encima de las venas pulmonares y anastomosis a la orejuela derecha. VCI: resección del septum y parche a la izquierda de la VCI.",x:"Estenosis de la anastomosis, arritmias."},
+ {t:"cor",n:"Resección de la válvula del seno venoso persistente",c:"Velo obstructivo tricuspídeo o del TSVD (\"manga de viento\").",h:"Resección del velo y cierre de la CIA.",x:"No reconocerlo en quirófano puede ser fatal."}],
+ lp:"Las variantes sin cortocircuito tienen pronóstico normal. Tras la reparación de las formas cianóticas, la fisiología se normaliza.",
+ pe:["Seno coronario dilatado en el eco = buscar VCS izquierda persistente.","Nunca cerrar un ostio de seno coronario dilatado como si fuera una CIA secundum.","Antes de ligar una VCS izquierda, comprobar que el ostio del seno coronario sea permeable (flujo retrógrado en la VCS izquierda es una alarma).","VCI interrumpida: no ligar nunca la ácigos; pensar en poliesplenia y planificar Kawashima.","Catéter umbilical con trayecto raro: pensar en ductus venoso ausente."]}
 );
 
 const STATCC={
@@ -2493,6 +2505,76 @@ QUIZ.push(
  {tg:"Obstrucciones izquierdas",q:"Peso mínimo habitual para stent en coartación nativa (expandible a tamaño adulto):",a:["~5 kg","~10 kg","~25 kg","~60 kg"],r:2,e:"Cheatham-Platinum aprobado desde > 20 kg; en la recoartación es de elección si el stent puede llegar a tamaño adulto. (Moss & Adams, cap. 45)"},
  {tg:"Obstrucciones izquierdas",q:"Lesión de la pared aórtica en pacientes mayores: stent vs. angioplastia con balón:",a:["7 % vs. 44 %","44 % vs. 7 %","Igual","0 % vs. 10 %"],r:0,e:"Los stents cubiertos se reservan para pared dañada, casi atresia, Turner o > 40 años. (Moss & Adams, cap. 45)"},
  {tg:"Postoperatorio",q:"Seguimiento por imágenes recomendado en adultos con coartación (reparada o no):",a:["Solo eco anual","RMN o TC de toda la aorta inicial y cada 3-5 años, más imagen cerebral","Cateterismo cada 2 años","No requiere"],r:1,e:"El eco puede no detectar aneurismas en la zona reparada. (Moss & Adams, cap. 45)"}
+);
+MOSS.vsist={cap:"Cap. 36 · Abnormal Systemic Venous Connections (Penny DJ, Geva T)",sec:[
+ {t:"Concepto y embriología",p:[
+  "Las anomalías venosas sistémicas van desde variantes asintomáticas hasta lesiones que causan cianosis o complican la cirugía. Son raras con situs lateralizado, pero aparecen en más del 90 % de las heterotaxias.",
+  "Tres sistemas venosos embrionarios: cardinales (sistemas cavos), umbilicales-vitelinos (placenta, saco vitelino e intestino) y pulmonares. Todos drenan primero en los cuernos del seno venoso.",
+  "VCS derecha: porción proximal de la cardinal anterior derecha y la cardinal común derecha. Al formarse la innominada izquierda (7.ª semana), la VCS izquierda involuciona y queda como ligamento de Marshall.",
+  "El cuerno izquierdo del seno venoso y la cardinal común izquierda forman el seno coronario. De ahí tres reglas: el seno coronario normal siempre desemboca en la AD; una VCS izquierda persistente siempre continúa con el seno coronario; y una vena solo drena en la AI si el seno coronario está destechado.",
+  "La VCI se forma con cinco sistemas (cardinales posteriores, supracardinal derecha, subcardinales, segmento hepático y venas hepáticas); cuatro son bilaterales, lo que permite VCI dobles infrarrenales o suprahepáticas, pero nunca completas porque el segmento hepático es único.",
+  "Ductus venoso: une la vena umbilical izquierda con las hepáticas; luego queda como ligamento venoso, y la umbilical izquierda como ligamento redondo.",
+  "Ácigos: segmento suprarrenal de la supracardinal derecha y resto de la cardinal posterior; se arquea a la altura de T4 para entrar en la VCS."]},
+ {t:"VCS izquierda persistente con drenaje a la AD",p:[
+  "~0,3 % de la población (autopsias), mucho más con cardiopatía: Fallot 11 %, canal AV 19 %, atresia mitral 17 %, yuxtaposición de orejuelas 34 %.",
+  "92 % drena en la AD a través del seno coronario; el resto, en la AI por un seno destechado.",
+  "Calibre variable; innominada izquierda presente en ~60 %, con relación inversa entre los calibres de ambas. Desciende por delante del arco y de la rama pulmonar izquierda y llega al seno coronario por el surco AV posterior.",
+  "Fisiología normal y sin síntomas, pero complica cateterismos y cirugías (canulación, cardioplejía, Glenn). El seno coronario dilatado puede interferir con el flujo AI-VI y aumentar el cortocircuito de una CIA secundum.",
+  "Eco (sensibilidad 96 %, especificidad 100 %): el primer indicio es el seno coronario dilatado en el surco AV posterior; se sigue la vena desde el hueco supraesternal o la ventana paraesternal izquierda alta.",
+  "Diferenciales: venas pulmonares anómalas, intercostal superior izquierda y vena levoatriocardinal, que fluyen HACIA la innominada. La levoatriocardinal pasa por detrás de la rama pulmonar izquierda (la VCS izquierda, por delante) y suele descomprimir una AI obstruida (estenosis o atresia mitral con septum restrictivo).",
+  "Flujo retrógrado en la VCS izquierda hacia la innominada sugiere estenosis o atresia del ostio del seno coronario.",
+  "Aislada con seno coronario intacto: no requiere tratamiento."]},
+ {t:"VCS izquierda con seno coronario destechado (síndrome de Raghib)",p:[
+  "Falta total o parcial de la pared entre seno coronario y AI: la VCS izquierda drena en la AI y el ostio del seno funciona como comunicación interauricular (no es una 'CIA posterior').",
+  "Máxima frecuencia en heterotaxia con asplenia (67 % en una serie de autopsias; 13 % en poliesplenia), como resto de la simetría venosa embrionaria.",
+  "Clínica: cianosis (saturación habitual 85-95 %), dedos en palillo de tambor, poliglobulia y riesgo de embolias paradójicas, absceso cerebral e ictus; más signos de cortocircuito izquierda-derecha si el ostio es amplio.",
+  "Diagnóstico: eco del surco AV posterior; la VCS izquierda termina en el ángulo superior izquierdo de la AI, entre la vena pulmonar superior izquierda y la orejuela. Contraste por vena del brazo izquierdo: burbujas en la AI antes que en la AD. Cateterismo: caída de saturación entre venas pulmonares y AI.",
+  "Tratamiento obligatorio: si la VCS izquierda es chica y hay innominada adecuada, se liga y se cierra la comunicación; si no, se 'retecha' el seno con un túnel por la pared posterior de la AI hacia la AD. También puede cerrarse el defecto con dispositivo.",
+  "Error grave: cerrar el ostio dilatado del seno coronario confundiéndolo con una CIA secundum → cianosis postoperatoria."]},
+ {t:"VCS derecha ausente y otras variantes de la VCS",p:[
+  "VCS derecha ausente con situs solitus: 0,07-0,13 % de los pacientes con cardiopatía. La VCS izquierda drena por el seno coronario y la ácigos es izquierda. En 54 % el corazón es normal; 46 % tiene otras malformaciones y 35 % arritmias (BAV, disfunción sinusal, TV, bloqueos de rama, muerte súbita). El seno estaba destechado en 6 %.",
+  "Importa conocerla antes de marcapasos transvenosos, canulación para CEC o ECMO, catéteres por yugular o subclavia, Glenn y trasplante. Sin tratamiento si la fisiología es normal.",
+  "VCS derecha a la AI o a ambas aurículas: se interpreta como defecto del seno venoso tipo superior con estenosis o atresia del orificio derecho de la VCS; la vena pulmonar superior derecha suele drenar a la VCS. Causa cianosis inexplicada sin otros signos, a veces recién en la adolescencia o adultez. Cirugía: sección de la VCS por encima de las venas pulmonares y anastomosis a la orejuela derecha.",
+  "Innominada izquierda retroaórtica: pasa por detrás de la aorta ascendente y entra en la VCS justo por encima de la AD (0,1-1 %); se asocia a Fallot, truncus, canal AV y heterotaxia. Sin consecuencias, salvo que dificulta movilizar la VCS en un Glenn. No confundirla con una VCS izquierda (que va al seno coronario)."]},
+ {t:"Anomalías del seno coronario",p:[
+  "Destechado sin VCS izquierda: raro, fisiología de CIA; el orificio está por debajo y detrás de la fosa oval. Con canal AV o aurícula común el orificio se confunde con el defecto septal.",
+  "Atresia del ostio del seno coronario: el seno está bien formado y una membrana (relacionada con la válvula de Tebesio) cubre el ostio. Casi siempre hay salida alternativa (VCS izquierda pequeña, venas de Tebesio, defecto del seno).",
+  "Sin salida alternativa: isquemia, infarto y muerte (dos neonatos murieron a los 6 y 10 días). Ligar una VCS izquierda pequeña en estos pacientes causó muertes por isquemia → antes de ligar, revisar el ostio, sobre todo si la VCS izquierda tiene flujo retrógrado.",
+  "Divertículo o aneurisma del seno coronario (2-5 cm, hacia la pared del VI): asociado a vías accesorias posteroseptales, Wolff-Parkinson-White y arritmias malignas. Se trata separando o ablacionando el cuello del divertículo.",
+  "Una vena hepática puede drenar al seno coronario; un seno muy dilatado puede incorporar el orificio de la VCI."]},
+ {t:"Anomalías de la VCI",p:[
+  "VCI interrumpida con continuación ácigos: falta el segmento hepático y el retorno infrarrenal sube por la ácigos (derecha, izquierda o bilateral) a la VCS; las venas hepáticas drenan aparte en la aurícula.",
+  "Característica de la heterotaxia con poliesplenia (86 % en autopsias); rara con corazón normal o asplenia.",
+  "Sin consecuencias fisiológicas, pero complica cateterismos y ablaciones por vía femoral y cambia la planificación del Glenn y el Fontan (Glenn con todo el retorno ácigos = Kawashima).",
+  "Eco subcostal: no se ve VCI debajo del hígado (no confundir con una vena hepática) y la ácigos está muy dilatada junto a la columna, siguiéndola hasta la VCS. La angio-RMN 3D es muy precisa.",
+  "No requiere tratamiento; ligar por error la ácigos puede ser mortal.",
+  "VCI suprahepáticas bilaterales: 28 % en asplenia y 6 % en poliesplenia; las infrarrenales dobles no tienen repercusión.",
+  "VCI 'a la AI': una válvula de Eustaquio persistente dirige la sangre hacia la AI a través del foramen oval o una CIA (cianosis). No existe una conexión directa documentada de la VCI con la AI (el caso clásico de Gardner y Cole fue un artefacto de autopsia). Tratamiento: redirigir quirúrgicamente la VCI a la AD."]},
+ {t:"Ductus venoso y venas umbilicales",p:[
+  "Ductus venoso ausente con terminación anómala de la umbilical (en AD, VCI, seno coronario, porta o ilíacas): casi siempre asintomático; casos con obstrucción del flujo umbilical fetal u obstrucción intestinal posnatal.",
+  "Su importancia práctica es reconocerlo en el eco fetal o neonatal y al canalizar la vena umbilical (trayecto anómalo del catéter).",
+  "Arteria umbilical única en 9 de 16 casos; la mitad tiene otras cardiopatías (Fallot, ectopia cordis, DVPAT, canal AV).",
+  "Persistencia posnatal del ductus venoso o shunt portosistémico intrahepático: puede causar encefalopatía portosistémica. Antes de cerrarlo hay que confirmar que el sistema porta está íntegro; si no, la ligadura provoca congestión mesentérica e isquemia intestinal."]},
+ {t:"Válvulas del seno venoso persistentes",p:[
+  "Restos normales: válvulas de Eustaquio y de Tebesio y crista terminalis. Persistencias menores (red de Chiari, válvulas grandes) no tienen repercusión.",
+  "A los 3 meses de gestación la válvula derecha del seno venoso casi divide la AD y desvía todo el retorno sistémico hacia la AI; si persiste, puede dirigir la sangre sistémica a la AI (cianosis) u obstruir el flujo ('cor triatriatum dextrum').",
+  "Se asocia a corazón derecho hipoplásico con fístulas ventrículo-coronarias, Ebstein y atresia tricuspídea.",
+  "Obstrucción del TSVD: saco en 'manga de viento' que cruza la tricúspide, el VD y la válvula pulmonar. No reconocerlo en quirófano puede ser fatal; su resección normaliza la fisiología.",
+  "Obstrucción tricuspídea ('tapón'): cianosis e insuficiencia derecha, siempre con foramen oval o CIA; eco con estructura lineal móvil que va a la tricúspide en diástole. Resección del velo y cierre de la CIA con buenos resultados."]}
+]};
+QUIZ.push(
+ {tg:"Otras",q:"¿Por qué una VCS izquierda persistente drena normalmente en la AD?",a:["Porque se conecta a la innominada","Porque continúa con el seno coronario, derivado del cuerno izquierdo del seno venoso","Porque se une a la VCI","Porque desemboca en la orejuela derecha"],r:1,e:"Solo drena en la AI si el seno coronario está destechado. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Primer indicio ecocardiográfico habitual de una VCS izquierda persistente:",a:["AI dilatada","Seno coronario dilatado en el surco AV posterior","VCI ausente","Derrame pericárdico"],r:1,e:"Luego se sigue la vena desde el hueco supraesternal o la ventana paraesternal izquierda alta. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Vena levoatriocardinal vs. VCS izquierda: diferencia útil en el eco:",a:["La levoatriocardinal pasa por detrás de la rama pulmonar izquierda y fluye hacia la innominada","Ambas van al seno coronario","La VCS izquierda va a la AI","La levoatriocardinal nace de la VCI"],r:0,e:"Suele descomprimir una AI obstruida (estenosis o atresia mitral con septum restrictivo). (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Síndrome de Raghib:",a:["VCS izquierda a seno coronario destechado con comunicación interauricular por el ostio del seno","VCI interrumpida","Atresia del ostio del seno coronario","Innominada retroaórtica"],r:0,e:"Cianosis (saturación 85-95 %) más cortocircuito izquierda-derecha; riesgo de embolia paradójica y absceso cerebral. (Moss & Adams, cap. 36)"},
+ {tg:"Postoperatorio",q:"Error quirúrgico a evitar en una VCS izquierda con seno coronario destechado:",a:["Ligar la ácigos","Cerrar el ostio dilatado del seno coronario creyendo que es una CIA secundum","Reimplantar la VCS derecha","Cerrar el foramen oval"],r:1,e:"Produce cianosis postoperatoria; se liga la VCS izquierda (si hay innominada) o se retecha el seno. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Heterotaxia con mayor frecuencia de VCS bilaterales con seno coronario destechado:",a:["Poliesplenia","Asplenia","Situs inverso totalis","Situs solitus"],r:1,e:"67 % en asplenia vs. 13 % en poliesplenia (autopsias). (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"VCS izquierda con flujo retrógrado hacia la innominada: ¿qué buscar antes de ligarla?",a:["Atresia del ostio del seno coronario","CIV","Coartación","Ductus"],r:0,e:"Si es la única salida del seno coronario, ligarla causa isquemia miocárdica y muerte. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"VCI interrumpida con continuación ácigos se asocia sobre todo a:",a:["Asplenia","Poliesplenia","Síndrome de Down","Williams"],r:1,e:"86 % en poliesplenia; complica cateterismos y cambia la planificación del Glenn (Kawashima). (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Divertículo del seno coronario se asocia a:",a:["Vías accesorias posteroseptales (WPW)","Estenosis mitral","Coartación","Bloqueo AV congénito"],r:0,e:"Se trata separando o ablacionando el cuello del divertículo. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"VCS derecha drenando en la AI se interpreta como:",a:["Un seno venoso tipo superior con atresia del orificio derecho de la VCS","Una VCS izquierda invertida","Un DVPAT supracardíaco","Una CIA ostium primum"],r:0,e:"Cianosis sin otros signos; cirugía: sección de la VCS sobre las venas pulmonares y anastomosis a la orejuela derecha. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Persistencia de la válvula derecha del seno venoso puede producir:",a:["Obstrucción tricuspídea o del TSVD en 'manga de viento' y desvío del retorno sistémico a la AI","Coartación","Estenosis mitral","CIV"],r:0,e:"Resecarla normaliza la fisiología; no reconocerla en quirófano puede ser fatal. (Moss & Adams, cap. 36)"},
+ {tg:"Otras",q:"Antes de cerrar un ductus venoso persistente (shunt portosistémico) hay que confirmar:",a:["La integridad del sistema porta","La función renal","El grupo sanguíneo","Que la VCI sea izquierda"],r:0,e:"Si la porta no está íntegra, la ligadura causa congestión mesentérica e isquemia intestinal. (Moss & Adams, cap. 36)"}
 );
 
 
