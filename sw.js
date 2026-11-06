@@ -1,6 +1,6 @@
 // Cirugía en Cardiopatías Congénitas - funcionamiento sin conexión
 // Cambiá VERSION cada vez que actualices index.html para que los celulares bajen la versión nueva.
-const VERSION = "v10";
+const VERSION = "v11";
 const CACHE = "cirugia-cc-" + VERSION;
 const CORE = ["./", "./index.html", "./lib/three.module.min.js", "./manifest.webmanifest",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./icons/icon-maskable-512.png",
