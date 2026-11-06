@@ -262,6 +262,11 @@ svg .part:hover .vo{stroke:var(--ink)}
 .hntb{border-collapse:collapse;font-size:13.5px;margin:6px 0;width:100%;max-width:440px}
 .hntb th,.hntb td{border:1px solid var(--line);padding:4px 8px;text-align:left;font-variant-numeric:tabular-nums}
 .hntb th{background:var(--bg);font-weight:600}
+
+.moss{border-left:3px solid var(--per);padding-left:12px}
+.moss-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.moss-h h3{margin:0;color:var(--per)}
+.mmk{font-size:10.5px;font-weight:700;color:var(--per);background:var(--per-bg);border-radius:3px;padding:0 4px;vertical-align:1px}
 /* v3: UCI, riesgo, notas, captions */
 .statlist{display:flex;flex-wrap:wrap;gap:6px}
 .stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;background:var(--panel)}
@@ -387,7 +392,7 @@ const CC=[
  res:"Defecto del septum interauricular: ostium secundum (el más frecuente, fosa oval), seno venoso superior (asociado a drenaje venoso pulmonar anómalo parcial de venas derechas), seno venoso inferior, seno coronario (destechado) y ostium primum (forma parcial de canal AV). El cortocircuito I→D produce sobrecarga de volumen de AD y VD.",
  ind:"Qp/Qs > 1,5 o dilatación de cavidades derechas. Los OS pequeños (< 5 mm) suelen cerrar solos. Cierre electivo habitual entre los 2 y 5 años; antes si hay IC, displasia broncopulmonar o HTP.",
  opts:[
- {t:"per",n:"Cierre percutáneo con dispositivo",c:"OS con bordes adecuados (≥ 5 mm salvo borde aórtico), peso habitualmente > 15 kg.",h:"Dispositivo de doble disco (Amplatzer, Gore Cardioform) vía femoral, guiado por ETE o ecografía intracardíaca.",x:"Embolización, erosión (rara, más con bordes aórticos deficientes y dispositivos sobredimensionados), arritmias, trombo."},
+ {t:"per",n:"Cierre percutáneo con dispositivo",c:"Solo ostium secundum, con bordes adecuados (≥ 5 mm salvo el aórtico) y defecto ≤ 36-40 mm. Se hace incluso en lactantes, pero peso < 15 kg y CIA > 20 mm/m² predicen más complicaciones.",h:"Dispositivo de doble disco (Amplatzer, Gore Cardioform) vía femoral, guiado por ETE o ecografía intracardíaca.",x:"Embolización, erosión (rara, más con bordes aórticos deficientes y dispositivos sobredimensionados), arritmias, trombo."},
  {t:"cor",n:"Cierre quirúrgico con sutura o parche",c:"Defectos no OS, OS grandes o sin bordes, pacientes chicos.",h:"Esternotomía (o minitoracotomía) con CEC; sutura directa o parche de pericardio autólogo a través de atriotomía derecha.",x:"Síndrome pospericardiotomía, arritmias auriculares, CIA residual."},
  {t:"cor",n:"Seno venoso superior: parche y técnica de Warden",c:"Seno venoso con venas pulmonares derechas que drenan alto en la VCS.",h:"Parche que redirige las venas pulmonares a la AI a través del defecto; en Warden se secciona la VCS por encima de las venas anómalas y se anastomosa a la orejuela derecha.",x:"Disfunción sinusal, estenosis de VCS o de venas pulmonares."}],
  lp:"Excelente sobrevida. Cerrada en la infancia, la función del VD se normaliza. Vigilar arritmias auriculares si el cierre fue tardío.",
@@ -967,7 +972,7 @@ function renderList(){
     if(g!==""&&+g!==gi) return;
     const its=CC.filter(c=>c.g===gi&&matches(c,q));
     if(!its.length) return;
-    html+=`<div class="group-h">${gn}</div>`+its.map(c=>`<button class="item${c.id===current?" sel":""}" data-id="${c.id}"><span class="dot${done.has(c.id)?" done":""}"></span><span class="nm">${esc(c.n)}${(store.get("cc_notes",{})[c.id])?' <span class="nmk" title="Tiene notas">✎</span>':""}</span><span class="ab">${esc(c.ab)}</span></button>`).join("");
+    html+=`<div class="group-h">${gn}</div>`+its.map(c=>`<button class="item${c.id===current?" sel":""}" data-id="${c.id}"><span class="dot${done.has(c.id)?" done":""}"></span><span class="nm">${esc(c.n)}${MOSS[c.id]?' <span class="mmk" title="Ampliado con Moss & Adams">M&amp;A</span>':""}${(store.get("cc_notes",{})[c.id])?' <span class="nmk" title="Tiene notas">✎</span>':""}</span><span class="ab">${esc(c.ab)}</span></button>`).join("");
   });
   $("#items").innerHTML=html||'<p style="padding:14px;color:var(--muted)">Sin resultados. Probá con otra palabra.</p>';
   $("#prog").textContent=`${done.size} de ${CC.length} estudiadas`;
@@ -996,6 +1001,7 @@ function openCC(id,fromHash){
     ${(()=>{const ps=SCH.filter(p=>p.cc.includes(id)&&POSTOP[p.id]);return ps.length?`<div class="block"><h3>Postoperatorio en UCI</h3><div class="chips">${ps.map(p=>`<button class="chip" data-uci="${p.id}">🩺 ${esc(p.n)}</button>`).join("")}</div></div>`:""})()}
     <div class="block"><h3>Evolución a largo plazo</h3><p>${esc(c.lp)}</p></div>
     <div class="pearls"><h3 style="font-size:16px;margin-bottom:6px">Perlas para el examen y la guardia</h3><ul>${c.pe.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+    ${MOSS[id]?`<div class="block moss"><div class="moss-h"><h3>Ampliado · Moss & Adams</h3><button class="btn sm" id="mossall">Desplegar todo</button></div><p class="hint" style="margin:0 0 8px">${esc(MOSS[id].cap)} · Heart Disease in Infants, Children, and Adolescents, 10.ª ed. (2022). Resumen propio para estudio.</p><div class="hnf">${MOSS[id].sec.map((s,i)=>`<details class="po"><summary>${i+1}. ${esc(s.t)}</summary><ul>${s.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`).join("")}</div></div>`:""}
     ${(()=>{const hs=HNRG.filter(s=>(s.cc||[]).includes(id));return hs.length?`<div class="block"><h3>Hospital de Niños (2017)</h3><div class="hnf">${hs.map(s=>`<details class="po"><summary>${esc(s.t)}</summary>${s.tb?hnTable(s.tb):""}<ul>${s.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`).join("")}</div><p class="hint" style="margin-top:6px">Conejeros W y col. Rev Hosp Niños (B Aires) 2017;59(265):117-132.</p></div>`:""})()}
     <div class="block"><h3>Mis notas</h3><textarea id="note" class="note-ta" placeholder="Escribí tus notas: casos que viste, lo que dijo tu docente, dudas para repasar…">${esc((store.get("cc_notes",{})[id])||"")}</textarea><div class="hint" id="notesaved">Se guardan en este dispositivo.</div></div>
     <p class="note">Material de estudio. Las indicaciones, edades y técnicas varían según el centro; contrastá con Moss &amp; Adams, Jonas y las guías de tu institución.</p>
@@ -1003,6 +1009,7 @@ function openCC(id,fromHash){
   $("#mark").onclick=()=>{done.has(id)?done.delete(id):done.add(id);store.set("cc_done",[...done]);openCC(id,true);};
   $("#back").onclick=()=>{$("#v-cc").classList.remove("showdetail");};
   document.querySelectorAll("#detail [data-sch]").forEach(b=>b.onclick=()=>openSch(b.dataset.sch,0));
+  if($("#mossall"))$("#mossall").onclick=()=>{const ds=[...document.querySelectorAll(".moss details")];const open=!ds.every(d=>d.open);ds.forEach(d=>d.open=open);$("#mossall").textContent=open?"Plegar todo":"Desplegar todo";};
   document.querySelectorAll("#detail [data-uci]").forEach(b=>b.onclick=()=>openUCI(b.dataset.uci));
   let nt=null;$("#note").oninput=e=>{clearTimeout(nt);nt=setTimeout(()=>{const n=store.get("cc_notes",{});const v=e.target.value.trim();if(v)n[id]=e.target.value;else delete n[id];store.set("cc_notes",n);$("#notesaved").textContent="Guardado en este dispositivo.";renderList();},400);};
   $("#v-cc").classList.add("showdetail");
@@ -1540,6 +1547,139 @@ QUIZ.push(
  {tg:"Mezcla y transposición",q:"Doble salida del VD con CIV fácil de tunelizar: momento habitual de la reparación biventricular según el artículo:",a:["Período neonatal siempre","6 a 12 meses, sin paliación previa","Después de los 5 años","Solo tras un Glenn"],r:1,e:"Si se prevé conducto o tunelización difícil, se difiere con cerclaje o fístula."},
  {tg:"Univentricular",q:"¿Cuál de estos NO es uno de los tres objetivos del Norwood?",a:["CIA no restrictiva","Fuente efectiva de flujo pulmonar","Salida sistémica libre","Cierre de la circulación coronaria nativa"],r:3,e:"Los tres objetivos son mezcla auricular libre, flujo pulmonar controlado y salida sistémica sin obstrucción."}
 );
+/* Contenido ampliado basado en Moss & Adams (10.ª ed., 2022), parafraseado para estudio */
+const MOSS={};
+MOSS.cia={cap:"Cap. 28 · Atrial Septal Defects (Parthiban A, Sachdeva R)",sec:[
+ {t:"Epidemiología y genética",p:[
+  "8-10 % de las cardiopatías congénitas en niños; la incidencia estimada pasó de unos 56 a 100 por 100.000 nacidos vivos con el uso extendido del eco. Es la segunda lesión más prevalente a nivel global.",
+  "Distribución: ostium secundum ~75 %, ostium primum ~20 % (se estudia con el canal AV), seno venoso ~5 %, seno coronario < 1 % (más con heterotaxia y anomalías venosas sistémicas).",
+  "Relación mujer:varón 2:1 en el secundum; 1:1 en el seno venoso.",
+  "Hijos de una madre con CIA esporádica: riesgo de cardiopatía de 8-10 %.",
+  "Genes: NKX2.5 (CIA familiar autosómica dominante con BAV, arritmias ventriculares y muerte súbita), TBX5 (síndrome de Holt-Oram: CIA, anomalías de miembros superiores y trastornos de conducción AV), GATA4, GATA6, TBX20, MYH6.",
+  "Síndromes asociados: Noonan, Down, Klinefelter, Williams, Kabuki, Goldenhar, Ellis-van Creveld.",
+  "Factores maternos: diabetes pregestacional, fenilcetonuria, influenza, retinoides, AINE, anticonvulsivantes, talidomida, tabaco, alcohol, antihipertensivos y obesidad (riesgo proporcional a su grado)."]},
+ {t:"Embriología y anatomía",p:[
+  "Cuarta semana: el septum primum crece hacia los cojines endocárdicos; el espacio que queda es el ostium primum. Antes de que cierre, la reabsorción de su parte superior forma el ostium secundum (semanas 5-6).",
+  "El septum secundum se pliega a la derecha del primum: su borde forma el limbo de la fosa oval y el septum primum queda como la válvula de la fosa oval. El hueco entre ambos es el foramen oval.",
+  "Tras el nacimiento ambos septos se fusionan; el foramen queda permeable a sonda en 25-30 % de los adultos (FOP).",
+  "Secundum: en la fosa oval, por déficit o reabsorción excesiva del septum primum o déficit del septum secundum. El 'secundum alto' llega a la unión VCS-AD pero, a diferencia del seno venoso, las venas pulmonares drenan normalmente.",
+  "Seno venoso: fuera de la fosa oval, por falta de la pared que separa las venas pulmonares derechas de la VCS, VCI o AD. En rigor la comunicación es el orificio destechado de la vena pulmonar derecha. El tipo superior (VCS) es el más frecuente; el inferior se prefiere llamar 'de tipo auricular derecho'.",
+  "Seno coronario destechado: falta la pared entre el seno coronario y la AI; casi siempre con VCS izquierda (síndrome de Raghib). Clasificación de Kirklin y Barratt-Boyes: tipo I completo con VCS izquierda, II completo sin VCS izquierda, III parcial medio, IV parcial terminal.",
+  "Aurícula común: ausencia casi total de septum primum, secundum y septum AV; típica de la heterotaxia."]},
+ {t:"Lesiones asociadas",p:[
+  "La comunicación interauricular es vital en SHVI, TGA, atresia tricuspídea y DVPAT.",
+  "DVPAP en casi el 90 % de las CIA seno venoso; más rara con el secundum.",
+  "El gradiente pulmonar puede ser solo por hiperflujo (hasta ~30 mm Hg); si es mayor, sospechar estenosis valvular real (suele haber clic eyectivo).",
+  "Seno coronario: VCS izquierda persistente.",
+  "Síndrome de Lutembacher: CIA más estenosis mitral, hoy considerada reumática; el cortocircuito aumenta en proporción a la obstrucción mitral.",
+  "También se describe con miocardiopatía no compactada e hipertrófica apical."]},
+ {t:"Fisiopatología",p:[
+  "La dirección y magnitud del cortocircuito dependen sobre todo de la distensibilidad relativa de los ventrículos: al bajar la resistencia pulmonar y adelgazarse el VD tras el nacimiento, el cortocircuito izquierda-derecha aumenta.",
+  "Es máximo en diástole (las cuatro cámaras comunicadas) y lo potencia la contracción auricular; puede haber un pequeño paso derecha-izquierda de sangre de la VCI al inicio de la diástole o de la sístole. Disminuye en inspiración y aumenta en espiración.",
+  "Sobrecarga de volumen de AD y VD, con dilatación de los anillos tricuspídeo y pulmonar. El septum desplazado reduce el llenado del VI y, a la larga, puede haber disfunción del VI y prolapso mitral.",
+  "El hiperflujo puede llevar con los años a hipertrofia de la media arteriolar, enfermedad vascular pulmonar obstructiva y síndrome de Eisenmenger con cortocircuito invertido y cianosis.",
+  "La dilatación crónica deteriora la función de reservorio y bomba de la AD y produce fibrosis del VD."]},
+ {t:"Clínica y examen físico",p:[
+  "La mayoría son asintomáticos y se diagnostican por un soplo, un ECG, una radiografía o un eco. Muy pocos lactantes tienen hiperflujo, infecciones respiratorias y falla de crecimiento; en ellos hay que evaluar la mitral, y a veces no mejoran tras el cierre.",
+  "Niños mayores y adultos: fatiga y disnea progresivas. En el adulto empeora por menor distensibilidad del VI (hipertensión, enfermedad coronaria), arritmias e hipertensión pulmonar.",
+  "Holt-Oram: pulgar hipoplásico o trifalángico (parece un dedo), metacarpianos o radio ausentes.",
+  "Signo clave: desdoblamiento amplio y fijo del segundo ruido (el VD sobrecargado tarda en vaciarse y la baja impedancia pulmonar prolonga el intervalo hasta el cierre pulmonar).",
+  "Soplo eyectivo en foco pulmonar por hiperflujo; retumbo mesodiastólico tricuspídeo si el cortocircuito es grande.",
+  "Con hipertensión pulmonar: onda A prominente, cuarto ruido, P2 intensa, desaparece el desdoblamiento fijo, soplo de Graham Steell e insuficiencia tricuspídea."]},
+ {t:"ECG, radiografía y electrofisiología",p:[
+  "ECG: normal si el cortocircuito es chico. Con sobrecarga: patrón rSR′ en V1-V2, eje QRS entre +95° y +170°, P alta. El BCRD completo es raro en niños pero aparece en ~50 % de los mayores de 60 años.",
+  "Seno venoso: eje de P menor de 30° en casi la mitad. Ostium primum: eje izquierdo con asa antihoraria.",
+  "Con hipertensión pulmonar el rSR′ se reemplaza por ondas Q, R monofásica alta y T profundamente negativas.",
+  "Adultos (después de la tercera década): ritmo de la unión, aleteo o fibrilación auricular. Los estudios electrofisiológicos muestran disfunción del nodo sinusal desde la infancia, en general sin repercusión clínica.",
+  "Radiografía: cardiomegalia por AD y VD, hiperflujo pulmonar, arteria pulmonar prominente, VD que ocupa el espacio retroesternal; AI y VI normales. Con hipertensión pulmonar, campos periféricos oligohémicos."]},
+ {t:"Ecocardiografía",p:[
+  "Define tipo, tamaño, forma, bordes, dirección del cortocircuito, repercusión derecha, lesiones asociadas y presión del VD.",
+  "La vista subcostal es la mejor (haz perpendicular al septum). En la apical la fosa oval puede 'desaparecer' y simular una CIA.",
+  "FOP: válvula a la izquierda que se superpone al limbo. Primum: entre el borde anteroinferior de la fosa y las válvulas AV. Seno venoso superior: en la unión VCS-AD, mejor en subcostal eje corto o paraesternal derecha alta, con la rama pulmonar derecha vista en corte justo encima. Seno venoso de tipo auricular derecho: pared posterior 'calva' en el eje corto. Seno coronario: orificio del seno muy grande por encima de la VCI.",
+  "Signos de sobrecarga: dilatación de cavidades derechas y movimiento septal paradójico.",
+  "Doppler: flujo de baja velocidad, en telesístole y protodiástole. Qp/Qs por Doppler (VTI × área de las válvulas pulmonar y aórtica); no sirve si hay obstrucción del TSVD, insuficiencia semilunar o ductus.",
+  "ETE: cuando la ventana es mala y para diagnosticar el seno venoso, que puede pasar inadvertido; guía el cierre. 3D (en general > 25 kg): vista frontal del septum y de los bordes, útil para decidir el dispositivo. Eco intracardíaca: evita anestesia general, limitada en niños chicos por el tamaño del introductor.",
+  "Contraste salino: lavado negativo en la AD (izquierda-derecha) o burbujas en la AI con Valsalva (derecha-izquierda). Inyección en brazo izquierdo con burbujas en la AI antes que en la AD: seno coronario destechado."]},
+ {t:"Cateterismo, TAC, RMN y prueba de esfuerzo",p:[
+  "Hoy el cateterismo diagnóstico se reserva para sospecha de enfermedad vascular pulmonar o para definir lesiones asociadas.",
+  "Salto oximétrico auricular: aumento ≥ 10 % respecto de las cavas en una serie, o ≥ 5 % en dos series. También lo producen la comunicación VI-AD, la insuficiencia tricuspídea por CIV, el canal AV, las fístulas arteriovenosas sistémicas y el DVPAP a la AD.",
+  "Qp/Qs < 1,5 se considera no significativo; ≥ 1,5, significativo.",
+  "Con hipertensión pulmonar se prueba la respuesta a óxido nítrico y oxígeno para decidir el cierre.",
+  "Angiografía: inyección en la desembocadura de la vena pulmonar superior derecha en oblicua anterior izquierda craneal; para el seno coronario, en la VCS izquierda, una vena pulmonar o la AI.",
+  "TAC y RMN: anatomía dudosa, seno coronario destechado, venas pulmonares; la RMN mide Qp/Qs con contraste de fase y correlaciona bien con la ETE para tamaño y bordes.",
+  "Esfuerzo: adultos sin reparar suelen tener un consumo pico de O₂ del 50-60 % del predicho; mejora tras el cierre. Evitar esfuerzo máximo con hipertensión pulmonar grave."]},
+ {t:"Historia natural",p:[
+  "Esperanza de vida reducida sin tratamiento: en la serie histórica de Campbell, edad media de muerte ~37 años; 75 % fallecidos a los 50 y 90 % a los 60. En el registro danés, la mortalidad fue mayor en CIA no cerradas (HR 2,4) que en cerradas (HR 1,4); incluso las CIA pequeñas se asociaron a menor expectativa de vida (~63 años).",
+  "Cierre espontáneo: solo el secundum. Los defectos < 5 mm detectados en la lactancia suelen cerrar; los > 8-10 mm rara vez. En la serie de Hanslik, 34 % cerró y 28 % se redujo a ≤ 3 mm; ninguna > 10 mm cerró. En pacientes diagnosticados más tarde (McMahon) muchas crecieron.",
+  "Hipertensión pulmonar: aparece mucho más tarde que en CIV o ductus; ~14 % de los adultos jóvenes desarrollan HTP progresiva. Con enfermedad vascular avanzada, cerrar la CIA puede empeorar la evolución (el cortocircuito derecha-izquierda sostiene el gasto).",
+  "Arritmias auriculares: aumentan con la edad y con la reparación tardía; aleteo o fibrilación en 15-20 % de los mayores de 60 años."]},
+ {t:"Indicaciones de cierre",p:[
+  "Cortocircuito grande: Qp/Qs ≥ 1,5 o equivalentes clínicos (retumbo tricuspídeo, sobrecarga del VD en ECG, cardiomegalia o hiperflujo radiológico, dilatación del VD o movimiento septal paradójico en el eco).",
+  "Asintomáticos con cortocircuito grande: cierre electivo entre los 2 y 5 años.",
+  "Considerar cierre en la lactancia si el pulmón está comprometido: displasia broncopulmonar, hernia diafragmática, dependencia de ventilador.",
+  "Sintomáticos: diuréticos hasta el cierre.",
+  "Guía ACC/AHA 2018 en adultos: cierre (clase I) en sintomáticos con Qp/Qs > 1,5, RVP < 1/3 de la sistémica, PSAP < 1/2 de la sistémica y dilatación derecha; razonable (IIa) en asintomáticos con esos criterios; IIb con RVP ≥ 1/3 o PSAP ≥ 1/2, con consulta a expertos; contraindicado (III) con cortocircuito neto derecha-izquierda. Eisenmenger: estudio hemodinámico y vasodilatadores pulmonares (I).",
+  "CIA pequeñas sin dilatación derecha: controvertido.",
+  "El dispositivo solo sirve para el secundum; seno venoso, seno coronario y primum son quirúrgicos. Fenestraciones múltiples y aneurisma septal requieren evaluación cuidadosa."]},
+ {t:"Cierre quirúrgico",p:[
+  "Historia: Murray (1948) con técnica externa a ciegas; Gibbon (1953) primer cierre abierto con bomba de oxigenación extracorpórea.",
+  "Sutura directa en defectos pequeños a moderados; parche (preferentemente de pericardio autólogo) en los grandes. En adultos con arritmias se puede agregar un procedimiento de Maze.",
+  "Abordajes: esternotomía mediana, esternotomía inferior parcial (menores de 3 años), toracoscopía mínimamente invasiva con CEC periférica, y cirugía robótica.",
+  "Resultados: mortalidad casi nula, aunque la mortalidad tardía sigue siendo algo mayor que la de la población general. En niños operados, supervivencia del 97 % a 35 años; arritmias supraventriculares sintomáticas en 6-16 % según la serie.",
+  "Predictores de mala evolución con hipertensión pulmonar: PAP pico > 60 mm Hg, media > 40 mm Hg o RVP > 10 UW·m².",
+  "Serie de la Clínica Mayo: los operados antes de los 24 años tuvieron supervivencia similar a la población; después de los 41 años, mucho menor. Predictores de supervivencia: menor edad y menor PSAP al operar."]},
+ {t:"Cierre con dispositivo",p:[
+  "Primer cierre percutáneo: Mills y King (1976). Hoy se hace incluso en lactantes.",
+  "Más usados: Amplatzer (fácil de implantar, recuperable antes de liberarlo, sirve para defectos grandes, disco izquierdo amplio para fenestraciones) y GORE Cardioform (más flexible, menor riesgo de erosión, recuperable incluso después de liberado).",
+  "Contraindicaciones relativas: defectos > 36-40 mm, bordes inadecuados, interferencia con válvulas AV o con drenaje venoso sistémico o pulmonar.",
+  "Complicaciones: embolización o fractura, mala posición, cortocircuito residual, trombosis, compromiso de estructuras vecinas, erosión tardía de la pared auricular o de la aorta, artefacto en la RMN e imposibilidad de acceso transeptal futuro.",
+  "Eficacia similar a la cirugía con menos complicaciones y menos internación. Serie francesa de 1.326 niños: complicaciones periprocedimiento 1,8 %, tardías ~1 %, sin muertes ni erosiones; peso < 15 kg y CIA > 20 mm/m² predijeron complicaciones.",
+  "Metaanálisis (28.142 pacientes): complicaciones mayores 1,6 % (sobre todo embolización y taponamiento); en el seguimiento, eventos cerebrovasculares 1,3 % y trombosis del dispositivo 1,2 %.",
+  "Migraña por alergia al níquel: responde a antiagregación (clopidogrel)."]},
+ {t:"Seno venoso y seno coronario",p:[
+  "Seno venoso sin DVPAP (raro): parche de pericardio. Con DVPAP (> 90 %): cierre de la CIA y redirección de las venas a la AI.",
+  "Venas que drenan en la AD: reparación sencilla. Venas en la VCS: más compleja, con riesgo de obstrucción venosa pulmonar, estenosis de VCS, disfunción sinusal y arritmias.",
+  "Técnicas: deflector intracaval (parche que conduce las venas por el defecto, con o sin ampliación de la VCS); técnica transcaval (incisión lateral en la VCS y un solo parche); Warden cuando las venas entran más de 2 cm por encima de la unión cavoatrial.",
+  "Resultados (115 pacientes, ~12 años): mortalidad temprana 0,9 %, sin reoperaciones; 6 % disfunción sinusal o marcapasos, 14 % fibrilación auricular (más con mayor edad al operar).",
+  "Seno coronario parcialmente destechado: se reconstruye el techo (sutura o parche de pericardio). VCS izquierda pequeña con vena innominada puente: se cierra el orificio del seno y se liga la VCS izquierda; si es grande y única: deflector intraauricular."]},
+ {t:"Seguimiento",p:[
+  "Síndrome pospericardiotomía en las primeras semanas: fiebre, dolor torácico o abdominal, vómitos, fatiga; eco para descartar derrame o taponamiento; tratamiento con AINE, colchicina o corticoides.",
+  "Vigilar tamaño y función de ambos ventrículos, arritmias auriculares e hipertensión pulmonar (puede progresar aun cerrada la CIA).",
+  "Fibrilación o aleteo: < 1 % antes de los 40 años; 15 % entre 40 y 60 y 61 % después de los 60. Más arritmias nuevas si se cierra después de los 40.",
+  "Las cavidades derechas se reducen en la mayoría, sobre todo durante el primer año; menos si el cierre fue tardío o con hipertensión pulmonar.",
+  "Prolapso e insuficiencia mitral pueden persistir tras el cierre.",
+  "Profilaxis de endocarditis los primeros 6 meses tras parche protésico o dispositivo (endotelización); la CIA aislada no predispone a endocarditis.",
+  "Adultos: control cada 6 meses a 5 años según el estado fisiológico, con eco, búsqueda de arritmias y embolias paradójicas y prueba de esfuerzo."]},
+ {t:"CIA en el adulto y embarazo",p:[
+  "Cardiopatía congénita más frecuente en adultos (hasta 30 %). Puede presentarse con embolia paradójica, insuficiencia cardíaca, arritmias o hipertensión pulmonar; la disnea de esfuerzo es el síntoma más frecuente.",
+  "Mortalidad de ~6 % por año después de la cuarta década sin tratamiento.",
+  "En mayores de 40 años, el cierre quirúrgico mejoró la supervivencia y la clase funcional frente al tratamiento médico (estudios de Konstantinides y de Attie, aleatorizado).",
+  "Embarazo: en general bien tolerado (la caída de la resistencia periférica compensa). Contraindicado con hipertensión pulmonar grave por la alta mortalidad materna y fetal."]},
+ {t:"Aneurisma del septum y foramen oval permeable",p:[
+  "Aneurisma septal (prevalencia 0,2-1,9 %): tejido redundante y móvil, no un aneurisma verdadero. Criterios de Hanley: protrusión o excursión ≥ 15 mm y base ≥ 15 mm. Se asocia a CIA, arritmias, prolapso valvular y embolias; con FOP aumenta el riesgo de ACV.",
+  "FOP: presente en hasta ~24 % de los adultos sanos por ETE. Diagnóstico de referencia: ETE con contraste salino y Valsalva (burbujas en la AI dentro de los 3 latidos). La guía de la Sociedad Americana de Eco (2016) recomienda empezar con ETT y pasar a ETE si no se demuestra el cortocircuito.",
+  "Se asocia a ACV criptogénico, migraña (sobre todo con aura), enfermedad por descompresión en buzos y platipnea-ortodesoxia.",
+  "Los primeros estudios (CLOSURE-1, PC, RESPECT inicial) no mostraron beneficio; los posteriores (RESPECT extendido, CLOSE, Gore-REDUCE, DEFENSE-PFO) y dos metaanálisis mostraron que el cierre previene mejor la recurrencia del ACV, con mayor efecto si hay aneurisma septal o cortocircuito grande. Tras el cierre se mantiene antiagregación o anticoagulación.",
+  "Migraña: asociación demostrada, pero los ensayos de cierre no alcanzaron su objetivo principal."]}
+]};
+QUIZ.push(
+ {tg:"Cortocircuitos",q:"Signo auscultatorio característico de una CIA con cortocircuito significativo:",a:["Desdoblamiento paradójico del S2","Desdoblamiento amplio y fijo del S2","S2 único","Clic mesosistólico"],r:1,e:"El VD sobrecargado tarda en vaciarse y su volumen varía poco con la respiración. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Síndrome de Holt-Oram: ¿qué gen y qué hallazgos lo definen?",a:["NKX2.5; pie zambo","TBX5; CIA, anomalías del pulgar y miembros superiores y trastornos de conducción AV","GATA4; CIV y hendidura palatina","ELN; estenosis supravalvular"],r:1,e:"Herencia autosómica dominante; el pulgar puede ser hipoplásico o parecer un dedo. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"¿En qué porcentaje de las CIA seno venoso hay drenaje venoso pulmonar anómalo parcial?",a:["~10 %","~50 %","~90 %","Nunca"],r:2,e:"Por eso la reparación incluye redirigir las venas a la AI. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Hallazgo ECG que sugiere CIA seno venoso:",a:["Eje de la onda P menor de 30°","Onda delta","QT largo","Eje QRS superior"],r:0,e:"Ocurre en casi la mitad. El eje QRS izquierdo con asa antihoraria sugiere ostium primum. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"¿Qué CIA secundum tiene alta probabilidad de cierre espontáneo?",a:["Defectos < 5 mm diagnosticados en la lactancia","Defectos > 10 mm","Cualquier tamaño antes de los 10 años","Las de tipo seno venoso"],r:0,e:"Las > 8-10 mm rara vez cierran; en la serie de Hanslik ninguna > 10 mm cerró. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Criterio oximétrico de cortocircuito auricular en el cateterismo:",a:["Aumento ≥ 3 % en una serie","Aumento ≥ 10 % respecto de las cavas en una serie (o ≥ 5 % en dos series)","Saturación arterial < 90 %","Diferencia AV > 30 %"],r:1,e:"Otras causas de salto auricular: comunicación VI-AD, canal AV, fístulas sistémicas, DVPAP a la AD. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Según la guía ACC/AHA 2018, ¿en qué adulto con CIA está contraindicado el cierre?",a:["Asintomático con Qp/Qs 1,8","Con cortocircuito neto derecha-izquierda","Con arritmias auriculares","Mayor de 60 años"],r:1,e:"Recomendación clase III. Con Eisenmenger se indican estudio hemodinámico y vasodilatadores pulmonares. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Contraindicación relativa para el cierre percutáneo de una CIA secundum:",a:["Peso de 20 kg","Defecto mayor de 36-40 mm o bordes inadecuados","Edad mayor de 5 años","Qp/Qs de 2"],r:1,e:"También la interferencia con válvulas AV o con el drenaje venoso. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Ventaja del dispositivo GORE Cardioform frente al Amplatzer:",a:["Cierra defectos más grandes","Más flexible, con menor riesgo de erosión y recuperable incluso tras liberarlo","No requiere ETE","Es reabsorbible"],r:1,e:"El Amplatzer es fácil de implantar y cierra defectos grandes. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"¿Cuándo se elige la operación de Warden en la CIA seno venoso?",a:["Cuando las venas anómalas drenan en la AD","Cuando las venas entran en la VCS más de 2 cm por encima de la unión cavoatrial","Siempre en menores de 1 año","Cuando hay VCS izquierda"],r:1,e:"Alternativas: deflector intracaval o técnica transcaval. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Síndrome de Raghib:",a:["CIA con estenosis mitral","Seno coronario destechado con VCS izquierda persistente","CIA con anomalías de miembros","CIA con estenosis pulmonar"],r:1,e:"CIA más estenosis mitral reumática es el síndrome de Lutembacher. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Prueba de contraste salino: burbujas en la AI antes que en la AD al inyectar en el brazo izquierdo sugieren:",a:["FOP","Seno coronario destechado (con VCS izquierda)","CIA secundum","Fístula arteriovenosa pulmonar"],r:1,e:"La VCS izquierda drena en el seno coronario, que comunica con la AI. (Moss & Adams, cap. 28)"},
+ {tg:"Postoperatorio",q:"¿Por cuánto tiempo se indica profilaxis de endocarditis tras el cierre de CIA con dispositivo o parche protésico?",a:["Nunca","6 meses","2 años","De por vida"],r:1,e:"Es el tiempo habitual de endotelización del material. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"En el registro de pacientes con cierre de CIA, la fibrilación o aleteo auricular después de los 60 años alcanza aproximadamente:",a:["1 %","15 %","61 %","90 %"],r:2,e:"< 1 % antes de los 40 años y 15 % entre los 40 y 60. (Moss & Adams, cap. 28)"},
+ {tg:"Cortocircuitos",q:"Respecto del cierre del FOP tras un ACV criptogénico, los ensayos posteriores a 2016 mostraron:",a:["Ningún beneficio","Menor recurrencia de ACV con el cierre, sobre todo con aneurisma septal o cortocircuito grande","Más ACV con el cierre","Beneficio solo en migraña"],r:1,e:"RESPECT extendido, CLOSE, Gore-REDUCE y DEFENSE-PFO. (Moss & Adams, cap. 28)"}
+);
+
 
 
 let sch={p:SCH[0],i:0,timer:null};
