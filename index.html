@@ -538,14 +538,16 @@ const CC=[
  pe:["Pulsos saltones y presión diferencial amplia por robo diastólico hacia las pulmonares.","Arco derecho + truncus: buscar 22q11."]},
 
 {id:"dsvd",n:"Doble salida del ventrículo derecho",ab:"DSVD",g:3,
- res:"Ambas grandes arterias salen mayormente del VD. La fisiología y la cirugía dependen de la ubicación de la CIV respecto de las arterias: subaórtica (tipo CIV o tipo Fallot si hay estenosis pulmonar), subpulmonar (Taussig-Bing, tipo TGA), doblemente relacionada o no relacionada (remota).",
- ind:"Según el tipo: como CIV, como Fallot o como TGA. Taussig-Bing suele asociarse a coartación o hipoplasia del arco.",
+ res:"Ambas grandes arterias salen mayormente del VD (< 1 % de las cardiopatías). El desarrollo del cono bajo cada válvula define la rotación de las arterias y su relación con la CIV, y de ahí la fisiología: tipo Fallot (CIV subaórtica con estenosis pulmonar, ~40 %), tipo TGA o Taussig-Bing (CIV subpulmonar, ~20 %), tipo CIV (subaórtica sin estenosis, ~15 %), CIV doblemente relacionada (~10 %) o remota (< 10 %). Estenosis pulmonar en ~50 %; coronarias anómalas y obstrucción del arco en ~10 % cada una.",
+ ind:"Tipo CIV: reparación en el lactante pequeño cuando hay hiperflujo. Tipo TGA: neonatal (septostomía si hay hipoxemia severa); buscar coartación o interrupción del arco. Tipo Fallot: electiva a los 2-4 meses, o BT y reparación después de los 6 meses. CIV remota: paliación inicial y biventricular diferida (Fontan como alternativa). Principio: biventricular si es factible y TSVI sin obstrucción aunque se comprometa el TSVD.",
  opts:[
- {t:"cor",n:"Túnel intraventricular VI → aorta",c:"CIV subaórtica o doblemente relacionada.",h:"Parche que conecta la CIV con la aorta; con estenosis pulmonar se resecan los músculos del TSVD como en el Fallot.",x:"Obstrucción del túnel o del TSVD, BAV."},
- {t:"cor",n:"Switch arterial + túnel de la CIV",c:"Taussig-Bing (CIV subpulmonar).",h:"Se tuneliza la CIV a la pulmonar (futura neoaorta) y se hace switch arterial; reparación del arco en el mismo tiempo.",x:"Obstrucción del TSVI y del arco, las propias del switch."},
+ {t:"cor",n:"Túnel intraventricular VI → aorta",c:"CIV subaórtica o doblemente relacionada.",h:"Parche que conecta la CIV con la aorta; con estenosis pulmonar se resecan los músculos del TSVD como en el Fallot.",x:"Obstrucción del túnel (reoperación 5-50 % en túneles complejos), obstrucción del TSVD, BAV si hay que agrandar la CIV. Tipo CIV y tipo Fallot con evolución comparable a la CIV y el Fallot simples."},
+ {t:"cor",n:"Switch arterial + túnel de la CIV",c:"Taussig-Bing (CIV subpulmonar).",h:"Se tuneliza la CIV a la pulmonar (futura neoaorta) y se hace switch arterial; reparación del arco en el mismo tiempo.",x:"Obstrucción del TSVI y del arco, las propias del switch; más insuficiencia neoaórtica que en la d-TGA simple. Mayor mortalidad precoz que el túnel aislado, pero mejor supervivencia tardía. Con estenosis pulmonar: switch + Rastelli o REV, o Nikaidoh."},
+ {t:"cor",n:"Rastelli / REV",c:"Túnel VI-aorta posible pero con estenosis pulmonar que exige reconstruir el TSVD.",h:"Túnel VI-aorta y conducto VD-AP (Rastelli) o conexión directa con Lecompte (REV).",x:"Recambios de conducto; en formas complejas el Rastelli se asoció a más reintervención y mortalidad tardía."},
+ {t:"cor",n:"Operación de Yasui o ventrículo y medio",c:"Sin camino libre a ninguna semilunar (Yasui) o VD/tricúspide pequeños (1,5 ventrículos).",h:"Yasui: Damus-Kaye-Stansel + túnel + conducto VD-AP. Ventrículo y medio: separación completa con Glenn bidireccional.",x:"Conducto, disfunción ventricular."},
  {t:"uni",n:"Vía univentricular",c:"CIV remota no tunelizable, ventrículos desbalanceados o cabalgamiento de válvulas AV.",h:"Banding o BT → Glenn → Fontan.",x:"Las del Fontan."}],
- lp:"Seguimiento de la obstrucción del túnel y del TSVD.",
- pe:["Lo que define la operación es la relación de la CIV con las grandes arterias, no el nombre."]},
+ lp:"Mortalidad precoz 2-9 %; supervivencia a 10-15 años 56-90 % según la complejidad (86 % a 10 años en biventriculares; libre de reoperación 61 %). Peor con CIV remota, CIV múltiples, straddling, hipoplasia ventricular y obstrucción del arco. Adulto: seguir las guías del diagnóstico equivalente; vigilar túnel, TSVD, conducto, neoaorta, coronarias y arritmias.",
+ pe:["Lo que define la operación es la relación de la CIV con las grandes arterias, no el nombre.","El cono manda: más cono bajo una válvula, más anterior y alineada con el VD.","Taussig-Bing con estrechez subaórtica = buscar arco hipoplásico o interrumpido.","Distancia tricúspide-pulmonar y cuerdas en el camino definen si el túnel VI-aorta es posible.","Forzar la reparación biventricular en casos límite (CIV remota) puede empeorar la supervivencia."]},
 
 {id:"cctga",n:"TGA congénitamente corregida",ab:"ccTGA",g:3,
  res:"Doble discordancia (asa L): auriculoventricular y ventrículo-arterial; 0,03 por 1.000 nacidos vivos. La sangre circula en el sentido correcto, pero el VD morfológico y la tricúspide son sistémicos. Casi siempre hay lesiones asociadas: CIV (60-80 %), obstrucción del TSVI (30-50 %), tricúspide displásica o tipo Ebstein, arco derecho (18 %), dextro o mesocardia (25 %). Conducción por un nodo AV anterior anómalo: BAV completo en ~4 % al nacer y 20-30 % en la vida.",
@@ -2783,6 +2785,89 @@ QUIZ.push(
  {tg:"Postoperatorio",q:"Sitio preferido de estimulación por BAV completo tras reparación anatómica de la ccTGA:",a:["Ápex del VD","Ápex del VI","Aurícula","Seno coronario"],r:1,e:"Tras reparación fisiológica se prefiere el ápex del VD (subpulmonar). (Moss & Adams, cap. 48)"},
  {tg:"Mezcla y transposición",q:"Precaución durante el cateterismo en la ccTGA:",a:["Evitar contraste","Tener marcapasos transitorio disponible por riesgo de BAV","No usar heparina","Evitar la vía femoral"],r:1,e:"Riesgo mayor al entrar en la arteria pulmonar. (Moss & Adams, cap. 48)"},
  {tg:"Mezcla y transposición",q:"ccTGA con anatomía muy desfavorable para la reparación anatómica: alternativa con buenos resultados:",a:["Fontan","Switch arterial aislado","Blalock-Hanlon","Ninguna"],r:0,e:"Se considera frente a una reparación anatómica de muy alto riesgo. (Moss & Adams, cap. 48)"}
+);
+MOSS.dsvd={cap:"Cap. 49 · Double-Outlet Right Ventricle (Reddy CD, Silverman NH, Wright GE, Maeda K, Hanley FL, Roth SJ)",sec:[
+ {t:"Definición, historia e incidencia",p:[
+  "Conexión ventrículo-arterial en la que ambas grandes arterias nacen predominante o totalmente del VD. El capítulo trata la DSVD con concordancia AV y dos ventrículos (las formas con heterotaxia, univentriculares o con discordancia AV van aparte).",
+  "El término se usa desde 1957 (primera reparación, Mayo Clinic). El corazón de Taussig-Bing (1949) se consideraba una 'transposición parcial'. Clasificaciones de Neufeld (1961), Lev (1972) y Sridaromont.",
+  "Se ubica en el espectro conotruncal; algunas formas tienen fisiología de transposición, pero DSVD y TGA son entidades anatómicas distintas (la TGA requiere conexión ventrículo-arterial discordante).",
+  "< 1 % de las cardiopatías (~0,06 por 1.000 nacidos vivos); sin predilección racial ni de sexo y sin defecto genético identificado."]},
+ {t:"Morfología: el cono manda",p:[
+  "Salvo el truncus (falla de tabicamiento), las conotruncales son defectos rotacionales impulsados por el desarrollo del cono: cuanto más cono bajo una válvula semilunar, más arriba y adelante queda y más se alinea con el VD.",
+  "Normal: la pulmonar apoya en un cono y la aorta, sin cono, tiene continuidad con la mitral. En el Fallot no hay cono subaórtico y en la TGA no hay cono subpulmonar; la DSVD está en el medio, con conos variables (no es obligatorio el cono bilateral).",
+  "Tipo Fallot: cono subpulmonar casi normal y mínimo subaórtico; sin continuidad mitro-aórtica, pulmonar anterior y arterias en espiral.",
+  "Tipo TGA: cono sobre todo subaórtico y algo subpulmonar; sin continuidad mitro-pulmonar y arterias paralelas. En el medio, cono bilateral igual con arterias lado a lado y muchos 'grises'.",
+  "Clave conceptual: lo que cambia a lo largo del espectro es la rotación de las arterias (por el cono), no la posición de la CIV. Hay que describir siempre la relación entre las grandes arterias y la CIV."]},
+ {t:"La CIV y las lesiones asociadas",p:[
+  "La CIV suele estar en el septum de salida, entre los brazos anterior y posterior de la trabécula septomarginal; menos a menudo en la entrada, extendida de salida a entrada, como canal AV con extensión de salida o, rara vez, apical. Cuanto más largo el cono, más lejos queda de las arterias.",
+  "La orientación del septum de salida respecto del borde de la CIV (perpendicular, paralelo o no fusionado) también debe describirse (superficies endocárdicas y modelos 3D).",
+  "Estenosis pulmonar (valvular o subvalvular) en ~50 %: la lesión asociada más frecuente. CIA secundum en 25 %; ostium primum en el 8 % con canal AV.",
+  "Coronarias anómalas en ~10 % (sobre todo descendente anterior desde la coronaria derecha): condicionan el conducto o la transferencia coronaria.",
+  "Coartación, hipoplasia o interrupción del arco en ~10 %: complican mucho la reparación. Otras: ductus, arco derecho, estenosis subaórtica, CIV musculares, VCS izquierda, anomalías mitrales."]},
+ {t:"Diagnóstico por imágenes",p:[
+  "El eco transtorácico más la oximetría definen casi siempre la anatomía y la fisiología.",
+  "Angiografía (TC, RMN o cateterismo) si el arco es complejo; RMN y modelos 3D cuando no está claro hacia dónde tunelizar la CIV.",
+  "Cateterismo en pocos casos: medir la RVP si se duda de la reparación biventricular (aptitud para Fontan) o cuando el flujo intracardíaco ('streaming') es variable.",
+  "Diagnóstico fetal posible, con precisión suficiente para planificar la cirugía en la mayoría de las formas tipo Fallot."]},
+ {t:"Tipo Fallot (~40 %)",p:[
+  "'DSVD con CIV subaórtica y estenosis pulmonar': la sangre del VI pasa por la CIV a la aorta, que cabalga sobre el septum.",
+  "La fisiología depende de la estenosis pulmonar (sobre todo subvalvular, dinámica y progresiva): saturación 80-90 % en reposo, que baja con la agitación; posibles crisis hipoxémicas.",
+  "Soplo eyectivo largo y áspero en el borde esternal izquierdo alto (la CIV no restrictiva no suena). Rx con trama normal o algo disminuida; ECG con eje derecho e HVD (rR′, qR, rsR′).",
+  "Eco: eje largo sin continuidad mitro-aórtica y CIV grande; subcostal con el tracto subpulmonar estrecho; apical para el cabalgamiento aórtico y el camino del túnel; revisar las inserciones cordales de las válvulas AV.",
+  "Cirugía electiva a los 2-4 meses (antes de la cianosis marcada o las crisis); reparación o BT neonatal si el flujo pulmonar es muy escaso. Resultados excelentes."]},
+ {t:"Tipo TGA o Taussig-Bing (~20 %)",p:[
+  "'DSVD con CIV subpulmonar': gran cono subaórtico que lleva la aorta adelante, arriba y a la derecha de la pulmonar; sin continuidad mitro-pulmonar.",
+  "Por 'streaming', la sangre oxigenada del VI va por la CIV a la pulmonar y la desaturada del VD a la aorta: fisiología de transposición (saturación pulmonar mayor que la aórtica).",
+  "Neonato cianótico según el streaming, la CIA y el ductus; Rx con corazón normal y trama algo aumentada.",
+  "Con estrechez subaórtica significativa hay hipoplasia del arco: alto índice de sospecha de coartación o interrupción, a evaluar desde el hueco supraesternal (o TC/RMN si el ductus dificulta).",
+  "Cirugía en el período neonatal; si hay hipoxemia severa con CIA pequeña, la septostomía permite operar en las primeras semanas en forma no urgente, como en la d-TGA."]},
+ {t:"Tipo CIV (~15 %) y formas menos comunes",p:[
+  "Tipo CIV ('CIV subaórtica sin estenosis pulmonar'): algo más de cono subpulmonar que subaórtico; fisiología de CIV grande con hiperflujo e insuficiencia cardíaca a las 4-8 semanas. Cirugía electiva, sin beneficio en demorarla cuando aparecen síntomas (diuréticos y nutrición solo ganan tiempo).",
+  "CIV no relacionada (remota, < 10 %): mucho cono bajo ambas arterias, la CIV se abre al cuerpo del VD (o es muscular de entrada o apical). Mezcla completa; con o sin estenosis pulmonar. Rara vez se repara en el lactante: BT si hay hipoxemia; reparación diferida varios años; el Fontan es la alternativa intraoperatoria.",
+  "En la CIV remota, las cuerdas tricuspídeas pueden interponerse en el camino del túnel; eco, angiografía y RMN se complementan. Es un subgrupo de alto riesgo, y hoy reaparecen adolescentes y adultos mal paliados.",
+  "CIV doblemente relacionada (~10 %): solo un cono fibroso separa las válvulas semilunares y ambas cabalgan; fisiología de hiperflujo salvo estenosis pulmonar; el cierre dirige el VI a la aorta posterior y derecha."]},
+ {t:"Determinantes de la cirugía y momento",p:[
+  "Es una de las decisiones más complejas de la cirugía congénita; puede requerir eco, ETE, angiografía, TC, RMN y modelos 3D.",
+  "Determinantes: posición, tamaño y número de CIV y su relación con la conducción; cantidad de septum conal y su orientación; relación de las grandes arterias; estenosis pulmonar o aórtica; distancia entre tricúspide y pulmonar; straddling o cabalgamiento AV; volúmenes ventriculares; coronarias y venas anómalas.",
+  "La CIV se describe vista desde el VD. Si hay que agrandarla, importa la conducción (perimembranosa cerca de la tricúspide y el haz; doblemente relacionada, lejos).",
+  "La distancia tricúspide-pulmonar debe ser suficiente para el túnel VI-aorta; papilares en el camino obligan a reimplantarlos o reemplazar la válvula. Hay que prever cuánto ocupará el túnel del VD.",
+  "Momento: tipo CIV, reparación en neonato o lactante pequeño; tipo TGA, en el neonato (antes de que el VI se desprepare); tipo Fallot, en los primeros meses o BT y reparación después de los 6 meses; CIV remota, biventricular después de los 6 meses con paliación inicial (BT o banding). Si el destino es el Fontan, BT o banding inicial."]},
+ {t:"Estrategia quirúrgica",p:[
+  "Principios: reparación biventricular si es factible, y TSVI sin obstrucción aunque haya que comprometer el TSVD (que se reconstruye con infundibulectomía, valvotomía, parche o conducto). La corrección debe ser también fisiológica.",
+  "Paso 1, tamaño de ventrículos y válvulas AV: si son adecuados, biventricular; con VD o tricúspide pequeños, reparación de 'ventrículo y medio' (Glenn bidireccional más VD que solo bombea la VCI).",
+  "Paso 2, túnel VI-aorta sin obstrucción: tipo CIV con parche simple; algunos tipo TGA también; históricamente Patrick-McGoohan o Kawashima. Hoy en el Taussig-Bing se prefiere el switch arterial; con estenosis pulmonar, Rastelli o REV (Lecompte).",
+  "Paso 3, si no hay túnel a la aorta pero sí a la pulmonar sin obstrucción: switch arterial (más Rastelli o REV si hay estenosis pulmonar) o técnicas complejas (Nikaidoh, translocación de doble raíz, truncal switch). El switch auricular con túnel intraventricular dio mortalidad de 30-40 % y se abandonó.",
+  "Si no hay camino sin obstrucción a ninguna válvula: Damus-Kaye-Stansel con conducto VD-AP (operación de Yasui) o Fontan. Con straddling, separar puede exigir reemplazar la válvula o ir a Glenn y Fontan si la RVP es baja."]},
+ {t:"Resultados",p:[
+  "Mortalidad precoz global 2-9 %; supervivencia a 15 años 56-90 % según la serie.",
+  "Melbourne: mortalidad 3,6 % en formas simples vs. 22 % en complejas (CIV múltiples, straddling, hipoplasia); riesgo con CIV múltiples, cirugía antes de 1985 y obstrucción del arco.",
+  "Brown (124 pacientes): mortalidad precoz 4,8 %; a 15 años, 95,8 % en formas no complejas y ~90 % con CIV subpulmonar o straddling.",
+  "Boston (CIV subpulmonar): sin muertes en Glenn/Fontan; 4 muertes precoces en el switch; supervivencia a 5 años 87 %.",
+  "CIV remota: Lacour-Gayet obtuvo buenos resultados con túnel a la pulmonar más switch, pero Villemain halló más mortalidad precoz con biventricular que con univentricular aun con dos buenos ventrículos (cautela).",
+  "Toronto (393): biventricular 55 % (mediana 10 meses), Fontan 23 %; supervivencia 56 % a 15 años. En formas complejas, el Rastelli aumentó reintervención y mortalidad tardía; el switch, la mortalidad precoz pero mejoró la tardía. Forzar la biventricular en casos límite es cuestionable.",
+  "Villemain (433 biventriculares): mortalidad a 30 días 7,4 % (mayor con switch), supervivencia 86,2 % a 10 años, libre de reoperación 61,4 %; peor con CIV remota."]},
+ {t:"Reintervenciones y adulto",p:[
+  "Tipo CIV y tipo Fallot: libre de reoperación comparable a la CIV y el Fallot simples; el Rastelli implica recambios de conducto.",
+  "Túneles complejos: obstrucción del TSVI con reoperación en 5-50 %, sobre todo con CIV subpulmonar.",
+  "Tipo TGA: supervivencia ya comparable a la d-TGA simple, pero más insuficiencia neoaórtica.",
+  "Adulto: seguir las guías del diagnóstico equivalente (CIV, TGA, Fallot o Fontan). Intolerancia al ejercicio sugiere lesión residual o disfunción ventricular. Arritmias auriculares y ventriculares; BCRD y QRS ancho podrían indicar riesgo de TV y muerte súbita.",
+  "Complicaciones del adulto: obstrucción del TSVI o del TSVD, insuficiencia pulmonar, falla del conducto, insuficiencia aórtica tras switch, estenosis coronaria tras transferencia, falla del VD, arritmias, endocarditis y tromboembolia.",
+  "Embarazo de bajo riesgo tras reparación biventricular con buena función, saturación normal y sin lesiones residuales significativas (más infertilidad y trastornos menstruales). Profilaxis de endocarditis solo con prótesis, endocarditis previa, los primeros 6 meses tras intervenir o defecto residual junto a un parche."]}
+]};
+QUIZ.push(
+ {tg:"Mezcla y transposición",q:"En la DSVD, ¿qué cambia realmente a lo largo del espectro anatómico?",a:["La posición de la CIV","La rotación de las grandes arterias, determinada por el desarrollo del cono","El situs","La concordancia AV"],r:1,e:"Más cono bajo una válvula la lleva arriba y adelante, alineándola con el VD. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Variante más frecuente de DSVD:",a:["Tipo Fallot (CIV subaórtica con estenosis pulmonar, ~40 %)","Tipo TGA","CIV remota","CIV doblemente relacionada"],r:0,e:"Tipo TGA ~20 %, tipo CIV ~15 %, CIV remota < 10 % y doblemente relacionada ~10 %. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Lesión asociada más frecuente en la DSVD:",a:["Coartación","Estenosis pulmonar (~50 %)","Canal AV","Anomalía coronaria"],r:1,e:"CIA secundum 25 %; coronarias anómalas y obstrucción del arco ~10 % cada una. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Taussig-Bing: ¿por qué hay fisiología de transposición?",a:["Por discordancia ventrículo-arterial","Por 'streaming': la sangre del VI va por la CIV subpulmonar a la pulmonar y la del VD a la aorta","Por una CIA grande","Por ductus derecha-izquierda"],r:1,e:"La saturación pulmonar supera a la aórtica. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Taussig-Bing con estrechez subaórtica importante: lesión a buscar siempre:",a:["Estenosis mitral","Coartación, hipoplasia o interrupción del arco","DVPAT","Ebstein"],r:1,e:"Evaluar desde el hueco supraesternal; TC o RMN si el ductus dificulta. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Momento habitual de la reparación de la DSVD tipo TGA:",a:["Período neonatal","2-4 meses","Después de los 6 meses","Edad escolar"],r:0,e:"Antes de que el VI se desprepare; septostomía si hay hipoxemia severa con CIA pequeña. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Técnica preferida hoy para la DSVD tipo Taussig-Bing sin estenosis pulmonar:",a:["Switch auricular con túnel","Switch arterial con túnel de la CIV a la pulmonar","Kawashima","Fontan"],r:1,e:"El switch auricular con túnel dio 30-40 % de mortalidad y se abandonó. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Principio quirúrgico en la DSVD cuando hay conflicto entre tractos de salida:",a:["Priorizar el TSVD","Crear un TSVI sin obstrucción aunque se comprometa el TSVD","Dejar la CIV abierta","Siempre Fontan"],r:1,e:"El TSVD se reconstruye con infundibulectomía, valvotomía, parche o conducto. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"Si no puede crearse un camino sin obstrucción del VI a ninguna válvula semilunar, opción biventricular:",a:["Operación de Yasui (Damus-Kaye-Stansel + conducto VD-AP)","Banding","Switch auricular","Cierre simple de CIV"],r:0,e:"Si no, Fontan. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"DSVD con VD o tricúspide pequeños pero separables: opción de reparación:",a:["Ventrículo y medio (Glenn + VD que bombea la VCI)","Trasplante","Banding definitivo","Norwood"],r:0,e:"Las circulaciones se separan por completo y el VD solo maneja el retorno de la VCI. (Moss & Adams, cap. 49)"},
+ {tg:"Mezcla y transposición",q:"DSVD con CIV remota: conducta habitual en el lactante:",a:["Reparación biventricular neonatal","Paliación (BT o banding) y reparación diferida, con Fontan como alternativa","Switch arterial urgente","Solo diuréticos de por vida"],r:1,e:"Es un subgrupo de alto riesgo; algunas series muestran más mortalidad con biventricular. (Moss & Adams, cap. 49)"},
+ {tg:"Postoperatorio",q:"Reoperación por obstrucción del TSVI tras túneles intraventriculares complejos en DSVD:",a:["< 1 %","5-50 %, sobre todo con CIV subpulmonar","~90 %","Nunca"],r:1,e:"Tipo CIV y tipo Fallot tienen evolución comparable a la CIV y el Fallot simples. (Moss & Adams, cap. 49)"},
+ {tg:"Postoperatorio",q:"DSVD tipo TGA reparada con switch: diferencia con la d-TGA simple en el seguimiento:",a:["Peor supervivencia","Más insuficiencia neoaórtica","Más BAV","Menos estenosis pulmonar"],r:1,e:"La supervivencia ya es comparable a la d-TGA simple. (Moss & Adams, cap. 49)"}
 );
 
 
