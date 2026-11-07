@@ -529,13 +529,14 @@ const CC=[
  pe:["Radiografía con edema pulmonar intenso y corazón chico en el neonato cianótico: DVPAT obstruido (diagnóstico diferencial con enfermedad pulmonar).","Forma supracardíaca no obstruida: imagen en muñeco de nieve en el niño mayor."]},
 
 {id:"truncus",n:"Tronco arterioso común",ab:"Truncus",g:3,
- res:"Un solo vaso arterial sale del corazón sobre una CIV y da origen a la aorta, las coronarias y las pulmonares. Válvula truncal a menudo displásica o insuficiente. Clasificación de Collett-Edwards o Van Praagh. Asociado a 22q11 y arco aórtico derecho o interrumpido.",
- ind:"Reparación neonatal en las primeras semanas: el hiperflujo pulmonar lleva rápido a IC y HTP.",
+ res:"Un solo vaso arterial sale del corazón sobre una CIV infundibular grande y da origen a la aorta, las coronarias y las pulmonares. Collett-Edwards I (48-68 %), II (29-48 %), III (6-10 %); Van Praagh A3 (rama ausente, del lado del arco) y A4 (arco hipoplásico o interrumpido, 11-19 %). Válvula truncal tricúspide 69 %, cuadricúspide 22 %, a menudo displásica o insuficiente. Arco derecho 21-36 %, ductus ausente en ~50 %, anomalías coronarias de ostios en 37-49 %. ~Un tercio con 22q11.",
+ ind:"El diagnóstico es la indicación: reparación completa en las primeras semanas (a los 6-12 meses la mortalidad se duplica). La enfermedad vascular pulmonar es más precoz que en la CIV; con rama pulmonar única, reparar en el período neonatal. Con dos ramas y RVP > 8 U·m² no se corrige, salvo < 2 años con respuesta a O2 u óxido nítrico. Estudiar 22q11 (calcio, inmunidad, hemoderivados irradiados).",
  opts:[
- {t:"cor",n:"Reparación completa",c:"Estándar.",h:"Se separan las arterias pulmonares del tronco, se cierra la CIV dirigiendo el VI a la válvula truncal y se coloca un conducto VD-AP (homoinjerto o vena yugular bovina, Contegra). Reparación de la válvula truncal si es necesaria; reparación del arco si está interrumpido.",x:"Recambio de conducto (inevitable con el crecimiento), insuficiencia truncal, crisis de HTP, estenosis de ramas."},
+ {t:"cor",n:"Reparación completa",c:"Estándar.",h:"Se separan las arterias pulmonares del tronco, se cierra la CIV dirigiendo el VI a la válvula truncal y se coloca un conducto VD-AP (homoinjerto o vena yugular bovina, Contegra). Reparación de la válvula truncal si es necesaria; reparación del arco si está interrumpido.",x:"Mortalidad ~5 % sin anomalías severas; mayor con arco interrumpido, insuficiencia truncal ≥ moderada o reparación truncal neonatal. Eventos mayores en 20 % (diagnóstico tardío, CEC > 150 min, conducto > 50 mm/m²). Recambio de conducto (inevitable, bajo riesgo; operación peel o válvula percutánea), insuficiencia truncal, crisis de HTP, estenosis de ramas."},
+ {t:"cor",n:"Reparación de la válvula truncal",c:"Insuficiencia truncal ≥ moderada (la leve se tolera).",h:"Sutura de la valva prolapsada a las vecinas, cuñas de aorta para la unión sinotubular, anuloplastia, comisuroplastia o tricuspidización; en el neonato casi nunca reemplazo.",x:"Libre de reoperación 91 % al año, 55 % a 5 años y 23 % a 10 años; más reoperación con válvula cuadricúspide."},
  {t:"pal",n:"Banding de ramas pulmonares",c:"Excepcional, neonato muy inestable o prematuro.",h:"Restricción bilateral del flujo pulmonar hasta la reparación.",x:"Estenosis de ramas."}],
- lp:"Recambio del conducto VD-AP varias veces en la vida; seguimiento de la neoaorta y la válvula truncal.",
- pe:["Pulsos saltones y presión diferencial amplia por robo diastólico hacia las pulmonares.","Arco derecho + truncus: buscar 22q11."]},
+ lp:"Sin cirugía solo 15 % supera el año. Tras la reparación: recambio del conducto VD-AP varias veces en la vida (operación peel: libre de reoperación 91 % a 10 años; válvula percutánea en mayores). Reemplazo truncal tardío frecuente si quedó insuficiencia leve o mayor. Adulto: control cada 1-2 años; conducto significativo con gradiente medio > 35, pico > 50 o PSVD > 75 mm Hg; raíz dilatada (disección rara); TC/RMN de ramas y arco.",
+ pe:["Pulsos saltones y presión diferencial amplia por robo diastólico hacia las pulmonares.","Arco derecho + plétora en la Rx sugiere truncus; arco anormal aumenta la probabilidad de 22q11.","Clic de eyección y R2 único; soplo continuo orienta más a atresia pulmonar con CIV.","Ductus visible en un truncus: descartar arco interrumpido.","Rama conal grande de la coronaria derecha y ostios anómalos: cuidado en la ventriculotomía y al separar las ramas."]},
 
 {id:"dsvd",n:"Doble salida del ventrículo derecho",ab:"DSVD",g:3,
  res:"Ambas grandes arterias salen mayormente del VD (< 1 % de las cardiopatías). El desarrollo del cono bajo cada válvula define la rotación de las arterias y su relación con la CIV, y de ahí la fisiología: tipo Fallot (CIV subaórtica con estenosis pulmonar, ~40 %), tipo TGA o Taussig-Bing (CIV subpulmonar, ~20 %), tipo CIV (subaórtica sin estenosis, ~15 %), CIV doblemente relacionada (~10 %) o remota (< 10 %). Estenosis pulmonar en ~50 %; coronarias anómalas y obstrucción del arco en ~10 % cada una.",
@@ -3013,6 +3014,110 @@ QUIZ.push(
  {tg:"Univentricular",q:"Glenn precoz (3-4 meses) en pacientes interetapa de ALTO riesgo:",a:["Mejora su supervivencia","No los beneficia y puede aumentar la mortalidad; tratar lesiones residuales o derivar a trasplante","Es obligatorio","Se hace al mes de vida"],r:1,e:"Sí beneficia a los de riesgo bajo e intermedio. (Moss & Adams, cap. 46)"},
  {tg:"Univentricular",q:"Incidencia de enteropatía perdedora de proteínas en pacientes con Fontan:",a:["< 1 %","3-15 %","~40 %","~70 %"],r:1,e:"Se resuelve tras el trasplante en los que sobreviven más de 30 días. (Moss & Adams, cap. 46)"},
  {tg:"Univentricular",q:"Factor perioperatorio asociado a peor neurodesarrollo en SHVI:",a:["SvO₂ < 40 % en las 48 h post-Norwood o NIRS cerebral < 45 %","Duración del paro circulatorio siempre","Tipo de shunt","Sexo"],r:0,e:"En el SVR, los factores del paciente y del centro pesaron más que la técnica. (Moss & Adams, cap. 46)"}
+);
+MOSS.truncus={cap:"Cap. 42 · Truncus Arteriosus (Menon SC, Cabalka AK, Dearani JA)",sec:[
+ {t:"Generalidades y embriología",p:[
+  "Malformación poco frecuente, con leve predominio masculino; casi siempre cardiopatía aislada, pero asociada a DiGeorge/velocardiofacial (22q11.2). Casos en gemelos y hermanos; más cardiopatías en familiares.",
+  "Normalmente los rodetes del tronco dividen la luz en aorta ascendente y tronco pulmonar; al fusionarse con el septum conal, la pulmonar queda sobre el VD y la aorta sobre el VI, y de esa línea de fusión nacen las válvulas. El septum aortopulmonar (por invaginación del saco aórtico) completa la separación con el giro espiral de las arterias.",
+  "Si falla la tabicación troncoconal: un solo tronco arterial; la falta o deficiencia del septum conal deja una CIV grande y puede malformar la valva anterior tricuspídea y el papilar medial. Válvula truncal deformada, insuficiente o, menos a menudo, estenótica.",
+  "Haploinsuficiencia de TBX1, CRKL y ERK2 (región 22q11.2) altera la cresta neural y el segundo campo cardíaco. Más riesgo con tabaquismo y diabetes maternos y edad materna avanzada."]},
+ {t:"Clasificación",p:[
+  "Un tronco único da coronarias, pulmonares y arterias sistémicas. Si las pulmonares no nacen del tronco, es atresia pulmonar con CIV (no truncus).",
+  "Collett-Edwards: tipo I, tronco pulmonar corto que da ambas ramas (48-68 %); tipo II, ramas separadas pero cercanas (29-48 %); tipo III, ramas separadas y alejadas (6-10 %); el tipo IV hoy se considera atresia pulmonar con CIV.",
+  "Van Praagh: A1 = tipo I; A2 = tipos II y III; A3 = una rama pulmonar no nace del tronco (la irriga un ductus o una colateral); A4 = arco hipoplásico, coartado o interrumpido.",
+  "Las pulmonares suelen nacer de la cara posterolateral izquierda del tronco, poco por encima de la válvula; en el tipo II la izquierda nace algo más alta. Con arco interrumpido pueden cruzarse por detrás del tronco.",
+  "No incluye el 'pseudotruncus' (atresia pulmonar con CIV) ni el 'hemitruncus' (una rama desde la aorta con válvula pulmonar desarrollada), de embriología distinta."]},
+ {t:"CIV y válvula truncal",p:[
+  "CIV grande por ausencia o deficiencia del septum infundibular, entre los brazos de la banda septal y con la válvula truncal como techo. Casi siempre la fusión del brazo inferior con la banda parietal separa la tricúspide de la válvula truncal (CIV infundibular, septum membranoso intacto); si no, hay continuidad tricúspide-truncal (CIV membranosa + infundibular). Rara vez restrictiva o ausente.",
+  "Válvula truncal (400 casos): tricúspide 69 %, cuadricúspide 22 %, bicúspide 9 %, pentacúspide o unicomisural excepcionales. Siempre con continuidad fibrosa mitral.",
+  "Origen biventricular del tronco en 68-83 %; totalmente del VD en 11-29 % y del VI en 4-6 %.",
+  "Insuficiencia por valvas displásicas y nodulares, prolapso de valvas sin soporte o fusionadas, valvas desiguales, alteraciones comisurales o dilatación del anillo. La estenosis, cuando existe, se asocia a valvas nodulares. Raíz a menudo dilatada con senos poco desarrollados."]},
+ {t:"Arco aórtico, ductus y ramas pulmonares",p:[
+  "Arco derecho con ramificación en espejo en 21-36 % (solo superado por la atresia pulmonar con CIV). Rara vez doble arco.",
+  "Arco interrumpido en 11-19 % (aorta descendente por el ductus), muy asociado a DiGeorge. Hipoplasia o coartación en 3 %.",
+  "Ductus ausente en ~la mitad; si existe, sigue abierto en ~dos tercios. Ductus grande cuando el arco está subdesarrollado (A4): ductus visible → descartar arco interrumpido.",
+  "Estenosis de los ostios pulmonares rara; sin ella (o sin banding) el lecho pulmonar recibe presión sistémica.",
+  "Una rama pulmonar ausente en 16 % (Mayo), casi siempre del lado del arco aórtico (al revés que en el Fallot, donde falta la del lado opuesto)."]},
+ {t:"Coronarias y conducción",p:[
+  "Descendente anterior pequeña y desplazada a la izquierda, con rama conal de la coronaria derecha prominente que irriga el TSVD (importante para la ventriculotomía).",
+  "Dominancia izquierda en 27 % (tres veces lo normal). Anomalías de los ostios en 37-49 %: ostio único (a menudo con dominancia izquierda), dos ostios en el mismo seno, origen alto sobre la unión sinotubular, ostio en hendidura (estenótico) junto a una comisura (sobre todo el izquierdo), rara vez coronaria izquierda desde el tronco pulmonar.",
+  "Origen alto cerca de las pulmonares o trayecto intramural complican la separación de las ramas.",
+  "Nodo sinusal y AV normales. Con CIV infundibular pura el haz queda alejado del borde; con CIV membranosa + infundibular, el haz corre por el lado izquierdo del borde posteroinferior."]},
+ {t:"Asociaciones y cambios secundarios",p:[
+  "CIA secundum 9-20 %, subclavia aberrante 4-10 %, VCS izquierda 4-9 %, estenosis tricuspídea leve 6 %; DVPAT o DVPAP descritos; raras: atresia tricuspídea o mitral, inversión ventricular, asplenia, canal AV.",
+  "Anomalías extracardíacas en 21-30 % de las autopsias (esqueléticas, hidrouréter, malrotación).",
+  "Hipertrofia biventricular; dilatación si hay insuficiencia truncal; isquemia subendocárdica con hipertrofia masiva.",
+  "Enfermedad vascular pulmonar hipertensiva (arteriopatía plexogénica) más rápida y severa que en la CIV aislada; hipertensión venosa pulmonar si hay insuficiencia truncal crónica.",
+  "En el adulto reparado la aorta (antiguo tronco) se dilata progresivamente, pero disección o rotura son raras."]},
+ {t:"Diagnóstico prenatal y 22q11",p:[
+  "Posible desde el primer trimestre, pero se diagnostica prenatalmente en < 50 %. Diferenciarlo del Fallot y la atresia pulmonar con CIV: una sola válvula semilunar (engrosada, en domo) cabalgando la CIV y un tronco del que nacen las pulmonares.",
+  "Buena tasa de nacidos vivos; la muerte fetal y la hidropesía se asocian a insuficiencia truncal ≥ moderada (o estenosis + insuficiencia).",
+  "Asesoramiento genético y búsqueda de 22q11.2: ~un tercio tiene DiGeorge, más probable si el arco es anormal en lado o ramificación.",
+  "22q11: hipocalcemia e hipoparatiroidismo (aplasia o hipoplasia paratiroidea), inmunodeficiencia, alteraciones del paladar; también hipotiroidismo y déficit de hormona de crecimiento. Estos pacientes tienen estadías y uso de recursos mayores."]},
+ {t:"Clínica y examen",p:[
+  "Primeras semanas: con RVP aún alta, cianosis leve con poca descompensación. Al caer la RVP desaparece la cianosis y aparecen taquipnea, taquicardia, sudoración y mala alimentación por hiperflujo. Con insuficiencia truncal severa, falla cardíaca desde el nacimiento.",
+  "Estenosis pulmonar natural: cianosis desde el nacimiento, pero protege del hiperflujo.",
+  "Pulsos saltones y presión diferencial amplia (escurrimiento diastólico a las pulmonares, mayor con insuficiencia truncal); abombamiento precordial, frémito, corazón hiperdinámico.",
+  "R1 normal seguido de clic de eyección (máxima apertura truncal), R2 único e intenso (a veces desdoblado por cierre asincrónico de las valvas), R3 apical, soplo holosistólico en borde esternal izquierdo bajo y rodada mitral por hiperflujo. Insuficiencia truncal: soplo diastólico agudo.",
+  "Soplo continuo: raro en truncus (sugiere estenosis de ostios pulmonares); orienta más a atresia pulmonar con CIV (ductus o colaterales).",
+  "Con enfermedad vascular pulmonar o banding: cianosis, dedos en palillo de tambor, pulsos casi normales y sin rodada."]},
+ {t:"ECG, Rx e imágenes",p:[
+  "ECG: eje normal o leve desvío derecho, ritmo sinusal, hipertrofia biventricular; con hiperflujo, fuerzas izquierdas prominentes y agrandamiento de la AI. Con flujo normal o disminuido, solo HVD.",
+  "Rx: cardiomegalia moderada y plétora; arco derecho en un tercio (arco derecho + plétora sugiere fuertemente truncus). En el tipo I, la rama izquierda nace alta y puede verse. Raíz dilatada. Oligohemia del lado sin rama pulmonar (habitualmente izquierdo). Con enfermedad vascular, pulmonares centrales grandes con poda distal.",
+  "Eco: subcostal con un solo vaso saliendo del corazón; eje largo con CIV, cabalgamiento y continuidad truncal-mitral (seno coronario dilatado sugiere VCS izquierda). Eje corto alto: origen de las pulmonares desde el tronco (tipo I con segmento corto; tipo II separadas; en A3 buscar el origen de la otra rama en el arco o ductus).",
+  "Eje corto también para la válvula truncal (número de valvas, mecanismo de la insuficiencia), coronarias y CIV. Supraesternal: arco (interrupción, lado, ramificación) y ramas pulmonares.",
+  "En la insuficiencia truncal el gradiente Doppler puede sobrestimar la estenosis por el volumen; correlacionar con la morfología. Flujo reverso en la aorta abdominal por escurrimiento pulmonar, insuficiencia truncal o ambos. Eco 3D útil para el mecanismo de la insuficiencia.",
+  "Ventana aortopulmonar: sin CIV, con TSVD y válvula pulmonar en su lugar; se ve directo en el eje corto alto.",
+  "Cateterismo casi innecesario (la insuficiencia truncal se evalúa mal por el escurrimiento del contraste). TC en el neonato si el eco no define el arco o las pulmonares; RMN como alternativa."]},
+ {t:"Resistencia pulmonar y operabilidad",p:[
+  "La enfermedad vascular pulmonar aparece temprano: es el gran motivo para operar pronto.",
+  "Con dos ramas pulmonares y resistencia > 8 U·m²: mayor riesgo operatorio y muertes tardías por progresión de la HTP y falla del VD; con < 8 U·m², sin muertes tardías por HTP.",
+  "Política de Mayo: no corregir si hay dos ramas y RVP > 8 U·m², salvo menores de 2 años en los que baja a < 8 con O₂ 100 % u óxido nítrico (componente reversible), con riesgo mayor aceptado y vasodilatadores postoperatorios.",
+  "Rama pulmonar única: la enfermedad vascular aparece aún más temprano y progresa más aun tras la cirugía (todo el gasto por un pulmón): reparar en el período neonatal."]},
+ {t:"Historia natural",p:[
+  "Sombría: edad media de muerte 5 semanas en una serie de autopsias; solo 15 % supera el año. En el lactante la causa es la insuficiencia cardíaca.",
+  "En los que pasan los 4 años, más muertes por enfermedad vascular pulmonar hipertensiva y endocarditis; con enfermedad vascular severa, deterioro rápido y muerte en la infancia tardía o adolescencia."]},
+ {t:"Tratamiento quirúrgico",p:[
+  "El diagnóstico es en sí la indicación quirúrgica: estabilización en UCI y reparación completa en las primeras semanas.",
+  "Demorar expone a isquemia crónica del ventrículo hipertrofiado (sangre desaturada con presión diastólica baja por escurrimiento pulmonar e insuficiencia truncal): reparar a los 6-12 meses duplica la mortalidad frente a 6 semanas-6 meses, también por enfermedad vascular pulmonar.",
+  "El banding pulmonar paliativo tiene riesgos y no garantiza buena candidatura posterior.",
+  "McGoon (1967), según Rastelli: conexión VD-AP con homoinjerto aórtico. Hoy el homoinjerto criopreservado sigue siendo el conducto de elección en el lactante; la mayoría prefiere conducto valvulado por la HTP (existen técnicas sin conducto).",
+  "Mortalidad: 25 % en la serie inicial de Mayo, 9 % al final y ~5 % luego sin anomalías severas; Ebert (100 lactantes < 6 meses) 11 %. Mayor riesgo con arco interrumpido asociado, insuficiencia truncal ≥ moderada y reparación truncal neonatal concomitante.",
+  "Estudio multicéntrico: 20 % con eventos cardíacos mayores; predictores: diagnóstico tardío, CEC > 150 min y conducto VD-AP > 50 mm/m² (sobredimensionado)."]},
+ {t:"Válvula truncal",p:[
+  "Insuficiencia leve preoperatoria bien tolerada; ≥ moderada aumenta la mortalidad. En el neonato casi siempre se repara y rara vez se reemplaza.",
+  "Técnicas: suturar la valva prolapsada a las vecinas (bordes engrosados facilitan la sutura), resecciones en cuña de la aorta para corregir la dilatación de la unión sinotubular, anuloplastia, comisuroplastia, adelgazamiento de bordes y 'tricuspidización'.",
+  "Libre de reoperación tras reparación truncal: 91 % al año, 55 % a 5 años y 23 % a 10 años; más reoperación con insuficiencia ≥ moderada o válvula cuadricúspide. En reoperaciones, resultados intermedios favorecen reparar.",
+  "Mayo: nadie requirió reemplazo truncal si la insuficiencia posreparación era nula o trivial; con insuficiencia leve o mayor el reemplazo tardío fue frecuente. Si recurre, se repara o reemplaza al recambiar el conducto."]},
+ {t:"Conducto VD-AP y reintervenciones",p:[
+  "El conducto pequeño del lactante debe cambiarse con el crecimiento o por degeneración y calcificación; el recambio aislado tiene bajo riesgo (sin muertes en 39 casos de Mayo).",
+  "Operación 'peel' (Mayo): se retira el conducto obstruido dejando la cáscara fibrosa como piso, se arma un techo de pericardio bovino y se inserta una bioprótesis. Mortalidad 2 % (0 % en recambio aislado); libre de reoperación 90,7 % a 10 años y 82 % a 15 años, mejor que el homoinjerto.",
+  "Válvula pulmonar percutánea: cada vez más el tratamiento de elección en niños mayores y adultos con conducto estenótico o insuficiente (sin datos a largo plazo ni ensayos frente a cirugía).",
+  "Cateterismo también para estenosis de ramas pulmonares y para la reobstrucción del arco tras reparar arco interrumpido (balón precoz o stent)."]},
+ {t:"Adulto y seguimiento",p:[
+  "Seguimiento de por vida en centro especializado, cada 1-2 años con examen, Rx, ECG y eco.",
+  "Estenosis significativa del conducto: gradiente medio > 35 mm Hg, pico > 50 mm Hg o presión sistólica del VD > 75 mm Hg. Vigilar también la insuficiencia del conducto, la función del VD y la insuficiencia tricuspídea.",
+  "Evaluar la insuficiencia de la válvula truncal (aórtica) y considerar reemplazo si es significativa. Dilatación de la raíz frecuente, disección rara.",
+  "TC o RMN para ramas pulmonares y toda la aorta; vigilancia periódica si hubo arco interrumpido (stents desnudos o cubiertos para recoartación o aneurismas).",
+  "Test de 22q11 si nunca se hizo. Precauciones de endocarditis; función biventricular sistólica y diastólica; transición ordenada al cardiólogo de adultos."]}
+]};
+QUIZ.push(
+ {tg:"Mezcla y transposición",q:"¿Qué distingue al truncus arterioso de la atresia pulmonar con CIV?",a:["La CIV","Que las arterias pulmonares nacen directamente del tronco único","La cianosis","El arco derecho"],r:1,e:"El tipo IV de Collett-Edwards hoy se considera atresia pulmonar con CIV. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Tipo de truncus más frecuente (Collett-Edwards):",a:["Tipo I (tronco pulmonar corto)","Tipo II","Tipo III","Tipo IV"],r:0,e:"Tipo I 48-68 %, II 29-48 %, III 6-10 %. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Van Praagh A4 corresponde a:",a:["Una rama pulmonar ausente","Truncus con arco hipoplásico, coartado o interrumpido","Tronco pulmonar corto","Ramas separadas"],r:1,e:"A3 = una rama no nace del tronco. Ductus grande en A4. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Morfología más frecuente de la válvula truncal:",a:["Bicúspide","Tricúspide (69 %)","Cuadricúspide (69 %)","Unicúspide"],r:1,e:"Cuadricúspide 22 %, bicúspide 9 %. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Frecuencia de arco aórtico interrumpido asociado al truncus:",a:["~1 %","11-19 %","~50 %","Nunca"],r:1,e:"Muy asociado a DiGeorge; ductus visible obliga a descartarlo. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"En el truncus con rama pulmonar única, ¿de qué lado suele faltar la rama?",a:["Del lado del arco aórtico","Del lado opuesto al arco","Siempre la derecha","Siempre la izquierda"],r:0,e:"Al revés que en el Fallot. La enfermedad vascular aparece antes: reparar en el período neonatal. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Proporción de pacientes con truncus que tienen síndrome de DiGeorge (22q11):",a:["~5 %","~un tercio","~90 %","Ninguno"],r:1,e:"Más probable con arco anormal; buscar hipocalcemia e inmunodeficiencia. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Hallazgo radiológico que sugiere fuertemente truncus en un lactante con hiperflujo:",a:["Corazón en bota","Arco aórtico derecho + plétora","Muescas costales","Signo del 3"],r:1,e:"El arco derecho aparece en 21-36 %. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Un soplo continuo en un neonato con un solo tronco arterial orienta a:",a:["Truncus tipo I","Atresia pulmonar con CIV (ductus o colaterales)","Insuficiencia truncal","Arco interrumpido"],r:1,e:"En el truncus el soplo continuo es raro y sugiere estenosis de los ostios pulmonares. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Política de Mayo sobre operabilidad del truncus con dos ramas pulmonares:",a:["Operar siempre","No corregir si la RVP > 8 U·m², salvo < 2 años que baja con O₂ u óxido nítrico","Operar solo si la RVP > 8","Banding siempre"],r:1,e:"Con RVP < 8 U·m² no hubo muertes tardías por HTP. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Edad de reparación del truncus asociada al doble de mortalidad:",a:["Primeras semanas","6 semanas-6 meses","6-12 meses","Nunca cambia"],r:2,e:"Por isquemia del ventrículo hipertrofiado y enfermedad vascular pulmonar. Lo ideal es en las primeras semanas. (Moss & Adams, cap. 42)"},
+ {tg:"Mezcla y transposición",q:"Supervivencia sin cirugía del truncus más allá del primer año:",a:["~15 %","~50 %","~80 %","~95 %"],r:0,e:"Edad media de muerte 5 semanas en una serie de autopsias. (Moss & Adams, cap. 42)"},
+ {tg:"Postoperatorio",q:"Predictores de eventos cardíacos mayores tras la reparación del truncus (multicéntrico):",a:["Diagnóstico tardío, CEC > 150 min y conducto VD-AP > 50 mm/m²","Sexo y raza","Arco derecho","Válvula tricúspide"],r:0,e:"20 % tuvo eventos mayores. (Moss & Adams, cap. 42)"},
+ {tg:"Postoperatorio",q:"Libre de reoperación a 10 años tras reparación de la válvula truncal:",a:["~90 %","~55 %","~23 %","~0 %"],r:2,e:"91 % al año y 55 % a 5 años; peor con insuficiencia ≥ moderada o válvula cuadricúspide. (Moss & Adams, cap. 42)"},
+ {tg:"Postoperatorio",q:"Operación 'peel' para recambio de conducto VD-AP:",a:["Homoinjerto nuevo","Cáscara fibrosa como piso + techo de pericardio + bioprótesis","Válvula mecánica","Banding"],r:1,e:"Libre de reoperación 90,7 % a 10 años, mejor que el homoinjerto. (Moss & Adams, cap. 42)"},
+ {tg:"Postoperatorio",q:"Criterio de estenosis significativa del conducto VD-AP en el adulto con truncus reparado:",a:["Gradiente medio > 35, pico > 50 mm Hg o PSVD > 75 mm Hg","Gradiente pico > 20 mm Hg","Cualquier insuficiencia","PSVD > 30 mm Hg"],r:0,e:"Seguimiento cada 1-2 años; TC o RMN para ramas y aorta. (Moss & Adams, cap. 42)"}
 );
 
 
