@@ -1696,4 +1696,165 @@ QUIZ.push(
  {tg:"Otras",q:"Angioplastia de ramas pulmonares en Williams:",a:["Éxito > 90 % sin riesgos","Éxito ~50 %, aneurismas hasta 18 % y mortalidad 7,7 %: preferir observar al niño asintomático","Contraindicada siempre","Igual que en Fallot"],r:1,e:"Las muertes se asociaron a isquemia coronaria e hipertrofia; suele mejorar espontáneamente. (Moss & Adams, cap. 39)"},
  {tg:"Otras",q:"Terapia de elección para estenosis de ramas pulmonares en niños mayores y adultos:",a:["Angioplastia de baja presión","Stent expandible a tamaño adulto","Cirugía siempre","Observación"],r:1,e:"Serie de 338: reestenosis 2 %; evitar stents no redilatables en niños pequeños. (Moss & Adams, cap. 39)"}
 );
+MOSS.atric={cap:"Cap. 38 · Tricuspid Valve Disorders: Atresia, Dysplasia, and Ebstein Anomaly (Cetta F, Dearani JA, O'Leary PW)",sec:[
+ {t:"Definición, epidemiología y anatomía",p:[
+  "Agenesia completa de la válvula tricúspide: no hay comunicación directa entre AD y VD. Es la tercera cardiopatía cianótica en frecuencia; prevalencia en autopsias 2,9 % (≈ 1 en 15.000 nacidos vivos).",
+  "La sobrevida del recién nacido depende de una CIA que permita el paso AD → AI. Es raro que la CIA sea restrictiva o falte.",
+  "Falta la porción de entrada (sinusal) del VD; el infundíbulo está desarrollado (salvo que coexista atresia pulmonar). El tamaño de la porción trabecular depende de la CIV.",
+  "Habitualmente el orificio tricuspídeo es un hoyuelo en el piso de la AD, con aspecto de reborde fibromuscular. Formas raras: membrana de valvas fusionadas o rasgos de Ebstein.",
+  "Anomalías cardiovasculares asociadas (coartación, ductus, arco derecho): 18 % con grandes arterias normorrelacionadas y 63 % con transposición. Anomalías extracardíacas en 20 %.",
+  "Puede haber yuxtaposición izquierda de la orejuela derecha: no confundir su orificio con una CIA; el septo interauricular queda más horizontal."]},
+ {t:"Clasificación (Kühne modificada)",p:[
+  "Tipo I, grandes arterias normorrelacionadas (70-80 %): a) sin CIV con atresia pulmonar; b) CIV pequeña con estenosis pulmonar; c) CIV grande sin estenosis pulmonar.",
+  "Tipo II, grandes arterias transpuestas (10-25 %): a) CIV con atresia pulmonar; b) CIV con estenosis pulmonar; c) CIV sin estenosis pulmonar.",
+  "Tipo III, con TGA congénitamente corregida (< 10 %).",
+  "Genética: microdeleción 22q11 en casi 7 %; también trisomías 13, 18 y 21. Vías implicadas en modelos animales: TGF-β/BMP (GATA4/ZFPM2) y Notch (HEY2)."]},
+ {t:"Hemodinamia",p:[
+  "Los retornos venosos sistémico y pulmonar se mezclan en la AI: la saturación arterial depende de la proporción de cada uno, es decir, del flujo pulmonar.",
+  "Flujo pulmonar aumentado (sin estenosis): saturación relativamente alta, insuficiencia cardíaca y riesgo de enfermedad vascular pulmonar. Flujo disminuido (estenosis o atresia): hipoxemia marcada, a menudo ductus dependiente.",
+  "Con grandes arterias normorrelacionadas la obstrucción pulmonar o subpulmonar (a nivel de la CIV) suele ser progresiva. La mayoría con transposición (II-c) tiene flujo pulmonar libre y más insuficiencia cardíaca.",
+  "La CIV tiene bordes completamente musculares y tiende a achicarse: con arterias normorrelacionadas genera estenosis subpulmonar progresiva; con transposición genera obstrucción subaórtica.",
+  "Obstrucción subaórtica + banding pulmonar → hipertensión e hipertrofia del VI, fibrosis y disfunción: mal sustrato para el Fontan."]},
+ {t:"Clínica, ECG y radiografía",p:[
+  "Hoy el diagnóstico suele ser fetal. Al cerrarse el ductus, con atresia o estenosis crítica, aparece cianosis profunda; con estenosis menor puede haber crisis hipercianóticas al progresar la obstrucción subpulmonar.",
+  "Peso de nacimiento normal; impulso del VD disminuido; R1 único. R2 normal con arterias normorrelacionadas y más intenso con transposición (aorta anterior).",
+  "Soplos en 80 %: holosistólico de baja frecuencia por CIV pequeña, eyectivo por estenosis pulmonar, continuo con colaterales o fístula. Hepatomegalia sugiere CIA restrictiva.",
+  "Complicaciones antes del Fontan: endocarditis, absceso cerebral y embolias paradójicas.",
+  "ECG: eje QRS a la izquierda o superior (origen precoz de la rama izquierda) con asa antihoraria, fuerzas del VD disminuidas e hipertrofia del VI. Bloqueo AV de 1.er grado en 15 %. Un eje normal sugiere transposición.",
+  "El PR corto con empastamiento inicial del QRS es frecuente y puede confundirse con preexcitación.",
+  "Rx: silueta normal en el neonato; flujo pulmonar disminuido en 80 %."]},
+ {t:"Ecocardiograma y cateterismo",p:[
+  "Fetal: el 4 cámaras muestra la ausencia de tricúspide y ventrículos asimétricos (VI > VD), sin flujo en el Doppler. El flujo retrógrado en el arco o en el ductus, o grandes arterias desproporcionadas, indican iniciar PGE1 al nacer.",
+  "Neonatal: definir conexión AV ausente, relación de grandes arterias, CIV, tamaño del VD, CIA (subcostal coronal y sagital bicava, gradiente AD-AI) y obstrucciones pulmonar o subaórtica.",
+  "La válvula de Eustaquio redundante es frecuente: no confundirla con el septo interauricular.",
+  "En el seguimiento hay que reevaluar la CIV (puede volverse restrictiva) y descartar anomalías del arco, sobre todo con transposición y CIV restrictiva.",
+  "Cateterismo: medir presión y resistencia pulmonar en lactantes con hiperflujo (decidir banding), septostomía en la rara CIA restrictiva y evaluación pre-Fontan (presiones pulmonares y de fin de diástole). Algunos centros lo reemplazan por RM o angio-TC en casos no complicados."]},
+ {t:"Manejo del lactante",p:[
+  "Cuatro objetivos: 1) si hay cianosis, aumentar el flujo pulmonar (fístula sistémico-pulmonar en el neonato, Glenn en el lactante mayor); 2) si el flujo es libre, proteger el lecho pulmonar (banding en lactantes seleccionados, Glenn en mayores).",
+  "3) Preservar la función miocárdica eliminando la obstrucción sistémica: con transposición puede requerir ampliar la CIV o un Damus-Kaye-Stansel con fístula. 4) Reducir el riesgo de endocarditis y tromboembolia.",
+  "PGE1 precoz si hay obstrucción grave prenatal, hipoxemia o acidosis.",
+  "Con transposición y flujo pulmonar libre: diuréticos para el edema pulmonar. El banding puede acelerar el cierre de la CIV y causar obstrucción subaórtica con hipertrofia del VI, factor de riesgo para el Fontan: por eso se prefiere el DKS."]},
+ {t:"Fontan: historia y técnica actual",p:[
+  "Sin cirugía, la mortalidad al año de los cianóticos era del 90 %. En 1971 Fontan describió la separación de las circulaciones para esta cardiopatía.",
+  "Fontan original: Glenn clásico, conexión valvulada AD-AP, válvula en la VCI, cierre de la CIA y del tracto VD-AP. Luego se eliminaron las válvulas y se abandonó el Glenn clásico (fístulas arteriovenosas pulmonares).",
+  "La conexión atriopulmonar dilataba la AD y causaba muchas arritmias: se pasó al túnel lateral y luego al conducto extracardíaco, hoy preferido en la atresia tricuspídea.",
+  "El Glenn bidireccional quedó como etapa previa habitual. El Fontan es una paliación definitiva, no una reparación."]}
+]};
+QUIZ.push(
+ {tg:"Univentricular",q:"En la atresia tricuspídea, la sobrevida neonatal depende sobre todo de:",a:["Una CIV grande","Una CIA que permita el paso AD → AI","Un ductus cerrado","La válvula de Eustaquio"],r:1,e:"Todo el retorno sistémico debe cruzar a la AI; es raro que la CIA sea restrictiva. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Tipo más frecuente de atresia tricuspídea:",a:["Tipo I, grandes arterias normorrelacionadas (70-80 %)","Tipo II, transposición","Tipo III, ccTGA","Todos por igual"],r:0,e:"Tipo II 10-25 % y tipo III < 10 %. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"ECG típico de un neonato cianótico con atresia tricuspídea:",a:["Eje derecho e hipertrofia del VD","Eje izquierdo o superior, hipertrofia del VI y fuerzas del VD disminuidas","Bloqueo de rama derecha y onda delta","Bajo voltaje"],r:1,e:"Se debe al origen precoz de la rama izquierda; un eje normal sugiere transposición. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"La CIV de la atresia tricuspídea con grandes arterias normorrelacionadas que se vuelve restrictiva produce:",a:["Obstrucción subaórtica","Estenosis subpulmonar progresiva y más hipoxemia","Hipertensión pulmonar","Insuficiencia mitral"],r:1,e:"La CIV tiene bordes musculares y tiende a achicarse; con transposición, en cambio, obstruye la salida aórtica. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Atresia tricuspídea con transposición, flujo pulmonar libre y CIV que tiende a restringirse. ¿Por qué se evita el banding?",a:["Porque no reduce el flujo","Porque acelera el cierre de la CIV, causa obstrucción subaórtica e hipertrofia del VI, un factor de riesgo para el Fontan","Porque provoca cianosis inmediata","Porque está contraindicado en neonatos"],r:1,e:"Se prefiere un Damus-Kaye-Stansel con fístula, que evita la obstrucción subaórtica. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Hallazgo eco que no debe confundirse con el septo interauricular en las valvulopatías tricuspídeas:",a:["Válvula de Eustaquio redundante","Seno coronario","Vena pulmonar","Banda moderadora"],r:0,e:"Puede llevar a identificar mal la CIA. También la orejuela derecha yuxtapuesta puede simular una CIA. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Hallazgo ECG frecuente en la atresia tricuspídea que puede confundirse con preexcitación:",a:["PR corto con empastamiento inicial del QRS","QT largo","Bloqueo AV completo","Onda épsilon"],r:0,e:"Además hay bloqueo AV de 1.er grado en 15 %, por conducción auricular prolongada. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Técnica de Fontan preferida hoy en la atresia tricuspídea:",a:["Atriopulmonar","Túnel lateral","Conducto extracardíaco","Fontan original con válvula en la VCI"],r:2,e:"La conexión atriopulmonar dilataba la AD y causaba arritmias. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"¿Por qué se abandonó el Glenn clásico como etapa previa?",a:["Por quilotórax","Porque se asociaba a fístulas arteriovenosas pulmonares","Por bloqueo AV","Porque requería CEC prolongada"],r:1,e:"Hoy se usa el Glenn bidireccional. (Moss & Adams, cap. 38)"},
+ {tg:"Univentricular",q:"Probabilidad de microdeleción 22q11 en la atresia tricuspídea:",a:["< 1 %","≈ 7 %","≈ 30 %","≈ 50 %"],r:1,e:"También se asocia a trisomías 13, 18 y 21. (Moss & Adams, cap. 38)"}
+);
+MOSS.ebstein={cap:"Cap. 38 · Tricuspid Valve Disorders: Atresia, Dysplasia, and Ebstein Anomaly (Cetta F, Dearani JA, O'Leary PW)",sec:[
+ {t:"Definición y epidemiología",p:[
+  "Descripta por Wilhelm Ebstein en 1866: valva anterior normal y valvas septal e inferior redundantes, insertas en el miocardio del VD por debajo del anillo.",
+  "Prevalencia de hasta 2,4 por 10.000 nacidos vivos, sin predominio de sexo; casi siempre esporádica.",
+  "Historia natural muy variable: desde muerte intrauterina o insuficiencia cardíaca grave neonatal hasta adultos asintomáticos.",
+  "El curso depende del aparato valvular, del tamaño y la función del VD y de la presencia de CIA."]},
+ {t:"Anatomía: falla de la delaminación",p:[
+  "No es solo una enfermedad de las valvas: también afecta el miocardio del VD y, en 15-20 %, el VI y la válvula mitral.",
+  "La valva normal se delamina desde la punta hacia la unión AV. Si falla, la valva queda adherida al miocardio, su punto de bisagra se desplaza y el orificio funcional rota hacia el ápex y el tracto de salida.",
+  "El desplazamiento es rotacional (espiral), no lineal. En las formas graves hay tejido valvular justo debajo de la válvula pulmonar.",
+  "Las porciones adheridas no se mueven: gran defecto de coaptación e insuficiencia grave. Rara vez la displasia causa estenosis tricuspídea, con orificio funcional anterior en el infundíbulo.",
+  "Las valvas septal e inferior son las más afectadas. La anterior conserva su bisagra en el anillo, es redundante, 'en vela', fina y translúcida (útil para reparar), aunque puede estar muscularizada.",
+  "Por encima del orificio funcional, el VD queda adelgazado y disfuncionante (VD atrializado). La disfunción del VD es universal y el VD funcional es más pequeño."]},
+ {t:"Índice de desplazamiento y genética",p:[
+  "Normalmente la bisagra septal tricuspídea está levemente más apical que la mitral anterior. En el Ebstein esa distancia está exagerada.",
+  "Índice de desplazamiento: distancia entre ambas bisagras septales en el 4 cámaras dividida por la superficie corporal. > 8 mm/m² distingue el Ebstein de otras valvulopatías tricuspídeas.",
+  "Factores de riesgo: gemelaridad, antecedente familiar de cardiopatía y exposición materna a benzodiacepinas. Casos raros con mutaciones de NKX2.5 y deleciones 10p13-p14 o 1p34.3-p36.11.",
+  "Mutaciones de MYH7 en algunos casos, varios con miocardio no compactado del VI."]},
+ {t:"Presentación clínica",p:[
+  "Fetal: cardiomegalia, hidrops o hipoplasia pulmonar por la cardiomegalia. Las arritmias prenatales son raras, pero la taquiarritmia fetal con hidrops es de mal pronóstico.",
+  "Neonato grave: cianosis por cortocircuito auricular D → I, insuficiencia cardíaca, mala alimentación y escaso aumento de peso.",
+  "Después de la infancia la presentación es triple: soplo, disnea o cianosis de esfuerzo, y palpitaciones por arritmias.",
+  "Examen: soplo holosistólico de IT en el borde esternal izquierdo bajo, desdoblamiento amplio de R1 y R2, R3 y R4 (ritmo cuádruple, menos frecuente de lo descripto). La yugular y la hepatomegalia suelen faltar porque la AD y el VD atrializado amortiguan la onda V.",
+  "El 10 % se diagnostica en la adolescencia o adultez (formas leves); antes se confundían con prolapso mitral por un clic."]},
+ {t:"ECG y arritmias",p:[
+  "Rara vez normal: ondas P altas y anchas y bloqueo de rama derecha (75-92 %), cuya gravedad se relaciona con la malformación de la valva septal.",
+  "PR largo por agrandamiento de la AD y conducción intraauricular lenta, no por enfermedad del nodo AV.",
+  "Preexcitación en 10-30 %; en 20 % de ellos hay más de una vía accesoria, ubicadas en el anillo tricuspídeo.",
+  "Clave: un Ebstein con QRS angosto y PR normal (sin bloqueo de rama derecha) debe hacer sospechar preexcitación, que puede ser sutil.",
+  "Otras arritmias: taquicardia auricular, flutter (sobre todo dependiente del istmo cavotricuspídeo), reentrada intraauricular, fibrilación auricular, reentrada nodal y arritmias ventriculares."]},
+ {t:"Imágenes",p:[
+  "Rx: de normal a cardiomegalia masiva con flujo pulmonar disminuido. Un índice cardiotorácico < 0,6 no descarta IT grave ni dilatación del VD: la radiografía nunca decide la intervención.",
+  "El eco es el estándar: falla de delaminación, rotación de las bisagras hacia el TSVD, tamaño y función del VD y lesiones asociadas.",
+  "Clave neonatal: comprobar flujo anterógrado por la válvula pulmonar. La insuficiencia pulmonar puede ser el único dato que distingue la atresia anatómica de la funcional.",
+  "Índice de Celermajer (GOSE) = (área de AD + VD atrializado) / (VD funcional + AI + VI). > 1 predice alta mortalidad neonatal.",
+  "Mal pronóstico neonatal: GOSE alto, disfunción del VI (con fibrosis del VI) y atresia pulmonar funcional o anatómica. Buen pronóstico: TSVD permeable.",
+  "La IT es difícil de cuantificar: la AD y el VD atrializado absorben el volumen regurgitante, por lo que faltan el reflujo en las venas hepáticas y la vena contracta ancha. Los chorros suelen ser múltiples y excéntricos.",
+  "En niños pequeños: vena contracta < 10 % del anillo = leve; > 25-30 % = grave. No sumar los diámetros de varios chorros (sobrestima).",
+  "La RM es útil en adolescentes y adultos para el tamaño y la función del VD. El cateterismo hoy se reserva para valvuloplastia pulmonar asociada o para medir presiones antes de un Glenn."]},
+ {t:"Estudio electrofisiológico",p:[
+  "Vías accesorias en 15-30 %. Hoy se tratan con ablación por radiofrecuencia o crioablación en el laboratorio.",
+  "La ablación conviene hacerla antes de la cirugía, porque el cono, el reemplazo o el Glenn limitan el acceso al anillo.",
+  "En niños, estudio electrofisiológico selectivo: WPW, arritmia documentada o sospecha clínica. Así la ablación posterior al cono fue necesaria solo en 2 % (suele diferirse en < 17 kg). En adultos, estudio en todos."]},
+ {t:"Manejo médico del neonato",p:[
+  "La mayoría nace asintomática. Cianóticos: observación con O₂; muchos requieren intubación y PGE1 hasta que caiga la resistencia pulmonar. Los inotrópicos son raramente necesarios.",
+  "Atresia pulmonar funcional: el VD no genera presión suficiente para abrir la válvula pulmonar. PGE1 y óxido nítrico; al caer la resistencia mejora el flujo anterógrado y se retira la PGE1.",
+  "Circulación circular (IT + insuficiencia pulmonar): la sangre aórtica vuelve por el ductus a la AP, regurgita al VD y a la AD, y pasa a la AI. Muy mal pronóstico; la PGE1 puede ser perjudicial.",
+  "Arritmias: enlentecer la conducción por el nodo AV para mejorar el llenado ventricular."]},
+ {t:"Cirugía neonatal",p:[
+  "Objetivos generales: reparar o reemplazar la tricúspide, cerrar total o parcialmente la CIA, tratar las arritmias, plicar selectivamente el VD atrializado, reducir la AD y reparar lesiones asociadas.",
+  "Biventricular (Knott-Craig): reparación monocúspide sobre una buena valva anterior, CIA parcialmente abierta (permite cortocircuito D → I con resistencia pulmonar alta) y reducción amplia de la AD para dar lugar a los pulmones. 74 % de sobrevida al alta, sin mortalidad tardía.",
+  "Starnes (exclusión del VD): parche fenestrado (4-5 mm) sobre el orificio tricuspídeo, ampliación de la CIA, reducción de la AD y fístula sistémico-pulmonar. La fenestración descomprime el VD, que sigue llenándose por las venas de Tebesio.",
+  "Con insuficiencia pulmonar grave en el Starnes, considerar ligar o cerrar el tronco pulmonar. Sano propuso la exclusión total con resección de la pared libre del VD.",
+  "Elección: biventricular si la tricúspide es reparable; univentricular si hay atresia pulmonar anatómica o mala anatomía valvar. Trasplante en los más graves, sobre todo con VI anormal.",
+  "Mortalidad neonatal histórica ≈ 25 %; con las variantes actuales del Starnes, < 3 %."]},
+ {t:"Cirugía en niños y adultos: reparación con cono",p:[
+  "Indicaciones: menor tolerancia al ejercicio, cianosis, dilatación progresiva del VD, arritmias auriculares nuevas o en aumento. Operar antes de la disfunción moderada del VD o el VI; esperar los síntomas ya no es la norma.",
+  "Momento óptimo actual del cono: 4 a 7 años.",
+  "Cono de Da Silva (2007): delaminación quirúrgica de todo el tejido recuperable, conservando las inserciones del borde libre; rotación horaria para formar 360° de tejido y fijación en el anillo verdadero. Requiere algo de valva septal.",
+  "Modificaciones de Dearani: anillo parcial de anuloplastia, ampliación de la valva anterior con pericardio, punto de Sebening (acercar el papilar anterior al septo) y Glenn selectivo (reparación de 1½ ventrículo).",
+  "Plicatura del VD atrializado solo si es fino y discinético: interna, en la pared inferior, sin llegar al surco AV (≈ 1 cm) para no lesionar la coronaria derecha. Las suturas del anillo se desvían para evitar el nodo AV.",
+  "Resultados de la Mayo Clinic: 98 % de reparación exitosa en < 21 años, arritmias posoperatorias < 6 % y 98 % libres de reoperación a 6 años.",
+  "Contraindicaciones relativas: edad > 70 años, hipertensión pulmonar moderada, FEVI < 30 %, ausencia de valva septal, valva anterior muy muscularizada y gran dilatación anular con VD muy dilatado y disfuncionante.",
+  "Técnicas previas: monocúspide de Danielson (repara a nivel del anillo funcional), Carpentier (moviliza la valva anterior, precursor del cono) y ventricularización de Ullmann."]},
+ {t:"Reemplazo, Glenn adyuvante y trasplante",p:[
+  "Reemplazo: bioprótesis porcina si no se puede reparar, sobre todo en mayores de 70 años. Se evitan las mecánicas (presiones bajas, VD malo y trombosis).",
+  "La prótesis se coloca por encima del anillo y sus soportes se ubican a horcajadas del septo membranoso para evitar el bloqueo AV; el seno coronario puede quedar drenando hacia el VD.",
+  "Las bioprótesis tricuspídeas duran más en el Ebstein que en otras patologías. Su falla puede tratarse con valve-in-valve percutáneo.",
+  "Glenn adyuvante (1½ ventrículo): reduce un tercio del retorno al VD. Indicaciones: VD muy dilatado o disfuncionante, septo que comprime el VI, estenosis tricuspídea moderada tras el cono (> 8 mmHg) o relación de presiones AD/AI > 1,5.",
+  "Requisitos del Glenn: válvula pulmonar competente, PFDVI < 12 mmHg, gradiente transpulmonar < 10 mmHg y presión pulmonar media < 16 mmHg. Desventajas: pulsatilidad y edema facial, colaterales y fístulas AV pulmonares, pérdida del acceso yugular.",
+  "Trasplante: raro, para disfunción biventricular grave (FEVI < 25 %) o VI dilatado con insuficiencia mitral.",
+  "Arritmias quirúrgicas: Cox-maze derecho e istmo cavotricuspídeo; maze biauricular si hay fibrilación auricular, dilatación de la AI o insuficiencia mitral. Recurrencia hasta 50 %."]},
+ {t:"Evolución a largo plazo y embarazo",p:[
+  "Mayo Clinic, era previa al cono (539 pacientes): sobrevida 90 % y 76 % a 10 y 20 años; libres de reoperación 74 % y 46 %. La mayoría en clase funcional I-II.",
+  "Mortalidad temprana en niños mayores y adultos: ≈ 2 % en centros con experiencia. Salvo los neonatos muy graves, se espera llegar a la adultez con buena calidad de vida.",
+  "Problemas tardíos: reoperación y taquiarritmias auriculares. Se pueden hacer re-reparaciones con los principios del cono.",
+  "Embarazo: en general bien tolerado (89 % parto vaginal), pero con más prematurez, pérdida fetal y cardiopatía en la descendencia. Requiere evaluación previa y equipo multidisciplinario."]},
+ {t:"Displasia tricuspídea no Ebstein y anomalía de Uhl",p:[
+  "Causas congénitas de IT sin Ebstein: ausencia de cuerdas, displasia tricuspídea (valvas engrosadas con cuerdas cortas) y orificio tricuspídeo sin válvula (unguarded).",
+  "En la displasia las valvas son anormales pero no están desplazadas: índice de desplazamiento < 8 mm/m² (ej.: 6 mm/m²). La atresia pulmonar con septo íntegro puede tener tricúspide tipo Ebstein o displásica.",
+  "En el SHVI las anomalías de las valvas y del anillo tricuspídeo y la IT progresiva empeoran el pronóstico después del Fontan.",
+  "Causas iatrogénicas: lesión de cuerdas o valvas al cerrar una CIV o por cables de marcapasos o desfibrilador; también el traumatismo torácico.",
+  "La IT grave crónica sobrecarga y dilata el VD: intervenir (preferir la reparación en niños) antes de que aparezca disfunción del VD, aun sin síntomas.",
+  "Anomalía de Uhl ('corazón de pergamino'): falta el miocardio de la pared libre del VD y se adosan endocardio y epicardio. La tricúspide está en posición normal. Insuficiencia cardíaca derecha, sin las arritmias típicas del Ebstein.",
+  "Tratamiento de Uhl: exclusión del VD con septectomía, Glenn y cierre del orificio tricuspídeo; 1½ ventrículo con ventriculectomía parcial; o trasplante, quizás la mejor opción."]}
+]};
+QUIZ.push(
+ {tg:"Cianóticas",q:"Mecanismo embriológico central de la anomalía de Ebstein:",a:["Falla de la delaminación de las valvas septal e inferior","Agenesia del anillo tricuspídeo","Fusión de comisuras","Ausencia de cuerdas tendinosas"],r:0,e:"Las valvas quedan adheridas al miocardio y el orificio funcional rota hacia el ápex y el TSVD. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Índice de desplazamiento que distingue el Ebstein de otras valvulopatías tricuspídeas:",a:["> 2 mm/m²","> 8 mm/m²","> 15 mm/m²","> 20 mm"],r:1,e:"Es la distancia entre las bisagras septales mitral y tricuspídea en el 4 cámaras, dividida por la superficie corporal. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"La valva tricuspídea que conserva su bisagra en el anillo en el Ebstein es:",a:["Septal","Inferior (posterior)","Anterior","Ninguna"],r:2,e:"Es redundante y 'en vela'; su calidad es clave para la reparación. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Un paciente con Ebstein tiene QRS angosto y PR normal. ¿Qué sospechar?",a:["Que no tiene Ebstein","Preexcitación (vía accesoria)","Bloqueo AV","Hiperpotasemia"],r:1,e:"Lo habitual es bloqueo de rama derecha (75-92 %) y PR largo; su ausencia sugiere preexcitación. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Frecuencia de preexcitación en la anomalía de Ebstein:",a:["< 2 %","10-30 %","50 %","> 70 %"],r:1,e:"Y 20 % de ellos tiene más de una vía accesoria, en el anillo tricuspídeo. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Índice de Celermajer (GOSE) en el neonato con Ebstein:",a:["(AD + VD atrializado) / (VD funcional + AI + VI); > 1 predice alta mortalidad","Relación VD/VI; > 2 es normal","Gradiente tricuspídeo / gradiente pulmonar","Índice cardiotorácico radiológico"],r:0,e:"Refleja la cardiomegalia y la hipoplasia pulmonar asociada. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Neonato con Ebstein, IT grave e insuficiencia pulmonar con ductus abierto. ¿Qué ocurre con la PGE1?",a:["Es imprescindible","Puede ser perjudicial: hay una circulación circular","No tiene efecto","Debe duplicarse la dosis"],r:1,e:"La sangre aórtica vuelve por el ductus, regurgita por la pulmonar y la tricúspide, y pasa a la AI. Pronóstico muy malo. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Dato eco que distingue la atresia pulmonar anatómica de la funcional en el Ebstein neonatal:",a:["Presencia de insuficiencia pulmonar","Tamaño de la AD","Gradiente tricuspídeo","Función del VI"],r:0,e:"Si hay insuficiencia, la válvula está permeable: es atresia funcional, que mejora al caer la resistencia pulmonar. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Componentes de la operación de Starnes:",a:["Cono tricuspídeo y cierre de la CIA","Parche fenestrado en la tricúspide, ampliación de la CIA, reducción de la AD y fístula sistémico-pulmonar","Reemplazo valvular y Glenn","Banding pulmonar"],r:1,e:"La fenestración de 4-5 mm descomprime el VD, que sigue llenándose por las venas de Tebesio. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Requisito indispensable de la reparación con cono (Da Silva):",a:["Valva anterior muscularizada","Algo de tejido de valva septal","Edad > 18 años","Hipertensión pulmonar"],r:1,e:"La ausencia de valva septal es contraindicación relativa, igual que la valva anterior muy muscularizada o la edad > 70 años. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Momento óptimo actual para la reparación con cono en el Ebstein:",a:["Neonatal en todos","4 a 7 años, sin esperar síntomas","Después de los 18 años","Solo al aparecer insuficiencia cardíaca"],r:1,e:"Se interviene antes de la disfunción moderada del VD o del VI. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Indicación del Glenn adyuvante (1½ ventrículo) en la cirugía de Ebstein:",a:["Hipertensión pulmonar","VD muy dilatado o disfuncionante, o estenosis tricuspídea > 8 mmHg tras el cono","Insuficiencia pulmonar grave","FEVI < 20 %"],r:1,e:"Requiere válvula pulmonar competente, PFDVI < 12 mmHg y presión pulmonar media < 16 mmHg. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"¿Por qué se evitan las prótesis mecánicas tricuspídeas en el Ebstein?",a:["Por su costo","Por presiones bajas y VD malo: el disco se mueve poco y se trombosa","Porque causan hipertensión pulmonar","Porque obstruyen el TSVD"],r:1,e:"Se prefiere una bioprótesis, que en el Ebstein dura más que en otras patologías; su falla puede tratarse con valve-in-valve. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"¿Por qué en el Ebstein la IT grave puede no dar reflujo hepático ni ingurgitación yugular?",a:["Porque la IT es siempre leve","Porque la AD y el VD atrializado, muy distensibles, absorben el volumen regurgitante","Por la CIA","Por la hipertensión pulmonar"],r:1,e:"Además los chorros son múltiples y excéntricos; no deben sumarse los diámetros de las venas contractas. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Cuidado técnico al plicar el VD atrializado:",a:["Plicar la pared anterior","Detener la sutura ≈ 1 cm antes del surco AV para no lesionar la coronaria derecha","Extender la plicatura hasta el TSVD","Hacerla siempre"],r:1,e:"Se hace solo si la pared es fina y discinética, en la pared inferior. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Anomalía de Uhl:",a:["Desplazamiento de las valvas tricuspídeas","Ausencia del miocardio de la pared libre del VD, con tricúspide en posición normal","Atresia tricuspídea con CIV","Displasia mitral"],r:1,e:"'Corazón de pergamino'; da insuficiencia cardíaca derecha y el trasplante puede ser la mejor opción. (Moss & Adams, cap. 38)"},
+ {tg:"Cianóticas",q:"Exposición materna asociada a la anomalía de Ebstein según Moss & Adams:",a:["Benzodiacepinas","Ácido valproico","Alcohol","Isotretinoína"],r:0,e:"También la gemelaridad y el antecedente familiar de cardiopatía. (Moss & Adams, cap. 38)"}
+);
 if(typeof mossLoaded==="function")mossLoaded();
