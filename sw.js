@@ -1,8 +1,8 @@
 // Cirugía en Cardiopatías Congénitas - funcionamiento sin conexión
 // Cambiá VERSION cada vez que actualices index.html para que los celulares bajen la versión nueva.
-const VERSION = "v20";
+const VERSION = "v21";
 const CACHE = "cirugia-cc-" + VERSION;
-const CORE = ["./", "./index.html", "./lib/three.module.min.js", "./manifest.webmanifest", "./data/moss.js?v=v20",
+const CORE = ["./", "./index.html", "./lib/three.module.min.js", "./manifest.webmanifest", "./data/moss.js?v=v21",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./icons/icon-maskable-512.png",
   "./fonts/ibm-plex-sans-latin-400-normal.woff2", "./fonts/ibm-plex-sans-latin-400-italic.woff2", "./fonts/ibm-plex-sans-latin-500-normal.woff2", "./fonts/ibm-plex-sans-latin-600-normal.woff2",
   "./fonts/ibm-plex-sans-condensed-latin-500-normal.woff2", "./fonts/ibm-plex-sans-condensed-latin-600-normal.woff2", "./fonts/ibm-plex-sans-condensed-latin-700-normal.woff2"];

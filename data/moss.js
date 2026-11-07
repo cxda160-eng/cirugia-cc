@@ -1857,4 +1857,111 @@ QUIZ.push(
  {tg:"Cianóticas",q:"Anomalía de Uhl:",a:["Desplazamiento de las valvas tricuspídeas","Ausencia del miocardio de la pared libre del VD, con tricúspide en posición normal","Atresia tricuspídea con CIV","Displasia mitral"],r:1,e:"'Corazón de pergamino'; da insuficiencia cardíaca derecha y el trasplante puede ser la mejor opción. (Moss & Adams, cap. 38)"},
  {tg:"Cianóticas",q:"Exposición materna asociada a la anomalía de Ebstein según Moss & Adams:",a:["Benzodiacepinas","Ácido valproico","Alcohol","Isotretinoína"],r:0,e:"También la gemelaridad y el antecedente familiar de cardiopatía. (Moss & Adams, cap. 38)"}
 );
+MOSS.apsi={cap:"Cap. 40 · Pulmonary Atresia and Intact Ventricular Septum (Nykanen DG)",sec:[
+ {t:"Epidemiología y definición",p:[
+  "Prevalencia ≈ 0,6 por 10.000 nacidos vivos (0,083/1.000 en el estudio Baltimore-Washington; 3,1 % de los lactantes del New England Regional Infant Cardiac Program). Incluyendo las pérdidas fetales después de las 20 semanas, la cifra es hasta 10 veces mayor.",
+  "Junto con la TGA y la atresia pulmonar con CIV, es una de las causas más frecuentes de cianosis cardíaca neonatal.",
+  "Forma habitual: situs solitus con conexiones AV y VA concordantes. El TSVD es imperforado, por una atresia membranosa (valvular) o muscular (de todo el infundíbulo), y el septo interventricular está funcionalmente íntegro.",
+  "El flujo pulmonar depende del ductus; muy rara vez de colaterales o de ductus bilaterales con ramas no confluentes. Casi siempre existe tronco pulmonar.",
+  "Los fetos con IT muy grave y VD de baja presión pueden desarrollar insuficiencia cardíaca derecha, hidrops, hipoplasia pulmonar y muerte fetal. El diagnóstico prenatal guía el manejo e incluso la intervención fetal."]},
+ {t:"Morfogénesis",p:[
+  "Se produciría después de la septación ventricular (a diferencia de la atresia pulmonar con CIV, más precoz). Se ha observado progresión de estenosis grave a atresia en el útero.",
+  "No tiene una causa genética definida: hay casos familiares, en gemelos monocigóticos y algunas variantes genéticas descriptas.",
+  "La sangre que entra al VD no tiene salida: debe regurgitar por la tricúspide o descomprimirse hacia las coronarias (conexiones ventrículo-coronarias).",
+  "El flujo a alta presión por esas conexiones lesiona las coronarias y puede dejar territorios dependientes del VD. Una vez formadas, las conexiones no desaparecen en la vida fetal.",
+  "La atresia muscular del infundíbulo (frente a la membranosa) predice más conexiones ventrículo-coronarias, estenosis de los ostia y peor evolución."]},
+ {t:"Anatomía",p:[
+  "El corazón va de levemente agrandado a cardiomegalia masiva con AD enorme e hipoplasia pulmonar. Las coronarias pueden verse engrosadas, nodulares o aneurismáticas; los 'hoyuelos' epicárdicos marcan sitios de conexión.",
+  "Válvula pulmonar: con infundíbulo bien formado suele tener tres valvas con comisuras fusionadas (atresia membranosa); con VD diminuto e infundíbulo estrecho es primitiva.",
+  "Hay casi siempre FOP o CIA con cortocircuito D → I obligatorio. El cierre prematuro del foramen se asocia a muerte fetal. El septum primum puede volverse aneurismático e incluso obstruir la entrada del VI.",
+  "Tricúspide casi nunca normal, en un continuo: anillo hipoplásico, muscular y estenótico (con los VD más pequeños) o anillo dilatado con Ebstein o displasia e IT grave (con los VD grandes y finos, de peor pronóstico). Rara vez el orificio no tiene válvula.",
+  "VD clasificado como tripartito (entrada, trabecular y salida), bipartito o unipartito (solo entrada). El Z de la tricúspide se correlaciona con el tamaño del VD.",
+  "Tras descomprimir el VD, la regresión de la hipertrofia puede dar un crecimiento real o aparente de la cavidad.",
+  "VI: puede haber convexidad del septo de salida con VD pequeño e hipertenso, y obstrucción del TSVI después de la conexión cavopulmonar. Rara vez estenosis aórtica.",
+  "El calibre de las ramas pulmonares no determina el pronóstico (a diferencia de la atresia pulmonar con CIV). Hay que evaluar la coartación pulmonar en la inserción del ductus antes de un stent ductal."]},
+ {t:"Miocardio y coronarias",p:[
+  "Miocardio: isquemia, fibrosis, infarto y rotura; desorganización de fibras, miocardio esponjoso y fibroelastosis endocárdica, con relación inversa entre fibroelastosis y conexiones ventrículo-coronarias.",
+  "Lesión coronaria: hiperplasia miointimal rica en glucosaminoglicanos (no inflamatoria), que lleva a estenosis, interrupción u obliteración.",
+  "Solo aparece en las coronarias con conexiones ventrículo-coronarias, es decir, con VD hipertenso; ya está presente en el feto y en el recién nacido inmediato. No hay conexiones en VD finos de baja presión.",
+  "Otras anomalías específicas: ausencia de conexión aortocoronaria proximal de una o ambas coronarias (atresia de ostium), coronaria única y fístulas coronario-camerales grandes.",
+  "En el registro CHSS (145 pacientes): conexiones ventrículo-coronarias en 45 % y circulación coronaria totalmente dependiente del VD en 9 %. Son más frecuentes con VD uni o bipartito y Z tricuspídeo más negativo.",
+  "Las conexiones pueden involucionar tras descomprimir el VD, pero también puede aparecer o aumentar el robo de la coronaria hacia el VD."]},
+ {t:"Circulación coronaria dependiente del VD",p:[
+  "Definición: anomalías coronarias que requieren el flujo del VD: ausencia de conexión aortocoronaria, estenosis o interrupción coronaria, o robo/fístula coronario-cameral importante.",
+  "La perfusión coronaria normal depende de la presión diastólica aórtica. La PGE1, la fístula y la taquicardia la reducen, y entonces el flujo retrógrado sistólico desde el VD hipertenso sostiene el miocardio dependiente.",
+  "Corolario: bajar la presión del VD o el flujo que entra al VD (valvotomía, reconstrucción del TSVD, escisión o avulsión de la tricúspide, trombo-exclusión) provoca isquemia masiva y muerte.",
+  "Z tricuspídeo < −2,5 predice anomalías coronarias clínicamente importantes."]},
+ {t:"Clínica, Rx y ECG",p:[
+  "RN de término, sin predominio de sexo, con cianosis progresiva en las primeras horas, al cerrarse el ductus. Taquipnea sin gran disnea, salvo acidosis o hipoplasia pulmonar.",
+  "Ruidos únicos; soplo holosistólico de IT en el borde esternal izquierdo bajo (con frémito si es grave) y soplo del ductus tras la PGE1. Pulsos normales salvo CIA muy restrictiva; hepatomegalia con IT grave o foramen restrictivo.",
+  "Hipoxemia refractaria al O₂ con hipocapnia leve. La acidosis metabólica indica daño hipóxico y muerte inminente sin intervención.",
+  "Rx: corazón poco agrandado con flujo pulmonar disminuido, o cardiomegalia que llena el tórax. Diagnóstico diferencial de cardiomegalia masiva neonatal: Ebstein con atresia pulmonar anatómica o funcional, ciertas formas de atresia aórtica con discordancias, teratoma intrapericárdico.",
+  "ECG: eje +30 a +90, pocas fuerzas del VD, predominio o hipertrofia del VI, agrandamiento de la AD y alteraciones del ST-T por isquemia subendocárdica.",
+  "Diferencial por ECG con pocas fuerzas del VD: atresia tricuspídea (pero con eje izquierdo) y doble entrada del VI."]},
+ {t:"Ecocardiograma",p:[
+  "Evaluar la CIA por vía subcostal (el neonato depende del cortocircuito D → I para el gasto), la tricúspide (su permeabilidad se demuestra por la IT), el tamaño del VD y el TSVD.",
+  "Puede ser difícil separar atresia valvular de estenosis extrema: el flujo ductal puede enmascarar un chorro anterógrado mínimo.",
+  "Atresia funcional (válvula normal pero cerrada por resistencia pulmonar alta, VD malo o IT muy grave) frente a anatómica: la insuficiencia pulmonar (el chorro del ductus contra la válvula) o la apertura con ventilación a presión positiva indican que no es imperforada.",
+  "Buscar coronarias dilatadas con flujo retrógrado sistólico. El eco no detecta de forma fiable las estenosis ni las interrupciones coronarias en el neonato."]},
+ {t:"Cateterismo y angiografía",p:[
+  "Obligatorio antes de descomprimir el VD, aun con VD de tamaño normal, porque puede haber conexiones ventrículo-coronarias.",
+  "Presión del VD igual o mayor que la sistémica, con fin de diástole alta. Una presión del VD subsistémica (relación VD/VI < 1) sugiere VD globalmente malo con IT grave y plantea atresia funcional.",
+  "Si la CIA es restrictiva, considerar septostomía con balón, sobre todo si no se va a descomprimir el VD (riesgo de bajo gasto).",
+  "Ventriculografía derecha frontal y lateral: tricúspide, tamaño y componentes del VD, infundíbulo y, sobre todo, conexiones ventrículo-coronarias. Sin conexiones, es muy improbable que haya estenosis, interrupción o fístulas significativas.",
+  "Aortografía con oclusión con balón o coronariografía selectiva: origen, distribución, estenosis o interrupción coronaria. También define el arco, el ductus y la coartación pulmonar.",
+  "Inflar un balón en el VD o provocar IT con el catéter mientras se observa el ECG puede desenmascarar una circulación dependiente del VD."]},
+ {t:"Manejo médico",p:[
+  "PGE1 inmediata. Antes de las prostaglandinas, la sobrevida quirúrgica era del 27 %.",
+  "Septostomía urgente si la CIA es restrictiva y el gasto sigue bajo pese al tratamiento habitual.",
+  "Con cortocircuito D → I obligatorio, una saturación muy alta refleja hiperflujo pulmonar: baja presión diastólica, bajo gasto, hipoperfusión esplácnica y renal, acidosis e isquemia miocárdica (la perfusión aortocoronaria cae)."]},
+ {t:"Estrategia quirúrgica: preguntas iniciales",p:[
+  "¿Es candidato a reparación biventricular (incluida la de 1½ ventrículo) o a paliación univentricular (Fontan)?",
+  "¿Hay conexiones ventrículo-coronarias? ¿Cuánta perfusión depende del VD? ¿Son permeables los ostia coronarios?",
+  "¿Hay infundíbulo? ¿Hay tronco pulmonar en continuidad con la válvula imperforada? ¿Está conservada la función del VI?",
+  "Ideal: descomprimir el VD (valvotomía quirúrgica, parche transanular o perforación y dilatación por cateterismo) para favorecer su crecimiento. Si el TSVD queda atrésico, es improbable que el VD crezca.",
+  "La hipertrofia, la desorganización de fibras y la fibroelastosis pueden dejar fisiología restrictiva del VD aun con reparación biventricular: con un VD 'límite', la vía univentricular puede ser funcionalmente mejor.",
+  "Muchos necesitan además una fístula o un stent ductal. Algunos terminan en reparación biventricular cerrando la CIA y la fístula (incluso por cateterismo, tras ocluir con balón la CIA y medir la presión de la AD y el gasto). Otros, con 1½ ventrículo: Glenn bidireccional ± reemplazo valvular pulmonar."]},
+ {t:"Estrategia según la anatomía coronaria",p:[
+  "Circulación en gran parte dependiente del VD: no descomprimir. Stent ductal o fístula (± septostomía) y vía univentricular hacia el Fontan. Algunos centros indican trasplante primario.",
+  "Ausencia de conexión aortocoronaria bilateral o de la coronaria izquierda: considerar trasplante frente a fístula o stent ductal de alto riesgo.",
+  "Robo coronario-cameral grave: considerar ocluir la fístula y descomprimir el VD.",
+  "Conexiones ventrículo-coronarias sin estenosis ni interrupción: descomprimir el VD. Con estenosis distales leves o ectasia: descomprimir, pero con mayor riesgo.",
+  "Interrupción proximal de la descendente anterior, estenosis proximal de la coronaria derecha o perfusión muy dependiente del VD: fístula o stent ductal y vía univentricular.",
+  "Con circulación coronaria muy anormal se han usado variantes del Fontan que dejan sangre venosa pulmonar accesible a la tricúspide y al VD (perfusión coronaria retrógrada); probablemente sean un puente al trasplante.",
+  "Ebstein extremo o tricúspide displásica con atresia anatómica: mal pronóstico con la reparación convencional. Opciones: trasplante o conversión a atresia tricuspídea (Starnes) con fístula y luego vía cavopulmonar."]},
+ {t:"Tratamiento por cateterismo",p:[
+  "Perforación de la válvula atrésica (guía de radiofrecuencia; también láser, guías de oclusión total crónica o perforación mecánica) y dilatación con balón: evita la circulación extracorpórea, que puede dañar un miocardio ya anormal.",
+  "Candidato ideal: VD tripartito casi normal, atresia valvular membranosa y buenas arterias pulmonares. Se perfora con éxito en > 80 %.",
+  "Serie con Z tricuspídeo mediano de −5,1 seguida 9,2 años: sin muertes después de los 35 días y circulación biventricular en 83 %.",
+  "33-58 % necesita PGE1 prolongada, fístula o stent ductal, porque la distensibilidad del VD tarda días o semanas en mejorar. Una fístula demasiado precoz puede luego tener que ocluirse.",
+  "Circulación circular: con insuficiencia pulmonar y tricuspídea graves, la sangre de la fístula o del stent ductal pasa al VD, regurgita a la AD y cruza a la AI. Es más probable con stent ductal que con BT. Disminuye el flujo pulmonar efectivo, sobrecarga el VI y deteriora el miocardio.",
+  "El posoperatorio es uno de los más complejos de la UCI: cortocircuito auricular, disfunción sistólica, fisiología restrictiva, IT e insuficiencia pulmonar.",
+  "Al leer la literatura sobre crecimiento, distinguir el aumento absoluto de la tricúspide del Z indexado, que a menudo no cambia."]},
+ {t:"Resultados y adulto",p:[
+  "CHSS (171 neonatos, 1987-1991): sobrevida 81 % al mes y 64 % a 4 años. Factores de riesgo: tricúspide pequeña, circulación coronaria muy dependiente del VD, bajo peso y tipo de procedimiento inicial.",
+  "CHSS (408 neonatos): sobrevida 77 % al mes, 60 % a 5 años y 58 % a 15 años. A 15 años: biventricular 33 %, Fontan 20 %, 1½ ventrículo 5 %, trasplante 2 %; 38 % murió antes de la reparación definitiva.",
+  "La sobrevida a 5 años mejoró con la época: 49 % (1987), 63 % (1992) y 79 % (1997).",
+  "Registro de 616 pacientes: sobrevida 66 % a 20 años. Factores de riesgo: época antigua, cromosomopatías y atresia de uno o ambos ostia coronarios. Quienes completan la vía prevista tienen 91-98 % de sobrevida a 20 años, cualquiera sea la vía.",
+  "Adultos: la capacidad aeróbica está reducida en las vías biventricular y univentricular por igual. Persisten defectos de perfusión miocárdica y restricción del VD.",
+  "Con reparación biventricular son frecuentes los reemplazos valvulares pulmonar y tricuspídeo. Arritmias auriculares en 80 % y ventriculares en 15 %. La muerte súbita coronaria es una preocupación a largo plazo.",
+  "El trasplante neonatal se considera en la atresia de ostium coronario, el Ebstein grave y la IT grave, que tienen los peores resultados."]}
+]};
+QUIZ.push(
+ {tg:"Cianóticas",q:"Circulación coronaria dependiente del VD en la APSI: ¿qué la define?",a:["Coronarias dilatadas sin estenosis","Ausencia de conexión aortocoronaria, estenosis o interrupción coronaria, o fístula con robo importante","Solo una coronaria única desde la aorta","Cualquier sinusoide"],r:1,e:"En esos casos el flujo retrógrado sistólico desde el VD hipertenso sostiene el miocardio. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"¿Por qué no se descomprime el VD con circulación coronaria dependiente del VD?",a:["Porque aumenta la IT","Porque al bajar la presión del VD cae la perfusión del miocardio dependiente: isquemia masiva y muerte","Porque produce hipertensión pulmonar","Porque cierra el ductus"],r:1,e:"Se indica stent ductal o fístula y vía univentricular, o trasplante en los casos más graves. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Z de la tricúspide que predice anomalías coronarias clínicamente importantes en la APSI:",a:["> 0","< −1","< −2,5","< −6"],r:2,e:"Las conexiones ventrículo-coronarias son más frecuentes con VD uni o bipartito y Z más negativo. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Frecuencia de conexiones ventrículo-coronarias en el registro CHSS (APSI):",a:["≈ 5 %","≈ 45 %, con circulación totalmente dependiente del VD en 9 %","≈ 90 %","Nunca con VD grande"],r:1,e:"Son raras pero posibles con VD casi normal: por eso se hace angiografía a todos antes de descomprimir. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Lesión histológica de las coronarias con conexiones ventrículo-coronarias:",a:["Arteritis inflamatoria","Hiperplasia miointimal rica en glucosaminoglicanos","Calcificación aterosclerótica","Disección espontánea"],r:1,e:"Se debe al flujo turbulento a alta presión; ya está en el feto y no aparece en VD de baja presión. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Tipo de atresia del TSVD que predice más conexiones ventrículo-coronarias y peor evolución:",a:["Membranosa (valvular)","Muscular (de todo el infundíbulo)","Ambas igual","Ninguna"],r:1,e:"La membranosa con VD tripartito es la ideal para la perforación. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"ECG clásico de la APSI:",a:["Eje superior izquierdo","Eje +30 a +90, pocas fuerzas del VD, predominio del VI y agrandamiento de la AD","Bloqueo de rama derecha y onda delta","Hipertrofia del VD"],r:1,e:"El eje no desviado la diferencia de la atresia tricuspídea (eje izquierdo). (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Dato ecográfico que demuestra que la atresia pulmonar es funcional y no anatómica:",a:["VD grande","Insuficiencia pulmonar (el chorro del ductus contra la válvula)","CIA amplia","IT grave"],r:1,e:"También puede abrirse la válvula durante la ventilación a presión positiva. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"¿El eco basta para decidir la descompresión del VD en la APSI?",a:["Sí, siempre","No: no detecta de forma fiable las estenosis ni las interrupciones coronarias; se requiere angiografía","Sí, si el VD es grande","Solo la RM es necesaria"],r:1,e:"La angiografía es obligatoria aun con VD de tamaño normal. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Neonato con APSI y PGE1: saturación de 95 %, lactato en aumento, oliguria. ¿Interpretación?",a:["Excelente evolución","Hiperflujo pulmonar con presión diastólica baja y bajo gasto, con riesgo de isquemia coronaria","Hipoflujo pulmonar","Cierre del ductus"],r:1,e:"Con cortocircuito D → I obligatorio, una saturación muy alta implica un Qp/Qs muy alto. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Candidato ideal para perforación con radiofrecuencia y valvuloplastia en la APSI:",a:["VD unipartito con circulación dependiente","VD tripartito casi normal, atresia membranosa y buenas ramas pulmonares","Ebstein extremo con atresia anatómica","Atresia de ostium coronario"],r:1,e:"Se perfora con éxito en > 80 %; muchos necesitan además PGE1 prolongada, fístula o stent ductal (33-58 %). (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Tras perforar la válvula, ¿por qué no conviene apurar la fístula?",a:["Por riesgo de endocarditis","Porque la distensibilidad del VD mejora en días a semanas y la fístula puede volverse innecesaria","Porque cierra la CIA","Porque produce coartación"],r:1,e:"Además, con IT e insuficiencia pulmonar puede generar una circulación circular, más probable con stent ductal que con BT. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Conexiones ventrículo-coronarias sin estenosis ni interrupción coronaria. ¿Qué estrategia sugiere Moss & Adams?",a:["Trasplante","Descomprimir el VD","Fístula y vía univentricular obligada","Ligar las coronarias"],r:1,e:"Con estenosis distales leves también se descomprime, pero con más riesgo; con interrupción proximal de la DA, vía univentricular. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"APSI con ausencia de conexión aortocoronaria izquierda. ¿Qué se considera?",a:["Valvotomía pulmonar","Trasplante frente a fístula o stent ductal de alto riesgo","Reparación biventricular","Solo observación"],r:1,e:"La atresia de los ostia coronarios es factor de riesgo de mortalidad en los registros. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Destinos a 15 años en el registro CHSS de APSI (408 neonatos):",a:["Biventricular 80 %","Biventricular 33 %, Fontan 20 %, 1½ ventrículo 5 %, trasplante 2 %; 38 % falleció antes de la reparación definitiva","Todos con Fontan","Mortalidad < 5 %"],r:1,e:"Quienes completan su vía tienen 91-98 % de sobrevida a 20 años. (Moss & Adams, cap. 40)"},
+ {tg:"Cianóticas",q:"Variante de APSI con peor pronóstico, en la que se considera el trasplante o la conversión a atresia tricuspídea (Starnes):",a:["VD tripartito con atresia membranosa","Ebstein extremo o tricúspide displásica con atresia anatómica e IT grave","Conexiones sin estenosis","Tricúspide Z −1"],r:1,e:"Son VD grandes y finos de baja presión, con mala evolución. (Moss & Adams, cap. 40)"}
+);
 if(typeof mossLoaded==="function")mossLoaded();
